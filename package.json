@@ -1,0 +1,14 @@
+  {
+  "name": "ltngames_website",
+  "description": "Vanilla JavaScript static website",
+  "version": "0.0.0",
+  "private": true,
+  "repository": "ltngames/website",
+  "license": "MIT",
+  "scripts": {
+    "start": "sirv --dev --no-clear --port 3000"
+  },
+  "devDependencies": {
+    "sirv-cli": "^2.0.2"
+  }
+}
