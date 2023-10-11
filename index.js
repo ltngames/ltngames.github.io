@@ -3,6 +3,7 @@ import config from './config.js';
 const logoImg = document.getElementById('logo');
 const contentContainer = document.getElementById('content');
 const navbarLinksElement = document.getElementById('navbar-links');
+const navbarBurger = document.getElementById('mainMenuBurger');
 
 let is404Loaded = false;
 let errorContent = '<p>Error loading page.</p>';
@@ -48,6 +49,11 @@ async function loadContent () {
   });
 }
 
+navbarBurger.addEventListener('click', () => {
+  const target = document.getElementById(el.dataset.target);
+  el.classList.toggle('is-active');
+  target.classList.toggle('is-active');
+});
 
 window.addEventListener('hashchange', loadContent);
 document.title = config.title;
