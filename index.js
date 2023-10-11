@@ -1,14 +1,15 @@
 import config from './config.js';
+import { addRoute, setupRouter, loadPage, navigateTo } from './scripts/router.js';
 
 const logoImg = document.getElementById('logo');
 const contentContainer = document.getElementById('content');
-const navbarLinksElement = document.getElementById('navbar-links');
 const navbarBurger = document.getElementById('mainMenuBurger');
 
-let is404Loaded = false;
-let errorContent = '<p>Error loading page.</p>';
-
 function generateNavbarLinks (linksData) {
+  const navbarLinksElement = document.getElementById('navbar-links');
+  if (navbarLinksElement === null) {
+    return;
+  }
   for (var key in linksData) {
     var data = linksData[key];
     var linkElement = document.createElement('a');
@@ -19,33 +20,13 @@ function generateNavbarLinks (linksData) {
   }
 }
 
-async function loadPage (url, onSuccess, onFail) {
-  try {
-    const response = await fetch(url);
-
-    if (response.ok) {
-      const html = await response.text();
-      onSuccess(html);
-    } else {
-      onFail(response.statusText);
-    }
-  } catch (error) {
-    console.error(`Error loading page (${url}):`, error);
-  }
-}
-
-async function loadContent () {
-  const hash = window.location.hash.substring(1);
+async function loadContent (hash) {
   const pageName = hash || 'home';
-
-  if (!is404Loaded) {
-    await loadPage('404.html', html => errorContent = html);
-  }
 
   await loadPage(`${pageName}.html`, (html) => {
     contentContainer.innerHTML = html;
-  }, (error) => {
-    contentContainer.innerHTML = errorContent;
+  }, (error, content) => {
+    contentContainer.innerHTML = content;
   });
 }
 
@@ -55,8 +36,21 @@ navbarBurger.addEventListener('click', () => {
   target.classList.toggle('is-active');
 });
 
-window.addEventListener('hashchange', loadContent);
 document.title = config.title;
 logoImg.src = config.logo;
 generateNavbarLinks(config.navbarItems);
-loadContent();
+
+setupRouter();
+
+addRoute('', () => { loadContent(''); });
+
+for (let key in config.navbarItems) {
+  let data = config.navbarItems[key];
+  if (data.href.includes('#')) {
+    addRoute(data.href.substring(1), () => {
+      loadContent(data.href.substring(1));
+    });
+  }
+}
+
+navigateTo('');
