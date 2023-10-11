@@ -1,4 +1,4 @@
-  {
+{
   "name": "ltngames_website",
   "description": "Vanilla JavaScript static website",
   "version": "0.0.0",
@@ -10,5 +10,8 @@
   },
   "devDependencies": {
     "sirv-cli": "^2.0.2"
+  },
+  "dependencies": {
+    "marked": "^9.1.0"
   }
 }
