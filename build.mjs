@@ -3,11 +3,26 @@ import { join, extname } from 'path';
 import { watch } from 'chokidar';
 import sirv from 'sirv-cli';
 import MarkdownIt from 'markdown-it';
+import mdContainer from 'markdown-it-container';
 
 const sourceDir = 'src'
 const destDir = 'public';
 
 const md = new MarkdownIt();
+md.use(mdContainer, 'tip', {
+  validate: function (params) {
+    return params.trim() === 'tip';
+  },
+  render: function (tokens, idx) {
+    if (tokens[idx].nesting === 1) {
+      // Opening tag
+      return '<div class="notification is-info">\n';
+    } else {
+      // Closing tag
+      return '</div>\n';
+    }
+  }
+});
 
 async function parseMarkdown (file) {
   try {
