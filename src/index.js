@@ -1,5 +1,5 @@
 import config from './config.js';
-import { addRoute, setupRouter, loadPage, navigateTo } from './scripts/router.js';
+import { addRoute, setupRouter, loadPage, navigateTo } from './router.js';
 
 const logoImg = document.getElementById('logo');
 const contentContainer = document.getElementById('content');

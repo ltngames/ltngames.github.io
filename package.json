@@ -1,4 +1,4 @@
-  {
+{
   "name": "ltngames_website",
   "description": "Vanilla JavaScript static website",
   "version": "0.0.0",
@@ -6,9 +6,13 @@
   "repository": "ltngames/website",
   "license": "MIT",
   "scripts": {
-    "start": "sirv --dev --no-clear --port 3000"
+    "start": "node build.mjs --serve",
+    "build": "node build.mjs"
   },
   "devDependencies": {
+    "chokidar": "^3.5.3",
+    "markdown-it": "^13.0.2",
+    "markdown-it-container": "^3.0.0",
     "sirv-cli": "^2.0.2"
   }
 }
