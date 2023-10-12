@@ -71,11 +71,13 @@ async function main () {
   if (serveArg) {
     const assets = sirv('public', {
       maxAge: 31536000,
-      immutable: true
+      immutable: true,
+      port: 30000,
+      host: 'localhost'
     });
   }
 
-  if (!watchArg) {
+  if (!watchArg && !serveArg) {
     process.exit();
   }
 
