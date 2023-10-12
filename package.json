@@ -9,6 +9,7 @@
     "start": "sirv --dev --no-clear --port 3000"
   },
   "devDependencies": {
+    "chokidar": "^3.5.3",
     "sirv-cli": "^2.0.2"
   },
   "dependencies": {
