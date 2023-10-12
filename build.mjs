@@ -1,14 +1,24 @@
-import { stat, mkdir, readdir, copyFile } from 'fs/promises';
-import { join } from 'path';
+import { stat, mkdir, readdir, copyFile, readFile, writeFile } from 'fs/promises';
+import { join, extname } from 'path';
 import { watch } from 'chokidar';
 import sirv from 'sirv-cli';
+import MarkdownIt from 'markdown-it';
 
 const sourceDir = 'src'
 const destDir = 'public';
 
-const ac = new AbortController();
-const { signal } = ac;
-setTimeout(() => ac.abort(), 10000);
+const md = new MarkdownIt();
+
+async function parseMarkdown (file) {
+  try {
+    const content = await readFile(file, 'utf-8');
+    const html = md.render(content);
+    return html;
+  } catch (error) {
+    console.error('Error parsing Markdown:', error);
+    return '';
+  }
+}
 
 async function copyDirectory (source, destination) {
   try {
@@ -23,6 +33,12 @@ async function copyDirectory (source, destination) {
         await mkdir(destFile, { recursive: true });
         await copyDirectory(sourceFile, destFile);
       } else {
+        if (extname(sourceFile) == '.md') {
+          const html = await parseMarkdown(sourceFile);
+          const dest = destFile.replace('.md', '.html');
+          await writeFile(dest, html);
+          return;
+        }
         await copyFile(sourceFile, destFile);
       }
     }
@@ -54,9 +70,15 @@ async function main () {
   });
 
   console.log(`Watching for changes in ${sourceDir}...`);
-  watcher.on('change', (filePath) => {
+  watcher.on('change', async (filePath) => {
     const relativePath = filePath.substring(sourceDir.length);
     const destPath = destDir + relativePath;
+
+    if (extname(filePath) == '.md') {
+      const html = await parseMarkdown(filePath);
+      await writeFile(destPath, html);
+      return;
+    }
 
     copyFile(filePath, destPath)
       .then(f => {
