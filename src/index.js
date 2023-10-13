@@ -28,4 +28,3 @@ for (let key in config.navbarItems) {
 document.title = config.title;
 addRoute('/', () => { loadContent(''); });
 setupRouter();
-// navigateTo('');
