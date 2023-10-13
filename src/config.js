@@ -1,6 +1,6 @@
 export default {
   title: 'LTN Games | Indie Studio',
-  logo: './img/logo-small.png',
+  logo: '/img/logo-small.png',
   navbarItems: [
     { text: 'Games', href: '#games'},
     { text: 'Tools', href: '#tools'},
