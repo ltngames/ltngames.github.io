@@ -1,9 +1,9 @@
 import { stat, mkdir, readdir, copyFile, readFile, writeFile } from 'fs/promises';
 import { join, extname } from 'path';
 import { watch } from 'chokidar';
-import sirv from 'sirv-cli';
 import MarkdownIt from 'markdown-it';
 import mdContainer from 'markdown-it-container';
+import { startServer } from './server.mjs';
 
 const sourceDir = 'src'
 const destDir = 'public';
@@ -69,12 +69,7 @@ async function main () {
   const serveArg = process.argv.includes('--serve');
 
   if (serveArg) {
-    const assets = sirv('public', {
-      maxAge: 31536000,
-      immutable: true,
-      port: 30000,
-      host: 'localhost'
-    });
+    startServer();
   }
 
   if (!watchArg && !serveArg) {
