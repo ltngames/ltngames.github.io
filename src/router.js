@@ -42,10 +42,20 @@ async function loadPage (url, onSuccess, onFail) {
 
 function setupRouter () {
   load404Content();
-  window.addEventListener('hashchange', () => {
-    const route = window.location.hash.substring(1);
+  window.addEventListener('popstate', (event) => {
+    const route = event.state.route;
     navigateTo(route);
   });
+
+  const initialRoute = window.location.pathname;
+  navigateTo(initialRoute);
 }
 
-export { addRoute, loadPage, navigateTo, setupRouter };
+function pushRoute (route) {
+  const fullPath = route.startsWith('/') ? route : `/${route}`;
+  const url = window.location.origin + fullPath;
+  window.history.pushState({ route }, '', fullPath);
+  navigateTo(route);
+}
+
+export { addRoute, loadPage, setupRouter, pushRoute };

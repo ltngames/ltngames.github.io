@@ -1,3 +1,4 @@
+import { pushRoute } from '../router.js';
 import config from '/config.js';
 
 export class MainNavbar extends HTMLElement {
@@ -15,7 +16,7 @@ export class MainNavbar extends HTMLElement {
     this.innerHTML = `
     <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item" href="#">
+      <a class="navbar-item" href="/">
         <img id="logo" src="" height="95">
       </a>
 
@@ -60,7 +61,14 @@ export class MainNavbar extends HTMLElement {
       linkElement.classList.add('navbar-item');
       linkElement.textContent = data.text;
       linkElement.href = data.href;
+      linkElement.onclick = this.onLinkClick;
       navbarLinksElement.appendChild(linkElement);
     }
+  }
+
+  onLinkClick(event) {
+    event.preventDefault();
+    const href = event.target.getAttribute('href');
+    pushRoute(href);
   }
 }
