@@ -44,12 +44,16 @@ async function parseMarkdown (file) {
   }
 }
 
-async function copyDirectory (source, destination) {
+async function copyDirectory (source, destination, markdownOnly = false) {
   try {
     const files = await readdir(source);
     for (const file of files) {
       const sourceFile = join(source, file);
       const destFile = join(destination, file);
+
+      if (markdownOnly && !extname(file) == '.md') {
+        continue;
+      }
 
       const stats = await stat(sourceFile);
 
@@ -95,6 +99,10 @@ async function main () {
     const relativePath = filePath.substring(sourceDir.length);
     const destPath = destDir + relativePath;
 
+    if (filePath.includes('layouts')) {
+      copyDirectory(sourceDir, destDir, true);
+    }
+  
     if (extname(filePath) == '.md') {
       const html = await parseMarkdown(filePath);
       await writeFile(destPath, html);
