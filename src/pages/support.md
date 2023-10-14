@@ -1,3 +1,7 @@
+---
+title: Support
+layout: base
+---
 # Support
 
 For assistance with any of our products, please don't hesitate to reach out to us.
