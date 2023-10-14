@@ -65,7 +65,7 @@ async function copyDirectory (source, destination, markdownOnly = false) {
           const html = await parseMarkdown(sourceFile);
           const dest = destFile.replace('.md', '.html');
           await writeFile(dest, html);
-          return;
+          continue;
         }
         await copyFile(sourceFile, destFile);
       }
