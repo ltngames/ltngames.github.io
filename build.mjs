@@ -29,7 +29,7 @@ async function parseMarkdown (file) {
   try {
     const content = await readFile(file, 'utf-8');
     const frontmatter = fmParser(content)
-    const contentWithoutFrontmatter = content.replace(/^---\n([\s\S]+?)\n---\n/, '');
+    const contentWithoutFrontmatter = content.replace(/^---([\s\S]*?)---/, '');
     const html = md.render(contentWithoutFrontmatter, '');
     if (frontmatter && frontmatter.data?.layout) {
       const contentRegex = /{{\s*content\s*}}/i
