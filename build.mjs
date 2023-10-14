@@ -3,6 +3,7 @@ import { join, extname } from 'path';
 import { watch } from 'chokidar';
 import MarkdownIt from 'markdown-it';
 import mdContainer from 'markdown-it-container';
+import fmParser from 'frontmatter';
 import { startServer } from './server.mjs';
 
 const sourceDir = 'src'
@@ -27,7 +28,15 @@ md.use(mdContainer, 'tip', {
 async function parseMarkdown (file) {
   try {
     const content = await readFile(file, 'utf-8');
-    const html = md.render(content);
+    const frontmatter = fmParser(content)
+    const contentWithoutFrontmatter = content.replace(/^---\n([\s\S]+?)\n---\n/, '');
+    const html = md.render(contentWithoutFrontmatter, '');
+    if (frontmatter && frontmatter.data?.layout) {
+      const contentRegex = /{{\s*content\s*}}/i
+      const layout = await readFile(`${sourceDir}/layouts/${frontmatter.data.layout}.html`, 'utf-8');
+      const htmlWithLayout = layout.replace(contentRegex, html);
+      return htmlWithLayout;
+    }
     return html;
   } catch (error) {
     console.error('Error parsing Markdown:', error);
