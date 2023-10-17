@@ -1,3 +1,7 @@
+---
+layout: base.html
+---
+
 ## RPG Maker MV Plugin Terms
 
 ### Free Plugins
