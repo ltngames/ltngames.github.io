@@ -70,7 +70,6 @@
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
-    /* Fill the entire height of media-card-content */
   }
 
   .media-card i {
@@ -93,15 +92,13 @@
   }
 
   .card-button {
-    background-color: #aa6bea;
+    background-color: #fa5c5c;
     border: none;
     color: white;
     margin-right: 5px;
-    padding: 8px 32px;
+    padding: 4px 29px 9px 11px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
     cursor: pointer;
     transition: 0.3s;
   }
@@ -111,18 +108,10 @@
     border-radius: 0 0 0 5px;
   }
 
-  .card-button i {
-    padding-left: 1rem;
-  }
-
   .card-button:hover {
-    background-color: #722eb6;
+    background-color: #e94747;
     color: white;
     transition: 0.3s;
-  }
-
-  .price {
-    font-size: 18px;
   }
 
   .strike {
@@ -148,7 +137,7 @@
       <div class="media-card-content">
         {{plugin.description}}
         <br>
-        <div class="price">
+        <div>
           {% if plugin.saleRate %}
           <i class="fa fa-tag"></i><small class="strike">{{plugin.price}}</small> <strong>${{plugin.salePrice}} </strong><small>USD</small> | On Sale! <b>{{plugin.saleRate}}% off!</b>
           {% else %}
@@ -159,8 +148,8 @@
 
       <div class="media-card-buttons">
         <a class="card-button" href={{plugin.link}}>
-          Buy
           <i class="fa-brands fa-itch-io"></i>
+          Buy
         </a>
       </div>
     </div>
