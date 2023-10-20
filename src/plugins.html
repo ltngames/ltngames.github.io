@@ -149,9 +149,10 @@
         {{plugin.description}}
         <br>
         <div class="price">
+          {% if plugin.saleRate %}
+          <i class="fa fa-tag"></i><small class="strike">{{plugin.price}}</small> <strong>${{plugin.salePrice}} </strong><small>USD</small> | On Sale! <b>{{plugin.saleRate}}% off!</b>
+          {% else %}
           <strong>{{plugin.price}} <small>USD</small></strong>
-          {% if plugin.sale %}
-          <i class="fa fa-tag"></i><strong class="strike">{{plugin.price}}</strong> ${{plugin.salePrice}} <small>USD</small> | On Sale! <b>{{plugin.saleRate}}% off!</b>
           {% endif %}
         </div>
       </div>
