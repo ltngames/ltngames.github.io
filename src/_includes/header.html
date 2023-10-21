@@ -1,4 +1,9 @@
 <script src="https://kit.fontawesome.com/a4acccbcb3.js" crossorigin="anonymous"></script>
+
+<style>
+  
+</style>
+
 <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="/">
@@ -15,7 +20,23 @@
   <div id="mainMenu" class="navbar-menu">
     <div class="navbar-start" id="navbar-links">
       {% for item in config.navbarItems %}
+
+      {% if item.items %}
+      <div class="navbar-item has-dropdown is-hoverable is-dark">
+        <a class="navbar-link">
+          {{item.text}}
+        </a>
+        <div class="navbar-dropdown is-dark">
+          {% for dropdownItem in item.items %}
+          <a class="navbar-item" href="{{dropdownItem.href}}">
+            {{dropdownItem.text}}
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+      {% else %}
       <a class="navbar-item" href="{{item.href}}">{{item.text}}</a>
+      {% endif %}
       {% endfor %}
     </div>
 
