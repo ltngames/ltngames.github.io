@@ -1,8 +1,7 @@
 ---
+title: Support
 layout: base.html
 ---
-
-# Support
 
 For assistance with any of our products, please don't hesitate to reach out to us.
 We're here to help you.
