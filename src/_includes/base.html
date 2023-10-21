@@ -6,9 +6,25 @@
   <head>
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
   </head>
+  <style>
+    .content {
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+    }
+  
+    .content .title {
+      margin-bottom: 2rem;
+    }
+
+    hr {
+      background-color: #dddddd;
+    }
+  </style>
   {% include 'header.html' %}
   <div id="content" class="container is-max-desktop">
     <div class="content">
+        <h1 class="title has-text-centered"> {{ title }} </h1>
+        <h3 class="subtitle has-text-centered"> {{ subtitle }} </h3>
       {{ content }}
     </div>
   </div>
