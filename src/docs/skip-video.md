@@ -3,21 +3,21 @@ title: Skip Video Plugin Documentation
 layout: base.html
 ---
 
- This plugin gives the player the ability to skip a video played by RPG Maker.
- Without this plugin, playing a video in RPG Maker requires the player to watch
- the entire video, with no option of pausing or skipping the video. With this
- plugin you will have the choice to skip the video or pause it on demand.
+This plugin grants the player the ability to skip a video played within RPG Maker.
+Without this plugin, when a video is played in RPG Maker, the player is compelled to
+watch the entire video with no option to pause or skip it. With this plugin, you have
+the freedom to either skip the video or pause it at your discretion.
 
- There are no plugin commands for this plugin. However there is a global
- variable which can be used to determine if the video has been skipped.
+There are no specific plugin commands for this plugin. However, a global variable is
+available for use to determine if the video has been skipped.
 
 ```
  LTN_SkipVideo.isVideoSkipped
 ```
 
- This global variable will return true if a video has been skipped or
- false if it has not been skipped. If a video has been skipped ensure to set
- the variable back to false using a script call.
+This global variable will return "true" if a video has been skipped or `false` if it
+has not been skipped. If a video has been skipped, be sure to reset the variable bac
+ to `false` using a script call.
 
  ```
  LTN_SkipVideo.isVideoSkipped = false
@@ -110,3 +110,34 @@ layout: base.html
   46: 'delete'
   47: 'help'
 ```
+
+## Terms Of Use
+
+For detailed information regarding the terms of use, please refer to our [Terms Of Use](https://ltngames.xyz/terms-of-use.html).
+
+**You are permitted to:**
+- Utilize them in both hobby and commercial game development projects without limitations.
+- Modify, adapt, and create derivative works for use in your own hobby or commercial game development projects.
+
+**You are not permitted to:**
+- Trade or sell any code contained within the plugin files.
+- Duplicate the plugin(s) for distribution, sale, or trade to unauthorized consumers.
+- Adapt or copy code for use in your own distributed plugin(s).
+
+## Support
+
+If you require support, please do not hesitate to reach out to us via email at [support@ltngames.xyz](mailto:support@ltngames.xyz).
+
+## Alternative Methods for Support (Not Always Available)
+
+We provide various methods for seeking support and assistance. However, please note that not all methods may be available at all times:
+
+- **Discord Server**: Join our [Discord Server](https://discord.gg/3hxjESk).
+- **Twitter**: You can also reach out to us on Twitter via [@ltngames](https://twitter.com/ltngames).
+- **RPG Maker Web Forums**: Visit our dedicated [RPG Maker Web Forums](https://forums.rpgmakerweb.com/members/ltngames.86027/) for community discussions and support.
+
+## Bug Reports
+
+Efficiently report any bugs or issues you encounter through our online bug reporting form. We kindly request that, if your problem pertains to a bug, you use this method for reporting rather than contacting us via email.
+
+[Report A Bug](https://ltngames.xyz/report-a-bug.html)

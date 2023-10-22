@@ -6,10 +6,10 @@ layout: base.html
  This Waypoints plugin gives you the ability to create waypoints for your game, giving the player the ability to "fast travel" to locations in your game. Much in the style of Diablo 2. You will be able to lock and unlock waypoints as well as choose your own animations and common event when you teleport through a waypoint.
 
  ## Getting Started
- Before using this plugin be sure to setup it's parameters. It requires you to setup a common event and categories for your waypoints.
+Before using this plugin, you need to configure its parameters, including defining a common event and categories for your waypoints.
 
  ### Common Event
- The common event is used when you perform a waypoint transfer and can be used to setup animations and other various effects before or during transfer.
+ The common event comes into play when you perform a waypoint transfer and can be used to set up animations and various effects before or during the transfer.
 
 __Parameters For fine tuning waypoint transfer common event:__
 
@@ -19,17 +19,17 @@ __Parameters For fine tuning waypoint transfer common event:__
   The first thing you should do is setup your waypoints, the easiest way to do this is to create a common event with your starting waypoints added via plugin command.
 
  ### Via Plugin Parameters (Recommended)
- This is the newest method of creating `Waypoints (v1.1)` and is by far the simplest way of getting started and creating your waypoints fast and easy.  A new parameter `Waypoint Templates` has been added since v1.1 that allows you to setup and create your waypoints without the need of using a plugin command to do it.
+This is the most recent method for creating Waypoints (v1.1) and is by far the easiest way to get started and create waypoints quickly and effortlessly. A new parameter called "Waypoint Templates" has been added since v1.1, allowing you to set up and create your waypoints without the need for a plugin command.
 
 ![Waypoint Template](/assets/img/docs/waypoints/template.png)
 
- Once your waypoints are setup in the parameters you can add, unlock and lock your waypoints via plugin command by using the waypoint ID you created in the parameters.
+ Once your waypoints are configured in the parameters, you can add, unlock, or lock them via a plugin command, using the waypoint ID you created in the parameters.
 
 --------------------------------------------
  ### Template Method
- __Command:__ Waypoint Add TemplateID
+ __Command:__ `Waypoint Add TemplateID`
 
- __Eg:__
+__Example:__
  ```
  Waypoint Add wp-cabin
  Waypoint Add wp-forest
@@ -37,9 +37,9 @@ __Parameters For fine tuning waypoint transfer common event:__
 
 ------------------------------------------
 ### Plugin Command Method
-  __Command:__ Waypoint Add Name Category MapId X Y LockedState
+  __Command:__ `Waypoint Add Name Category MapId X Y LockedState`
 
- __Eg:__
+__Example:__
  ```
  Waypoint Add Start-Map Act-I 1 5 6 false
  Waypoint Add Second-Map Act-I 1 5 6 false
