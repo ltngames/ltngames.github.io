@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+
+<head>
+  <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+</head>
+<style>
+  .menu {
+    display: block;
+    padding: 2rem;
+    margin: 1rem;
+    max-height: 100vh;
+    max-width: 275px;
+    min-width: 275px;
+    overflow-y: auto;
+    z-index: 999;
+    background-color: #ffffff;
+  }
+
+  .docs-toggles {
+    display: none;
+    justify-content: space-between;
+    padding: 0.5rem 0.75rem;
+    height: 50px;
+    width: auto;
+    background-color: #ffffff;
+    z-index: 1000;
+  }
+
+  @media screen and (max-width: 769px) {
+    .menu.mobile {
+      display: none;
+    }
+
+    .docs-toggles {
+      display: block;
+    }
+  }
+
+  .content {
+    margin: 1rem 12rem 2rem 4rem;
+  }
+
+  @media screen and (max-width: 1200px) {
+    .content {
+      margin-right: 4rem;
+    }
+  }
+
+  .content .title {
+    margin-bottom: 3rem;
+    font-size: 2.2rem;
+  }
+
+  .content h2 {
+    position: relative;
+    display: block;
+    font-weight: 600;
+    line-height: 2;
+  }
+
+  .content h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #5050503f;
+  }
+
+  hr {
+    background-color: #dddddd;
+  }
+
+  .content pre {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+    padding: 1.25em 1.5em;
+    white-space: pre;
+    word-wrap: normal;
+    background-color: rgba(204, 204, 204, 0.685);
+    border-radius: 8px;
+  }
+
+  .is-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+  }
+
+  .is-hidden {
+    display: none
+  }
+</style>
+{% include 'header.html' %}
+<div id="docsToggles" class="docs-toggles is-sticky">
+  <button class="button is-primary is-light bd-fat-button is-small" id="docsNavButton">Show menu</button>
+</div>
+<div class="docs columns is-mobile">
+  <aside id="docsNav" class="menu column is-sticky mobile">
+    <p class="menu-label">
+      General
+    </p>
+    <ul class="menu-list">
+      <li><a>Dashboard</a></li>
+      <li><a>Customers</a></li>
+    </ul>
+    <p class="menu-label">
+      Administration
+    </p>
+    <ul class="menu-list">
+      <li><a>Team Settings</a></li>
+      <li>
+        <a class="is-active">Manage Your Team</a>
+        <ul>
+          <li><a>Members</a></li>
+          <li><a>Plugins</a>
+            <ul>
+              <li><a>Members</a></li>
+              <li><a>Plugins</a></li>
+              <li><a>Add a member</a>
+                <ul>
+                  <li><a>Members</a></li>
+                  <li><a>Plugins</a></li>
+                  <li><a>Add a member</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a>Add a member</a></li>
+        </ul>
+      </li>
+      <li><a>Invitations</a></li>
+      <li><a>Cloud Storage Environment Settings</a></li>
+      <li><a>Authentication</a></li>
+    </ul>
+    <p class="menu-label">
+      Transactions
+    </p>
+    <ul class="menu-list">
+      <li><a>Payments</a></li>
+      <li><a>Transfers</a></li>
+      <li><a>Balance</a></li>
+    </ul>
+  </aside>
+
+  <div class="container column">
+    <div class="content">
+      <h1 class="title"> {{ title }} </h1>
+      <h3 class="subtitle has-text-centered"> {{ subtitle }} </h3>
+      {{ content }}
+    </div>
+  </div>
+</div>
+{% include 'footer.html' %}
+
+<script>
+  let menuVisible = true;
+  const menu = document.getElementById('docsNav');
+  const showMenuButton = document.getElementById('docsNavButton');
+
+  showMenuButton.addEventListener('click', (event) => {
+    // menu.classList.toggle('is-hidden')
+    menu.classList.toggle('mobile')
+    // if (menuVisible == false) {
+    //   menu.classList.remove('is-hidden')
+    //   menuVisible = true;
+    // } else if (menuVisible == true) {
+    //   menu.classList.add('is-hidden')
+    //   menuVisible = false;
+    // }
+  });
+</script>
+
+</html>

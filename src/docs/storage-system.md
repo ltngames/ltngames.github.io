@@ -1,6 +1,6 @@
 ---
 title: Storage System Plugin Documentation
-layout: base.html
+layout: documentation.html
 ---
 
  This plugin provides a way to have an unlimited amount of storage containers

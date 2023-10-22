@@ -1,6 +1,6 @@
 ---
 title: Stat And Skills Plugin Documentation
-layout: base.html
+layout: documentation.html
 ---
 
 ![banner](/assets/img/docs/stat-and-skills/skill_and_stat_levels-banner.png)

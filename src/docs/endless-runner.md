@@ -1,6 +1,6 @@
 ---
 title: Endless Runner Plugin Documentation
-layout: base.html
+layout: documentation.html
 ---
 
 An endless runner! Duck or jump over obstacles to earn points in this mini-game plugin for RPG Maker MV. Give your players a chance to unwind from saving the world and let them have fun in this easy-to-use mini-game.
