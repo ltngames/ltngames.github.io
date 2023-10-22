@@ -20,7 +20,7 @@ layout: base.html
  the variable back to false using a script call.
 
  ```
- ◆Script：LTN_SkipVideo.isVideoSkipped = false
+ LTN_SkipVideo.isVideoSkipped = false
  ```
 
  ## PARAMETER INFO
