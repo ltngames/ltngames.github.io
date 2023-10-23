@@ -16,17 +16,15 @@ __Parameters For fine tuning waypoint transfer common event:__
  ![Parameters For Common Event Tuning](/assets/img/docs/waypoints/common_event_parameters.png)
 
  ### Waypoint Setup
-  The first thing you should do is setup your waypoints, the easiest way to do this is to create a common event with your starting waypoints added via plugin command.
+When setting up waypoints in your game, you have a couple of options to choose from, depending on your preferences and the version of the plugin you're using. Waypoints provide players with the ability to "fast travel" to different locations within your game, similar to how it's done in games like Diablo 2. Here, we'll explore two methods for creating and managing your waypoints.
 
- ### Via Plugin Parameters (Recommended)
-This is the most recent method for creating Waypoints (v1.1) and is by far the easiest way to get started and create waypoints quickly and effortlessly. A new parameter called "Waypoint Templates" has been added since v1.1, allowing you to set up and create your waypoints without the need for a plugin command.
+ ##### 1. Via Plugin Parameters (Recommended)
+This is the latest and most user-friendly approach for creating waypoints, particularly in the newer version (v1.1) of the plugin. It streamlines the process and is ideal for getting started quickly. With the introduction of the "Waypoint Templates" parameter, you can easily set up and manage your waypoints without the need for lengthy plugin commands.
 
 ![Waypoint Template](/assets/img/docs/waypoints/template.png)
 
- Once your waypoints are configured in the parameters, you can add, unlock, or lock them via a plugin command, using the waypoint ID you created in the parameters.
+ After configuring your Waypoint template, the next step is to actually add Waypoints to your game based on this template.
 
---------------------------------------------
- ### Template Method
  __Command:__ `Waypoint Add TemplateID`
 
 __Example:__
@@ -35,8 +33,11 @@ __Example:__
  Waypoint Add wp-forest
  ```
 
-------------------------------------------
-### Plugin Command Method
+---
+
+##### 2. Via Plugin Command
+Another approach for introducing new waypoints into your game is by using plugin commands. While this method may be considered slightly more involved, it offers a degree of flexibility and is particularly beneficial for those who frequently work within the event editor.
+
   __Command:__ `Waypoint Add Name Category MapId X Y LockedState`
 
 __Example:__
@@ -50,22 +51,23 @@ __Common Event Example:__
   ![Starting Waypoint Common Event](/assets/img/docs/waypoints/starting_waypoint_common_event.png)
 
 
- ## Setup Background Image
+ ### Setup Background Image
  To setup the background image to be used with the Waypoint scene you must first save the image you want to use in the `img/system` directory
 
  Once the image has been saved, be sure to select the file in the plugin's parameters under `Scene Background`
 
- # Parameters
+ ## Parameters
 
 ![All Parameters](/assets/img/docs/waypoints/parameters.png)
 
-## General Options
+### General Options
 
-`Waypoint Templates` - This is where you can setup and create all of your game's waypoints. See (Waypoint Templates below)
+`Waypoint Templates` - This is where you can setup and create all of your game's waypoints.
+See [Waypoint Templates](#waypoint-templates)
 
 `Waypoint Categories` - All the categories for your waypoints. You can use chapters acts, or categorize your waypoints by area, its up to you.
 
-## Transfer Options
+### Transfer Options
 
 `Transfer Common Event` - The common event to activate upon a waypoint transfer.
 
@@ -73,7 +75,7 @@ __Common Event Example:__
 
 `Transfer Fade` - The type of fade the screen will use upon transferring.
 
-## Scene Options
+### Scene Options
 
 `Hide Categories` - Enable to hide a category if it contains no waypoints.
 
@@ -90,7 +92,7 @@ __Common Event Example:__
 `Scene Background` - The background image for the waypoints scene. Leave name empty if you don't want to use a background.
 
 
-### Window Options
+#### Window Options
 
 `Window Category Options` - Change these settings to adjust the scene to how
 you'd like it to appear.
@@ -99,7 +101,7 @@ _The category window is the top window showing each category/command. Moving and
 
 `Waypoint List Options` - Change these settings to adjust the waypoints list window to how you'd like it to appear.
 
-## Waypoint Templates
+### Waypoint Templates
 A waypoint template has a number of properties that allow you to setup your waypoint inside the plugin's parameters.
 
 `Template ID` - This is what you will use to control your waypoint via plugin command. It can be a string or a number, its up to you.
@@ -120,7 +122,7 @@ A waypoint template has a number of properties that allow you to setup your wayp
 false for it to be unlocked.
 
 
-# Plugin Commands
+## Plugin Commands
 
 Main Keyword: `Waypoint`
 
@@ -208,7 +210,7 @@ __Command Information:__
 _The waypoint scene is where the player will select a category and waypoint to travel to. As soon as a waypoint is selected it will run the common event and transfer the player_.
 
 
- # Script Calls
+## Script Calls
 
 The script calls are identical to the plugin commands except for the extra syntax you are required to use. Some script calls are useful for more advanced eventing.
 
@@ -305,7 +307,7 @@ For detailed information regarding the terms of use, please refer to our [Terms 
 
 If you require support, please do not hesitate to reach out to us via email at [support@ltngames.xyz](mailto:support@ltngames.xyz).
 
-## Alternative Methods for Support (Not Always Available)
+##### Alternative Methods for Support (Not Always Available)
 
 We provide various methods for seeking support and assistance. However, please note that not all methods may be available at all times:
 
