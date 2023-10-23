@@ -145,23 +145,24 @@
   })
 
   function findActiveSectionId () {
-      let minDistance = Number.POSITIVE_INFINITY;
-      let activeSectionId = '';
+    let minDistance = Number.POSITIVE_INFINITY;
+    let activeSectionId = '';
 
-      headings.forEach(heading => {
-        if (!heading.id) { return }
-        const rect = heading.getBoundingClientRect();
-        if (rect.top >= 0 && rect.top < minDistance) {
-          minDistance = rect.top;
-          activeSectionId = heading.id;
-        }
-      });
+    headings.forEach(heading => {
+      if (!heading.id) { return }
+      const rect = heading.getBoundingClientRect();
+      if (rect.top >= 0 && rect.top < minDistance) {
+        minDistance = rect.top;
+        activeSectionId = heading.id;
+      }
+    });
 
-      return activeSectionId;
-    }
+    return activeSectionId;
+  }
 
   function onIntersection (entries) {
     const currentSectionId = findActiveSectionId();
+    if (shouldUpdate === false) { return }
     menuLinks.forEach(link => {
       link.classList.remove('is-active');
       if (link.getAttribute('href').substring(1) === currentSectionId) {
