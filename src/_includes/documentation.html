@@ -7,12 +7,12 @@
   <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 </head>
 <style>
-  .menu {
+  .docsMenu {
     display: block;
     padding: 2rem;
     margin: 1rem;
     max-height: 100vh;
-    max-width: 275px;
+    max-width: 325px;
     min-width: 275px;
     overflow-y: auto;
     z-index: 999;
@@ -30,7 +30,7 @@
   }
 
   @media screen and (max-width: 769px) {
-    .menu.mobile {
+    .docsMenu.mobile {
       display: none;
     }
 
@@ -100,52 +100,9 @@
   <button class="button is-primary is-light bd-fat-button is-small" id="docsNavButton">Show menu</button>
 </div>
 <div class="docs columns is-mobile">
-  <aside id="docsNav" class="menu column is-sticky mobile">
-    <p class="menu-label">
-      General
-    </p>
-    <ul class="menu-list">
-      <li><a>Dashboard</a></li>
-      <li><a>Customers</a></li>
-    </ul>
-    <p class="menu-label">
-      Administration
-    </p>
-    <ul class="menu-list">
-      <li><a>Team Settings</a></li>
-      <li>
-        <a class="is-active">Manage Your Team</a>
-        <ul>
-          <li><a>Members</a></li>
-          <li><a>Plugins</a>
-            <ul>
-              <li><a>Members</a></li>
-              <li><a>Plugins</a></li>
-              <li><a>Add a member</a>
-                <ul>
-                  <li><a>Members</a></li>
-                  <li><a>Plugins</a></li>
-                  <li><a>Add a member</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li><a>Add a member</a></li>
-        </ul>
-      </li>
-      <li><a>Invitations</a></li>
-      <li><a>Cloud Storage Environment Settings</a></li>
-      <li><a>Authentication</a></li>
-    </ul>
-    <p class="menu-label">
-      Transactions
-    </p>
-    <ul class="menu-list">
-      <li><a>Payments</a></li>
-      <li><a>Transfers</a></li>
-      <li><a>Balance</a></li>
-    </ul>
-  </aside>
+  <div id="docsNav" class="docsMenu column is-sticky mobile">
+    {{ content | toc }}
+  </div>
 
   <div class="container column">
     <div class="content">
@@ -163,15 +120,7 @@
   const showMenuButton = document.getElementById('docsNavButton');
 
   showMenuButton.addEventListener('click', (event) => {
-    // menu.classList.toggle('is-hidden')
     menu.classList.toggle('mobile')
-    // if (menuVisible == false) {
-    //   menu.classList.remove('is-hidden')
-    //   menuVisible = true;
-    // } else if (menuVisible == true) {
-    //   menu.classList.add('is-hidden')
-    //   menuVisible = false;
-    // }
   });
 </script>
 
