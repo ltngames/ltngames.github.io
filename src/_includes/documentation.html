@@ -118,7 +118,7 @@
   let menuVisible = true;
   const menu = document.getElementById('docsNav');
   const menuLinks = menu.querySelectorAll('a');
-  const headings = document.querySelectorAll('h1, h2, h3');
+  const headings = document.querySelectorAll('h1, h2, h3, h4');
   const showMenuButton = document.getElementById('docsNavButton');
   const options = {
     root: null,
@@ -126,6 +126,7 @@
     threshold: 1.0,
   };
 
+  let shouldUpdate = true;
   const observer = new IntersectionObserver(onIntersection, options);
 
   showMenuButton.addEventListener('click', (event) => {
@@ -134,22 +135,37 @@
 
   menuLinks.forEach(link => {
     link.addEventListener('click', (event) => {
+      shouldUpdate = false
       menuLinks.forEach(l => l.classList.remove('is-active'));
       link.classList.add('is-active');
+      setTimeout(() => {
+        shouldUpdate = true;
+      }, 100);
     })
   })
 
+  function findActiveSectionId () {
+      let minDistance = Number.POSITIVE_INFINITY;
+      let activeSectionId = '';
+
+      headings.forEach(heading => {
+        if (!heading.id) { return }
+        const rect = heading.getBoundingClientRect();
+        if (rect.top >= 0 && rect.top < minDistance) {
+          minDistance = rect.top;
+          activeSectionId = heading.id;
+        }
+      });
+
+      return activeSectionId;
+    }
+
   function onIntersection (entries) {
-    entries.forEach(entry => {
-      if (entry.boundingClientRect.top <= options.threshold) {
-        const currentSectionId = entry.target.id;
-        console.log(entry.target.outerText);
-        menuLinks.forEach(link => {
-          link.classList.remove('is-active');
-          if (link.getAttribute('href').substring(1) === currentSectionId) {
-            link.classList.add('is-active');
-          }
-        });
+    const currentSectionId = findActiveSectionId();
+    menuLinks.forEach(link => {
+      link.classList.remove('is-active');
+      if (link.getAttribute('href').substring(1) === currentSectionId) {
+        link.classList.add('is-active');
       }
     });
   }
