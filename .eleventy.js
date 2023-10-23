@@ -1,7 +1,7 @@
 const siteData = require('./src/_data/config');
 const markdownIt = require('markdown-it')
 const markdownItAnchor = require('markdown-it-anchor')
-const pluginTOC = require('./plugin-toc/.eleventy.js')
+const pluginTOC = require('./plugins/plugin-toc/.eleventy.js')
 
 module.exports = function(config) {
   config.setLibrary('md', markdownIt().use(markdownItAnchor))
