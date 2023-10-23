@@ -70,35 +70,35 @@ $storage.getContainer(id)
 `id`: The id of the container you want to retrieve.
 
 
-## Container Script Calls
+### Container Script Calls
 These are the script calls you can use after retrieving a container.
 
-### Check the amount of items
+#### Check the amount of items
 ```
 $storage.getContainer(id).amountOfItems()
 ```
 
-## Check if you can add an item
+#### Check if you can add an item
 ```
 $storage.getContainer(id).canAddItem(amount)
 ```
 
-## Change max amount
+#### Change max amount
 ```
 $storage.getContainer(id).changeMaxAmount(amount)
 ```
 
-## Check amount of a specific item
+#### Check amount of a specific item
 ```
 $storage.getContainer(id).numItems($dataItems[1])
 ```
 
-## Add an item
+#### Add an item
 ```
 $storage.getContainer(id).gainItem($dataItems[1], 5)
 ```
 
-## Remove an item
+#### Remove an item
 ```
 $storage.getContainer(id).loseItem($dataItems[1], 5)
 ```
@@ -120,7 +120,7 @@ For detailed information regarding the terms of use, please refer to our [Terms 
 
 If you require support, please do not hesitate to reach out to us via email at [support@ltngames.xyz](mailto:support@ltngames.xyz).
 
-## Alternative Methods for Support (Not Always Available)
+##### Alternative Methods for Support (Not Always Available)
 
 We provide various methods for seeking support and assistance. However, please note that not all methods may be available at all times:
 

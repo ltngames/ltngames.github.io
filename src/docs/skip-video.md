@@ -8,6 +8,8 @@ Without this plugin, when a video is played in RPG Maker, the player is compelle
 watch the entire video with no option to pause or skip it. With this plugin, you have
 the freedom to either skip the video or pause it at your discretion.
 
+## Getting Started
+
 There are no specific plugin commands for this plugin. However, a global variable is
 available for use to determine if the video has been skipped.
 
@@ -23,13 +25,16 @@ has not been skipped. If a video has been skipped, be sure to reset the variable
  LTN_SkipVideo.isVideoSkipped = false
  ```
 
- ## PARAMETER INFO
+ ## Parameters
 
  Keycodes are easy to find out [https://keycode.info](https://keycode.info/)
 
  Here are some to get you started
 
-### Numbers (Not Numpad)
+### Keycodes
+
+#### Numbers
+**(Does not include Numpad numbers)**
 
 ```
   48: '0'
@@ -44,7 +49,7 @@ has not been skipped. If a video has been skipped, be sure to reset the variable
   57: '9'
 ```
 
-### Letters
+#### Letters
 
 ```
   65: 'a'
@@ -75,7 +80,7 @@ has not been skipped. If a video has been skipped, be sure to reset the variable
   90: 'z'
 ```
 
-### Misc Keys
+#### Misc Keys
 
 ```
   3: 'break'
@@ -128,7 +133,7 @@ For detailed information regarding the terms of use, please refer to our [Terms 
 
 If you require support, please do not hesitate to reach out to us via email at [support@ltngames.xyz](mailto:support@ltngames.xyz).
 
-## Alternative Methods for Support (Not Always Available)
+##### Alternative Methods for Support (Not Always Available)
 
 We provide various methods for seeking support and assistance. However, please note that not all methods may be available at all times:
 

@@ -5,51 +5,21 @@ layout: documentation.html
 
 ![banner](/assets/img/docs/stat-and-skills/skill_and_stat_levels-banner.png)
 
-# Table Of Contents
 
-- [Getting Started](#getting-started)
-  - [Custom Stats](#custom-stats)
-  - [Custom Skills](#custom-skills)
-- [Formulas](#formulas)
-- [Menu Navigation](#menu-navigation)
-  - [Add Menu Command via VisuStella](#add-menu-command-via-visustella)
-- [Notetags](#notetags)
-  - [Examples](#examples)
-- [Script Calls](#script-calls)
-  - [Add Skill or Stat Points to an Actor](#add-skill-or-stat-points-to-an-actor)
-  - [Remove Skill or Stat Points of an Actor](#remove-skill-or-stat-points-of-an-actor)
-  - [Add Skill Level](#add-skill-level)
-  - [Remove Skill Level](#remove-skill-level)
-  - [Add level to a custom stat](#add-level-to-a-custom-stat)
-  - [Remove level of a custom stat](#remove-level-of-a-custom-stat)
-    - [Re-evaluate skill and stat bonuses and penalties](#re-evaluate-skill-and-stat-bonuses-and-penalties)
-  - [Access Stat and Skill Data](#access-stat-and-skill-data)
-- [Plugin Commands](#plugin-commands)
-  - [Open the level up scene](#open-the-level-up-scene)
-  - [Add a stat point](#add-a-stat-point)
-  - [Add a skill point](#add-a-skill-point)
-  - [Change the level of a skill](#change-the-level-of-a-skill)
-  - [Change the level of a stat](#change-the-level-of-a-stat)
-  - [- Adds points to a stat for a specific actor](#---adds-points-to-a-stat-for-a-specific-actor)
-- [Terms Of Use](#terms-of-use)
-- [Support](#support)
-  - [Alternatives methods for support (not always available)](#alternatives-methods-for-support-not-always-available)
-  - [Bug Reports](#bug-reports)
-
-# Getting Started
-
----
+## Getting Started
 
 To get started, first set up the plugin's parameters by setting up custom stats and custom skills for use in your game.
 
-## Custom Stats
+
+##### Custom Stats
 
 Custom stats are additional parameters like Atk, Def, M Def, etc which can be
 leveled up via stat points and in their own custom level-up scene.
 
 ![custom-stat-image](/assets/img/docs/stat-and-skills/custom_stat_parameter.png)
 
-## Custom Skills
+
+##### Custom Skills
 
 Custom skills are just like regular skills, they use the skills database but they behave differently due to the way you level them up via the level up scene. A custom skill is not initialized until the party member has learned the skill, once learned the skill will initialize its base level based on the party member's current stats.
 
@@ -61,9 +31,8 @@ For example, if you create a skill named speech, and its initial level formula i
 
 ![custom-skill-image](/assets/img/docs/stat-and-skills/custom_skill_parameter.png)
 
-# Formulas
 
----
+## Formulas
 
 **Custom Stat Formulas**
 
@@ -83,9 +52,8 @@ There are a few extra variables when strictly entering formulas in the plugin's 
 
 For example `skill.speech` or `stat.chr` can be used over `a.cs.speech` or `a.chr`, in the end, it's up to you and both ways are perfectly viable.
 
-# Menu Navigation
 
----
+## Menu Navigation
 
 Menu navigation is similar to all other menus with one small difference.
 
@@ -96,7 +64,7 @@ When adding or removing a skill point use the left and right arrows but when you
 
 ![custom-stat-image](/assets/img/docs/stat-and-skills/howto_window_move_keyboard.png)
 
-## Add Menu Command via VisuStella
+##### Add Menu Command via VisuStella
 
 To add a menu command to the main menu using VisuStella's Main Menu Core plugin you will have to add our command in the plugin's `Command Window List` parameter.
 
@@ -118,9 +86,8 @@ To add a menu command to the main menu using VisuStella's Main Menu Core plugin 
 
 **JS: Personal Code** `SceneManager.push(StatLevels.Scene);`
 
-# Notetags
 
----
+## Notetags
 
 Notetags can be used on all equipment types to gain or penalize a stat.
 
@@ -134,7 +101,7 @@ Where `stat` is the shortname of the stat you want to change, the `operation`
 is either `add` or `remove` and then `amount` is the amount of stat levels to
 affect.
 
-### Examples
+*Examples*
 
 To add 5 to agility stat, the notetag would look something like this
 
@@ -148,7 +115,7 @@ To remove from the agility stat, the notetag would look like this
 <agi: remove 5>
 ```
 
-# Script Calls
+## Script Calls
 
 Script calls are useful for conditional statements in your events or when you're
 developing a plugin of your own or simply need access to the JavaScript side of
@@ -163,9 +130,8 @@ A few things to keep note of...
 `entireParty` = Whether or not to perform the action on the entire party. (*If this is set to true the actorId will be ignored. Can only be `true` or `false`*)
 `asSkillPoint` = Setting to false will add the amount of points directly to the total rather than it behaving as if you were in the leveling scene adding points to the skill directly.
 
----
 
-## Add Skill or Stat Points to an Actor
+### Add Skill or Stat Points to an Actor
 
 ```js
 // Stat Point
@@ -175,7 +141,7 @@ $sl.addStatPoints(actorId, amount, entireParty);
 $sl.addSkillPoints(actorId, amount, entireParty);
 ```
 
-## Remove Skill or Stat Points of an Actor
+### Remove Skill or Stat Points of an Actor
 
 ```js
 // Stat Point
@@ -185,7 +151,7 @@ $sl.removeStatPoints(actorId, amount, entireParty);
 $sl.removeSkillPoints(actorId, amount, entireParty);
 ```
 
-## Add Skill Level
+### Add Skill Level
 
 You can use the following method to ensure the formulas are used. This method will be no different than if you were in the leveling scene and pressed level up for that skill. This will ignore available skill points.
 
@@ -193,7 +159,7 @@ You can use the following method to ensure the formulas are used. This method wi
 $sl.addSkillLevel((actorId, skillName, amount, entireParty);
 ```
 
-## Remove Skill Level
+### Remove Skill Level
 
 You can use the following method to ensure the formulas are used. This method will be no different than if you were in the leveling scene and pressed level down for that skill.
 
@@ -201,7 +167,7 @@ You can use the following method to ensure the formulas are used. This method wi
 $sl.removeSkillLevel((actorId, skillName, amount, entireParty);
 ```
 
-## Add level to a custom stat
+### Add level to a custom stat
 
 This will add a level to a custom stat while ignoring available stat points.
 
@@ -209,7 +175,7 @@ This will add a level to a custom stat while ignoring available stat points.
 $sl.addStatLevel(actorId, statName, amount, entireParty, asIs);
 ```
 
-## Remove level of a custom stat
+### Remove level of a custom stat
 
 This will remove a level of a custom stat while ignoring available stat points
 
@@ -226,7 +192,7 @@ Essentially this will ensure your skills will properly adjust their levels accor
 $sl.evaluateSkillStatBonus(actorId, entireParty);
 ```
 
-## Reset Skills
+### Reset Skills
 
 This will reset all skills to their initial level using the initial level formula.
 
@@ -234,7 +200,7 @@ This will reset all skills to their initial level using the initial level formul
 $sl.resetSkills(actorId, entireParty);
 ```
 
-## Reset Stats
+### Reset Stats
 
 This will reset all stats to their initial level keeping equipment bonuses and
 penalties intact.
@@ -243,7 +209,7 @@ penalties intact.
 $sl.resetStats(actorId, entireParty);
 ```
 
-## Access Stat and Skill Data
+### Access Stat and Skill Data
 
 This will likely not be required for general game development, it would more likely be used for plugin development.
 
@@ -280,52 +246,48 @@ initialLevelFormula: 25 + (2 \* cs.chr)
 maxLevel: 100
 ```
 
-# Plugin Commands
+## Plugin Commands
 
 For further details of each command's arguments, please view the plugin
 commands in RPG Maker MZ.
 
-## Open the level up scene
+### Open the level up scene
 
 `OpenScene`
 
 - Open the stat and skill levelling scene
 
-## Add a stat point
+### Add a stat point
 
 `AddStatPoint`
 
 - Adds a number of stat points to the stat point pool
 
-## Add a skill point
+### Add a skill point
 
 `AddSkillPoint`
 
 - Adds a number of skill points to the skill point pool
 
-## Change the level of a skill
+### Change the level of a skill
 
 `SkillLevel`
 
 - Add or removes levels to a skill for a specific actor
 
-## Change the level of a stat
+### Change the level of a stat
 
 `StatLevel`
 
 - Adds points to a stat for a specific actor
 
-## Reset stats or skills to initial levels
+### Reset stats or skills to initial levels
 
 `Reset`
 
 - Reset stats or skills to their initial levels
 
----
-
-# Terms Of Use
-
----
+## Terms Of Use
 
 [https://ltngames.xyz/terms-of-use.html](https://ltngames.xyz/terms-of-use.html)
 
@@ -338,11 +300,11 @@ commands in RPG Maker MZ.
 - You **may NOT** change any information, including the original parameters or
   terms of use.
 
-# Support
+## Support
 
 For support please contact us at [support@ltngames.xyz](mailto:support@ltngames.xyz)
 
-### Alternatives methods for support (not always available)
+##### Alternatives methods for support (not always available)
 
 - **Discord Server**: [LTN Games Server](https://discord.gg/3hxjESk)
 - **Twitter** - [@ltngames](https://twitter.com/ltngames)

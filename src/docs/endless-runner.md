@@ -7,7 +7,7 @@ An endless runner! Duck or jump over obstacles to earn points in this mini-game 
 
 ![Cover Image](/assets//img/docs/endless-runner/cover.png)
 
-# Getting Started
+## Getting Started
 
 To kick off your project, follow these essential steps:
 
@@ -138,7 +138,7 @@ Configure these elements to create diverse and engaging levels for your game.
 **Actions:**
 - This section contains an action list where you can define script calls that execute when specific events occur, such as player collision with the obstacle. For more details, see "Creating Action Lists."
 
-## Setup Level Progression
+### Setup Level Progression
 
 Level progression is crucial for adjusting the game's difficulty as players progress. If you want the level to become more challenging as the player reaches a specific score, follow these steps:
 
@@ -150,27 +150,27 @@ This is a basic setup. You need to do the following:
 2. Specify the speed increase that occurs when the player reaches that score.
 3. This also allows you to set the default movement speed when the level begins. Simply set the score to 0 and the speed to the desired value for the player's initial movement speed.
 
-## Tracking A Win or a Loss
+### Tracking A Win or a Loss
 
 To monitor whether a level has been won or lost, use the "Level Win Variable" parameter:
 
 **Level Win Variable:**
 - This variable ID stores information about whether the level was won (returns true) or lost (returns false). It helps track the level's outcome.
 
-## Tracking The Score
+### Tracking The Score
 
 To keep track of the final score before a player wins or loses, use the "Level Score Variable" parameter:
 
 **Level Score Variable:**
 - This variable ID stores the final score achieved during the level. It's updated each time a game over or win occurs within the level.
 
-## Creating Action Lists
+### Creating Action Lists
 
 Action lists are collections of script calls that trigger when specific events happen. For instance, they can be used when the player dies, gets hit by an obstacle, or collects an item.
 
 Customize your action lists to enhance the gameplay experience.
 
-### Action List Method Types
+##### Action List Method Types
 
 Action list methods can be used by employing any of the following methods:
 
@@ -200,13 +200,13 @@ If your mini-game uses unique graphics, you may need to tailor the collision box
 
 ![Collision Parameters](/assets//img/docs/endless-runner/collider_param.png)
 
-### Debugging Collision Boxes
+## Debugging Collision Boxes
 
 For ease in adjusting your collision boxes during playtesting, enable "Debug Collision Boxes" to visualize the boxes surrounding each obstacle and the player.
 
 ![Collision Debug Example](/assets//img/docs/endless-runner/collision_debug_example.png)
 
-# Plugin Commands
+## Plugin Commands
 
 There is a single available plugin command used to initiate the mini-game's scene:
 
@@ -217,7 +217,7 @@ Endless-Runner Start
 
 Use this command to commence the mini-game within your game.
 
-# Terms Of Use
+## Terms Of Use
 
 For detailed information regarding the terms of use, please refer to our [Terms Of Use](https://ltngames.xyz/terms-of-use.html).
 
@@ -230,11 +230,11 @@ For detailed information regarding the terms of use, please refer to our [Terms 
 - Duplicate the plugin(s) for distribution, sale, or trade to unauthorized consumers.
 - Adapt or copy code for use in your own distributed plugin(s).
 
-# Support
+## Support
 
 If you require support, please do not hesitate to reach out to us via email at [support@ltngames.xyz](mailto:support@ltngames.xyz).
 
-## Alternative Methods for Support (Not Always Available)
+##### Alternative Methods for Support (Not Always Available)
 
 We provide various methods for seeking support and assistance. However, please note that not all methods may be available at all times:
 
