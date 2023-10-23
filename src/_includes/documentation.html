@@ -22,10 +22,10 @@
   .docs-toggles {
     display: none;
     justify-content: space-between;
-    padding: 0.5rem 0.75rem;
-    height: 50px;
+    padding: 0.5rem 0.5rem;
+    height: 45px;
     width: auto;
-    background-color: #ffffff;
+    background-color: #a7a7a74f;
     z-index: 1000;
   }
 
@@ -99,7 +99,7 @@
 <div id="docsToggles" class="docs-toggles is-sticky">
   <button class="button is-primary is-light bd-fat-button is-small" id="docsNavButton">Show menu</button>
 </div>
-<div class="docs columns is-mobile">
+<div class="docs columns">
   <div id="docsNav" class="docs-menu column is-sticky mobile">
     {{ content | toc }}
   </div>
@@ -141,7 +141,10 @@
       setTimeout(() => {
         shouldUpdate = true;
       }, 100);
-    })
+      if (!menu.classList.contains('mobile') && menu.style.display !== 'none') {
+        menu.classList.toggle('mobile');
+      }
+    });
   })
 
   function findActiveSectionId () {
