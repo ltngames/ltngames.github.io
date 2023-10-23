@@ -7,7 +7,7 @@
   <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 </head>
 <style>
-  .docsMenu {
+  .docs-menu {
     display: block;
     padding: 2rem;
     margin: 1rem;
@@ -30,7 +30,7 @@
   }
 
   @media screen and (max-width: 769px) {
-    .docsMenu.mobile {
+    .docs-menu.mobile {
       display: none;
     }
 
@@ -100,12 +100,12 @@
   <button class="button is-primary is-light bd-fat-button is-small" id="docsNavButton">Show menu</button>
 </div>
 <div class="docs columns is-mobile">
-  <div id="docsNav" class="docsMenu column is-sticky mobile">
+  <div id="docsNav" class="docs-menu column is-sticky mobile">
     {{ content | toc }}
   </div>
 
   <div class="container column">
-    <div class="content">
+    <div id="content" class="content">
       <h1 class="title"> {{ title }} </h1>
       <h3 class="subtitle has-text-centered"> {{ subtitle }} </h3>
       {{ content }}
@@ -117,11 +117,49 @@
 <script>
   let menuVisible = true;
   const menu = document.getElementById('docsNav');
+  const menuLinks = menu.querySelectorAll('a');
+  const headings = document.querySelectorAll('h1, h2, h3');
   const showMenuButton = document.getElementById('docsNavButton');
+  const options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 1.0,
+  };
+
+  const observer = new IntersectionObserver(onIntersection, options);
 
   showMenuButton.addEventListener('click', (event) => {
     menu.classList.toggle('mobile')
   });
+
+  menuLinks.forEach(link => {
+    link.addEventListener('click', (event) => {
+      menuLinks.forEach(l => l.classList.remove('is-active'));
+      link.classList.add('is-active');
+    })
+  })
+
+  function onIntersection (entries) {
+    entries.forEach(entry => {
+      if (entry.boundingClientRect.top <= options.threshold) {
+        const currentSectionId = entry.target.id;
+        console.log(entry.target.outerText);
+        menuLinks.forEach(link => {
+          link.classList.remove('is-active');
+          if (link.getAttribute('href').substring(1) === currentSectionId) {
+            link.classList.add('is-active');
+          }
+        });
+      }
+    });
+  }
+  headings.forEach(heading => {
+    if (heading.id) {
+      observer.observe(heading);
+    }
+  })
+
+  menuLinks[0].classList.add('is-active');
 </script>
 
 </html>
