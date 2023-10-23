@@ -1,16 +1,35 @@
 <!DOCTYPE html>
 <html>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta charset="UTF-8">
-  
-  <head>
-    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
-  </head>
-  {% include 'header.html' %}
-  <div id="content" class="container is-max-desktop">
-    <div class="content">
-      {{ content }}
-    </div>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+
+<head>
+  <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+</head>
+<style>
+  .content {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .content pre {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+    padding: 1.25em 1.5em;
+    white-space: pre;
+    word-wrap: normal;
+    background-color: rgba(204, 204, 204, 0.685);
+    border-radius: 8px;
+  }
+</style>
+{% include 'header.html' %}
+<div id="content" class="container is-max-desktop">
+  <div class="content">
+    <h1> {{ title }} </h1>
+    <h3> {{ subtitle }} </h3>
+    {{ content }}
   </div>
-  {% include 'footer.html' %}
+</div>
+{% include 'footer.html' %}
+
 </html>

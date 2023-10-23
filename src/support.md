@@ -1,8 +1,7 @@
 ---
+title: Support
 layout: base.html
 ---
-
-# Support
 
 For assistance with any of our products, please don't hesitate to reach out to us.
 We're here to help you.
@@ -13,9 +12,9 @@ We're here to help you.
 We encourage you to use various social outlets for support when it comes to our free
 community plugins, as we do not offer email support for them
 
-:::tip
+{% message 'Info' %}
 Please note that LTN Games does periodically engage with these outlets, so you may still receive "official" support.
-:::
+{% endmessage %}
 
 Here's a list of social outlets where you can seek help with our free plugins:
 
