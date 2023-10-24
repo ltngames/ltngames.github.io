@@ -59,16 +59,30 @@
 
   .media-card-load {
     border-radius: 5px 5px 0 0;
-    background-color: rgba(80, 80, 80, 0.75);
     background-size: cover;
     background-position: center;
     min-height: 300px;
     max-height: 300px;
+    animation: pulse 2.5s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      background-color: rgba(80, 80, 80, 0.3);
+    }
+
+    50% {
+      background-color: rgba(80, 80, 80, 0.75);
+    }
+
+    100% {
+      background-color: rgba(80, 80, 80, 0.3);
+    }
   }
 
   .media-card-load>img {
     opacity: 0;
-    transition: opacity 200ms ease-in-out;
+    transition: opacity 500ms ease-in-out;
   }
 
   .media-card-loaded>img {
@@ -76,8 +90,6 @@
   }
 
   .media-card img {
-    object-fit: cover;
-    object-position: center;
     border-radius: 5px 5px 0 0;
     min-height: 300px;
     max-height: 300px;
@@ -230,8 +242,8 @@
 
   imgDivs.forEach((imgDiv) => {
     const img = imgDiv.querySelector('img');
-    console.log(img);
     img.addEventListener('load', () => {
+      // imgDiv.classList.remove('media-card-load');
       imgDiv.classList.add('media-card-loaded');
     });
   });
