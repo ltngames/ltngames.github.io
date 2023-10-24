@@ -8,6 +8,17 @@ if (ITCH_API_KEY == null) {
   process.exit()
 }
 
+async function writePluginsData (data, isFree = false) {
+  const contents = JSON.stringify(data, null, 2)
+  let outDir = ''
+  if (isFree) {
+    outDir = `${__dirname}/src/_data/freePluginData.json`
+  } else {
+    outDir = `${__dirname}/src/_data/pluginData.json`
+  }
+  await fs.writeFile(outDir, contents, 'utf8')
+}
+
 ;(async () => {
   try {
     const itchResponse = await axios.get('https://itch.io/api/1/key/my-games', {
@@ -18,7 +29,8 @@ if (ITCH_API_KEY == null) {
     })
 
     const games = itchResponse.data.games
-    const paidPlugins = games.filter(p => p.min_price > 0 && p.published)
+    const freePlugins = games.filter(p => p.min_price <= 0 && p.published && p.classification === 'tool')
+    const paidPlugins = games.filter(p => p.min_price > 0 && p.published && p.classification === 'tool')
 
     const paidPluginData = paidPlugins.map(plugin => {
       const formatter = new Intl.NumberFormat('en-US', {
@@ -54,10 +66,18 @@ if (ITCH_API_KEY == null) {
       }
     })
 
+    const freePluginData = freePlugins.map(plugin => {
+      return {
+        title: plugin.title,
+        image: plugin.cover_url,
+        link: plugin.url,
+        description: plugin.short_text
+      }
+    })
+
     // write to file
-    const contents = JSON.stringify(paidPluginData, null, 2)
-    const outputDir = `${__dirname}/src/_data/pluginData.json`
-    await fs.writeFile(outputDir, contents, 'utf8')
+    await writePluginsData(freePluginData, true)
+    await writePluginsData(paidPluginData)
   } catch (error) {
     console.error(error);
   }
