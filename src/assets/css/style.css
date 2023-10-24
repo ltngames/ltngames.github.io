@@ -26,6 +26,12 @@
   /* Add a color transition */
 }
 
+@media (max-width: 1024px) {
+  .socials a {
+    color: #363636;
+  }
+}
+
 .socials a:hover {
   color: #cd7ce6c9;
   transform: scale(1.2);
