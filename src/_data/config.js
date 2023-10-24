@@ -11,6 +11,7 @@ module.exports = {
     twitter: 'https://twitter.com/ltngames',
     github: 'https://github.com/ltngames',
     facebook: 'https://www.facebook.com/ltngames/',
-    youtube: 'https://www.youtube.com/@ltn_games'
+    youtube: 'https://www.youtube.com/@ltn_games',
+    'itch-io': 'https://ltngames.itch.io/'
   }
 }
