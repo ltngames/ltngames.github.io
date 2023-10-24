@@ -12,6 +12,10 @@
   color: #FFF
 }
 
+.container {
+  min-height: 75vh;
+}
+
 .socials {
   font-size: 32px;
   transition: transform 0.3s ease;
