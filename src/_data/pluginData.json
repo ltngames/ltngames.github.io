@@ -5,8 +5,8 @@
     "link": "https://ltngames.itch.io/endless-runner-plugin",
     "description": "Duck, jump, and embark in a customizable endless runner mini-game!",
     "price": "$9.99",
-    "salePrice": 9.99,
-    "saleRate": null
+    "salePrice": 4.99,
+    "saleRate": 50
   },
   {
     "title": "Skip Video for RPG Maker MV",
@@ -14,8 +14,8 @@
     "link": "https://ltngames.itch.io/skip-video",
     "description": "Unlock the power to skip videos in RPG Maker, offering you greater control over the player's viewing experience.",
     "price": "$1.99",
-    "salePrice": 1.99,
-    "saleRate": null
+    "salePrice": 1,
+    "saleRate": 50
   },
   {
     "title": "Stat & Skill Levels for RPG Maker MZ",
@@ -23,8 +23,8 @@
     "link": "https://ltngames.itch.io/stat-skill-levels-plugin",
     "description": "Elevate your RPG with customizable stats and skills. Shape your game like never before.",
     "price": "$9.99",
-    "salePrice": 9.99,
-    "saleRate": null
+    "salePrice": 5.99,
+    "saleRate": 40
   },
   {
     "title": "Storage System for RPG Maker MZ",
@@ -32,8 +32,8 @@
     "link": "https://ltngames.itch.io/storage-system-plugin",
     "description": "Expand your world by seamlessly integrating an endless array of unique storage containers into your gameplay experience.",
     "price": "$6.99",
-    "salePrice": 6.99,
-    "saleRate": null
+    "salePrice": 4.19,
+    "saleRate": 40
   },
   {
     "title": "Waypoints for RPG Maker MV",
@@ -41,7 +41,7 @@
     "link": "https://ltngames.itch.io/waypoints-plugin",
     "description": "Explore your world with ease, unlocking the power of fast and convenient travel.",
     "price": "$4.99",
-    "salePrice": 4.99,
-    "saleRate": null
+    "salePrice": 2.49,
+    "saleRate": 50
   }
 ]
