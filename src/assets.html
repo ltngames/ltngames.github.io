@@ -57,7 +57,27 @@
     width: 100%;
   }
 
+  .media-card-load {
+    border-radius: 5px 5px 0 0;
+    background-color: rgba(80, 80, 80, 0.75);
+    background-size: cover;
+    background-position: center;
+    min-height: 300px;
+    max-height: 300px;
+  }
+
+  .media-card-load>img {
+    opacity: 0;
+    transition: opacity 200ms ease-in-out;
+  }
+
+  .media-card-loaded>img {
+    opacity: 100;
+  }
+
   .media-card img {
+    object-fit: cover;
+    object-position: center;
     border-radius: 5px 5px 0 0;
     min-height: 300px;
     max-height: 300px;
@@ -139,9 +159,9 @@
     <!--  Free Plugins   -->
     <!-- --------------- -->
     {% for plugin in freePluginData %}
-    <div id="free" class="media-card">
-      <div class="media-card-img">
-        <img src="{{plugin.image}}" alt="Plugin Image">
+    <div class="media-card" data-type="free">
+      <div class="media-card-load">
+        <img src="{{plugin.image}}" loading="lazy" alt="Plugin Image">
       </div>
 
       <div class="media-card-content">
@@ -162,9 +182,9 @@
     <!-- --------------- -->
     {% for plugin in pluginData %}
 
-    <div id="premium" class="media-card">
-      <div class="media-card-img">
-        <img src="{{plugin.image}}" alt="Plugin Image">
+    <div class="media-card" data-type="premium">
+      <div class="media-card-load">
+        <img src="{{plugin.image}}" loading="lazy" alt="Plugin Image">
       </div>
 
       <div class="media-card-content">
@@ -193,6 +213,7 @@
 </div>
 
 <script>
+  const imgDivs = document.querySelectorAll('.media-card-load');
   const tabButtons = document.querySelectorAll('.tabs li');
   let filter = 'premium';
 
@@ -207,14 +228,20 @@
     });
   });
 
+  imgDivs.forEach((imgDiv) => {
+    const img = imgDiv.querySelector('img');
+    console.log(img);
+    img.addEventListener('load', () => {
+      imgDiv.classList.add('media-card-loaded');
+    });
+  });
+
   function updatePlugins () {
     const allPlugins = document.querySelectorAll('.media-card');
     allPlugins.forEach((plugin) => {
-      if (filter === 'paid' && plugin.id.includes('premium')) {
-        plugin.style.display = 'flex';
-      } else if (filter === 'free' && plugin.id.includes('free')) {
-        plugin.style.display = 'flex';
-      } else if (filter === 'all') {
+      const type = plugin.getAttribute('data-type');
+      if ((filter === 'paid' && type === 'premium') || (filter === 'free' && type === 'free')
+        || filter === 'all') {
         plugin.style.display = 'flex';
       } else {
         plugin.style.display = 'none';
