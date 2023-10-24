@@ -10,6 +10,8 @@ module.exports = {
   ],
   socials: {
     twitter: 'https://twitter.com/ltngames',
-    github: 'https://github.com/ltngames'
+    github: 'https://github.com/ltngames',
+    facebook: 'https://www.facebook.com/ltngames/',
+    youtube: 'https://www.youtube.com/@ltn_games'
   }
 }

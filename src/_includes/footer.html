@@ -1,6 +1,15 @@
 <footer class="footer">
   <div class="content has-text-centered">
+    <div class="socials">
+      {% for social in config.socials %}
+      <a href="{{social[1]}}">
+        <i class="fa-brands fa-{{social[0]}}"></i>
+      </a>
+      {% endfor %}
+    </div>
+    <br>
     <p>
-      <strong>Copyright © 2018 - 2023 · All rights reserved</strong>
+      Copyright © 2018 - 2023 · All rights reserved
+    </p>
   </div>
 </footer>

@@ -11,3 +11,30 @@
 .hero-body .subtitle {
   color: #FFF
 }
+
+.socials {
+  font-size: 32px;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.socials a {
+  color: #ffffff;
+  display: inline-block;
+  margin-right: 1rem;
+  transition: color 0.3s ease;
+  /* Add a color transition */
+}
+
+.socials a:hover {
+  color: #cd7ce6c9;
+  transform: scale(1.2);
+}
+
+.footer .socials {
+  font-size: 32px;
+}
+
+.footer .socials a {
+  color: #363636;
+}
