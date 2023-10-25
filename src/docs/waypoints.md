@@ -13,7 +13,7 @@ Before using this plugin, you need to configure its parameters, including defini
 
 __Parameters For fine tuning waypoint transfer common event:__
 
- ![Parameters For Common Event Tuning](/assets/img/docs/waypoints/common_event_parameters.png)
+ ![Parameters For Common Event Tuning](/static/img/docs/waypoints/common_event_parameters.png)
 
  ### Waypoint Setup
 When setting up waypoints in your game, you have a couple of options to choose from, depending on your preferences and the version of the plugin you're using. Waypoints provide players with the ability to "fast travel" to different locations within your game, similar to how it's done in games like Diablo 2. Here, we'll explore two methods for creating and managing your waypoints.
@@ -21,7 +21,7 @@ When setting up waypoints in your game, you have a couple of options to choose f
  ##### 1. Via Plugin Parameters (Recommended)
 This is the latest and most user-friendly approach for creating waypoints, particularly in the newer version (v1.1) of the plugin. It streamlines the process and is ideal for getting started quickly. With the introduction of the "Waypoint Templates" parameter, you can easily set up and manage your waypoints without the need for lengthy plugin commands.
 
-![Waypoint Template](/assets/img/docs/waypoints/template.png)
+![Waypoint Template](/static/img/docs/waypoints/template.png)
 
  After configuring your Waypoint template, the next step is to actually add Waypoints to your game based on this template.
 
@@ -48,7 +48,7 @@ __Example:__
 
 __Common Event Example:__
 
-  ![Starting Waypoint Common Event](/assets/img/docs/waypoints/starting_waypoint_common_event.png)
+  ![Starting Waypoint Common Event](/static/img/docs/waypoints/starting_waypoint_common_event.png)
 
 
  ### Setup Background Image
@@ -58,7 +58,7 @@ __Common Event Example:__
 
  ## Parameters
 
-![All Parameters](/assets/img/docs/waypoints/parameters.png)
+![All Parameters](/static/img/docs/waypoints/parameters.png)
 
 ### General Options
 
@@ -87,7 +87,7 @@ See [Waypoint Templates](#waypoint-templates)
 
 `Picture Placeholder Color` - The color of the placeholder rectangle. Hex Color Code eg: #fffff
 
-![Placeholder](/assets/img/docs/waypoints/placeholder.png)
+![Placeholder](/static/img/docs/waypoints/placeholder.png)
 
 `Scene Background` - The background image for the waypoints scene. Leave name empty if you don't want to use a background.
 

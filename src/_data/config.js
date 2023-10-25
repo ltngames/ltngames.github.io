@@ -1,6 +1,6 @@
 module.exports = {
   title: 'LTN Games | Indie Studio',
-  logo: '/assets/img/logo-small.png',
+  logo: '/static/img/logo-small.png',
   navbarItems: [
     { text: 'Games', href: '/games'},
     { text: 'Assets', href: '/assets'},

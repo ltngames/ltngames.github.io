@@ -3,7 +3,7 @@ title: Stat And Skills Plugin Documentation
 layout: documentation.html
 ---
 
-![banner](/assets/img/docs/stat-and-skills/skill_and_stat_levels-banner.png)
+![banner](/static/img/docs/stat-and-skills/skill_and_stat_levels-banner.png)
 
 
 ## Getting Started
@@ -16,7 +16,7 @@ To get started, first set up the plugin's parameters by setting up custom stats 
 Custom stats are additional parameters like Atk, Def, M Def, etc which can be
 leveled up via stat points and in their own custom level-up scene.
 
-![custom-stat-image](/assets/img/docs/stat-and-skills/custom_stat_parameter.png)
+![custom-stat-image](/static/img/docs/stat-and-skills/custom_stat_parameter.png)
 
 
 ##### Custom Skills
@@ -29,7 +29,7 @@ For example, if you create a skill named speech, and its initial level formula i
 - With a charisma level of 10 when initialy learned
 - Initial level will be 2 + 20 = 22
 
-![custom-skill-image](/assets/img/docs/stat-and-skills/custom_skill_parameter.png)
+![custom-skill-image](/static/img/docs/stat-and-skills/custom_skill_parameter.png)
 
 
 ## Formulas
@@ -62,7 +62,7 @@ When adding or removing a skill point use the left and right arrows but when you
 - `Right or Left Arrow` - Will level up the selected skill or stat
 - `Shift + Right or Left Arrow` - Moves cursor to skill or stat window
 
-![custom-stat-image](/assets/img/docs/stat-and-skills/howto_window_move_keyboard.png)
+![custom-stat-image](/static/img/docs/stat-and-skills/howto_window_move_keyboard.png)
 
 ##### Add Menu Command via VisuStella
 

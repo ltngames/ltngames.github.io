@@ -5,7 +5,7 @@ layout: documentation.html
 
 An endless runner! Duck or jump over obstacles to earn points in this mini-game plugin for RPG Maker MV. Give your players a chance to unwind from saving the world and let them have fun in this easy-to-use mini-game.
 
-![Cover Image](/assets//img/docs/endless-runner/cover.png)
+![Cover Image](/static//img/docs/endless-runner/cover.png)
 
 ## Getting Started
 
@@ -40,7 +40,7 @@ For in-depth guidance on each step, refer to the remaining sections in this manu
 
 When setting up your character sprite, ensure it includes animations for normal movement, jumping, ducking, dashing, and death. You can customize various aspects in the plugin's parameters:
 
-![Character Sprite Parameters](/assets//img/docs/endless-runner/spritesheet_param.png)
+![Character Sprite Parameters](/static//img/docs/endless-runner/spritesheet_param.png)
 
 **Frame Width & Height:**
    - This determines the size of each frame. You can freely create both large and small characters and adjust the frame size to ensure it's correctly rendered in the game.
@@ -56,7 +56,7 @@ When setting up your character sprite, ensure it includes animations for normal 
 
 **Example Spritesheet:**
 
-![Sample Spritesheet](/assets//img/docs/endless-runner/example_spritesheet.png)
+![Sample Spritesheet](/static//img/docs/endless-runner/example_spritesheet.png)
 
 Customize your character sprite's animations to make your game visually engaging and interactive.
 
@@ -64,7 +64,7 @@ Customize your character sprite's animations to make your game visually engaging
 
 Levels serve as containers holding various elements, including background images, obstacles, background objects, collectibles, music, and the difficulty progression.
 
-![Level Parameters](/assets//img/docs/endless-runner/level_param.png)
+![Level Parameters](/static//img/docs/endless-runner/level_param.png)
 
 Your primary focus, in terms of configuration, will revolve around setting up each level to provide a unique gaming experience. Here's what you need to know:
 
@@ -80,17 +80,17 @@ To switch to a different level, adjust the level variable in the plugin's parame
 **Jump Obstacles:**
 - These are obstacles that players need to jump over. They are placed on top of the ground image, similar to the player. Successfully passing them earns the player a score boost.
 
-![Jump Obstacle Example](/assets//img/docs/endless-runner/jump_obstacle_example.png)
+![Jump Obstacle Example](/static//img/docs/endless-runner/jump_obstacle_example.png)
 
 **Duck Obstacles:**
 - These obstacles require players to duck underneath them. They are positioned at the top of the screen. Just like jump obstacles, passing them adds to the player's score.
 
-![Duck Obstacle Example](/assets//img/docs/endless-runner/duck_obstacle_example.png)
+![Duck Obstacle Example](/static//img/docs/endless-runner/duck_obstacle_example.png)
 
 **Moving Obstacles:**
 - These obstacles move vertically, going up and down during gameplay. They start at the top and move down to the ground before rising again. Passing these obstacles successfully also contributes to the player's score.
 
-![Moving Obstacle Example](/assets//img/docs/endless-runner/move_obstacle_example.png)
+![Moving Obstacle Example](/static//img/docs/endless-runner/move_obstacle_example.png)
 
 **Background Objects:**
 - These decorative elements appear behind other obstacles. They are positioned on the ground, similar to jump obstacles or the player. Background objects don't affect the player's health or trigger collisions; they are purely for decoration.
@@ -98,18 +98,18 @@ To switch to a different level, adjust the level variable in the plugin's parame
 **Collectibles:**
 - Collectibles are similar to regular obstacles but with additional functionality. They execute a list of script calls that can either harm the player or boost their life. The specific effects are defined in the actions list of the collectible.
 
-![Collectibles Example](/assets//img/docs/endless-runner/collectibles_example.png)
+![Collectibles Example](/static//img/docs/endless-runner/collectibles_example.png)
 
 **Obstacle Padding:**
 - Obstacle padding ensures that jump, duck, and moving obstacles don't overlap. The value is specified in pixels. For example, setting it to 200 pixels ensures each obstacle has approximately a 200-pixel gap between them.
 
-![Obstacle Padding Example](/assets//img/docs/endless-runner/obstacle_padding_example.png)
+![Obstacle Padding Example](/static//img/docs/endless-runner/obstacle_padding_example.png)
 
 Configure these elements to create diverse and engaging levels for your game.
 
 ### Setting Up An Obstacle
 
-![Obstacle Parameters](/assets//img/docs/endless-runner/obstacle_param.png)
+![Obstacle Parameters](/static//img/docs/endless-runner/obstacle_param.png)
 
 **Obstacle Image:**
 - This is the image used for the obstacle.
@@ -142,7 +142,7 @@ Configure these elements to create diverse and engaging levels for your game.
 
 Level progression is crucial for adjusting the game's difficulty as players progress. If you want the level to become more challenging as the player reaches a specific score, follow these steps:
 
-![Progression Parameters](/assets//img/docs/endless-runner/progression_param.png)
+![Progression Parameters](/static//img/docs/endless-runner/progression_param.png)
 
 This is a basic setup. You need to do the following:
 
@@ -198,13 +198,13 @@ custom($gameVariables.setValue(1, true))
 
 If your mini-game uses unique graphics, you may need to tailor the collision boxes for each obstacle and the player.
 
-![Collision Parameters](/assets//img/docs/endless-runner/collider_param.png)
+![Collision Parameters](/static//img/docs/endless-runner/collider_param.png)
 
 ## Debugging Collision Boxes
 
 For ease in adjusting your collision boxes during playtesting, enable "Debug Collision Boxes" to visualize the boxes surrounding each obstacle and the player.
 
-![Collision Debug Example](/assets//img/docs/endless-runner/collision_debug_example.png)
+![Collision Debug Example](/static//img/docs/endless-runner/collision_debug_example.png)
 
 ## Plugin Commands
 
