@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+
+<head>
+  <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+  <script src="https://kit.fontawesome.com/a4acccbcb3.js" crossorigin="anonymous"></script>
+</head>
+{% include 'header.html' %}
+<div id="content" class="container is-max-desktop">
+  <div class="content">
+    <div class="section">
+      <div class="columns">
+        <div class="column">
+          <h1 class="title"> {{ title }} </h1>
+          <h3> {{ subtitle }} </h3>
+          <table class="table">
+            <tbody>
+              <tr>
+                <td><strong>Category</strong></td>
+                <td>{{category}}</td>
+              </tr>
+              <tr>
+                <td><strong>Engine</strong></td>
+                <td>
+                  {% for engine in engines %}
+                  <span class="tag is-primary">{{engine}}</span>
+                  {% endfor %}
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Tags</strong></td>
+                <td>
+                 {% for tag in tags %}
+                    <span class="tag is-light">{{tag}}</span>
+                    </td>
+                 {% endfor %}
+                </td>
+              </tr>
+              <tr>
+                <td><strong>License</strong></td>
+                <td>MIT</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="column">
+          <figure class="image is-4by3">
+            <img src="{{image}}">
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% include 'footer.html' %}
+
+</html>
