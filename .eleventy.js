@@ -28,7 +28,7 @@ module.exports = function (config) {
     `;
   });
 
-  config.addPassthroughCopy('src/assets/')
+  config.addPassthroughCopy('static/')
   return {
     dir: {
       input: "src",
