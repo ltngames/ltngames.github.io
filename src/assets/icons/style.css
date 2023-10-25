@@ -1,0 +1,71 @@
+*[class^="iconoir-"]::before,
+*[class*=" iconoir-"]::before {
+  content: " ";
+  display: block;
+  background: currentColor;
+  mask-size: cover;
+  -webkit-mask-size: cover;
+  width: 1em;
+  height: 1em;
+}
+
+*[class^="iconoir-"],
+*[class*=" iconoir-"] {
+  display: inline-block;
+}
+
+
+.iconoir-facebook::before {
+  mask-image: url('facebook.svg');
+  -webkit-mask-image: url('facebook.svg');
+}
+
+.iconoir-x::before {
+  mask-image: url('x.svg');
+  -webkit-mask-image: url('x.svg');
+}
+
+.iconoir-twitter::before {
+  mask-image: url('twitter.svg');
+  -webkit-mask-image: url('twitter.svg');
+}
+
+.iconoir-youtube::before {
+  mask-image: url('youtube.svg');
+  -webkit-mask-image: url('youtube.svg');
+}
+
+.iconoir-github::before {
+  mask-image: url('github.svg');
+  -webkit-mask-image: url('github.svg');
+}
+
+.iconoir-itch::before {
+  mask-image: url('itchdotio.svg');
+  -webkit-mask-image: url('itchdotio.svg');
+}
+
+.iconoir-html5::before {
+  mask-image: url('html5.svg');
+  -webkit-mask-image: url('html5.svg');
+}
+
+.iconoir-haxe::before {
+  mask-image: url('haxe.svg');
+  -webkit-mask-image: url('haxe.svg');
+}
+
+.iconoir-javascript::before {
+  mask-image: url('javascript.svg');
+  -webkit-mask-image: url('javascript.svg');
+}
+
+.iconoir-cplusplus::before {
+  mask-image: url('cplusplus.svg');
+  -webkit-mask-image: url('cplusplus.svg');
+}
+
+.iconoir-css3::before {
+  mask-image: url('css3.svg');
+  -webkit-mask-image: url('css3.svg');
+}
