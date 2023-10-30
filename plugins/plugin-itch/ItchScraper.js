@@ -40,6 +40,7 @@ async function itchProduct (productSlug, opts) {
 }
 
 module.exports = {
+  itchProduct,
   async getDescription (productSlug, opts) {
     const productData = await itchProduct(productSlug, opts)
     return productData.descriptionHtml;
