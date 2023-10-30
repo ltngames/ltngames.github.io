@@ -41,7 +41,7 @@ module.exports = {
         }, options.delay);
       });
 
-      const description = await new Promise(resolve => {
+      const pageContent = await new Promise(resolve => {
         setTimeout(() => {
           resolve(getDescription(productSlug, options));
         }, options.delay);
@@ -54,11 +54,10 @@ module.exports = {
       });
 
       data.push({
-        title: product.title,
-        slug: productSlug,
         metadata,
-        description,
+        pageContent,
         screenshots,
+        ...product
       })
     }
 

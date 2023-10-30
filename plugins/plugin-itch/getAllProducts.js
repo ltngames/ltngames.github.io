@@ -1,13 +1,13 @@
 const fs = require('fs/promises');
 const axios = require('axios');
 
-const ITCH_API_KEY = process.env.ITCH_KEY
-
 module.exports = async function getAllProducts(options) {
-  if (ITCH_API_KEY == null) {
+  if (process.env.ITCH_KEY == null || options.itchKey === null) {
     console.error('Unable to find itch.io API key')
     process.exit()
   }
+
+  const ITCH_API_KEY = process.env.ITCH_KEY || options.itchKey
 
   try {
     const itchResponse = await axios.get('https://itch.io/api/1/key/my-games', {
@@ -17,7 +17,11 @@ module.exports = async function getAllProducts(options) {
       }
     })
 
-    const games = itchResponse.data.games
+    let games = itchResponse.data.games
+
+    if (options.filter) {
+      games = games.filter(options.filter)
+    }
 
     const productsData = games.map(product => {
       const formatter = new Intl.NumberFormat('en-US', {
@@ -44,19 +48,20 @@ module.exports = async function getAllProducts(options) {
       return {
         title: product.title,
         id: product.id,
-        image: product.cover_url,
+        thumbnail: product.cover_url,
         link: product.url,
         slug: product.url.split('/').pop(),
-        description: product.short_text,
+        shortText: product.short_text,
         price: formattedMinPrice,
         salePrice: minPrice - (minPrice * saleRate / 100).toFixed(2),
         isPublished: product.published,
         publishedAt: product.published_at,
-        isPaid: product.can_be_bought,
+        isPaid: minPrice,
         purchases: product.purchases_count,
         downloads: product.downloads_count,
         views: product.views_count,
         type: product.type,
+        classification: product.classification,
         isSale: product.sale,
         saleRate,
       }
