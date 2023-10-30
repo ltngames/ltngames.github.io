@@ -1,0 +1,51 @@
+@import "./bulma.css";
+@import "/static/icons/style.css";
+
+.hero.is-gradient {
+  background: linear-gradient(305deg, rgb(91, 89, 89) 0%, rgb(86, 86, 86) 100%);
+}
+
+.hero-body .title {
+  color: #FFF
+}
+
+.hero-body .subtitle {
+  color: #FFF
+}
+
+.container {
+  min-height: 75vh;
+}
+
+.socials {
+  font-size: 32px;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.socials a {
+  color: #ffffff;
+  display: inline-block;
+  margin-right: 1rem;
+  transition: color 0.3s ease;
+  /* Add a color transition */
+}
+
+@media (max-width: 1024px) {
+  .socials a {
+    color: #363636;
+  }
+}
+
+.socials a:hover {
+  color: #cd7ce6c9;
+  transform: scale(1.2);
+}
+
+.footer .socials {
+  margin-bottom: 1rem;
+}
+
+.footer .socials a {
+  color: #363636;
+}

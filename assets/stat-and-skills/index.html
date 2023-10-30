@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+
+<head>
+  <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+  <script src="https://kit.fontawesome.com/a4acccbcb3.js" crossorigin="anonymous"></script>
+</head>
+<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+      <img id="logo" src="/static/img/logo-small.png" height="95">
+    </a>
+
+    <a id="mainMenuBurger" role="button" class="navbar-burger is-dark" aria-label="menu" aria-expanded="false" data-target="mainMenu">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="mainMenu" class="navbar-menu">
+    <div class="navbar-start" id="navbar-links">
+      
+
+      
+      <a class="navbar-item" href="/games">Games</a>
+      
+      
+
+      
+      <a class="navbar-item" href="/assets">Assets</a>
+      
+      
+
+      
+      <a class="navbar-item" href="/about">About</a>
+      
+      
+
+      
+      <a class="navbar-item" href="/support">Support</a>
+      
+      
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="socials">
+          
+          <a href="https://twitter.com/ltngames">
+            <i class="iconoir-twitter"></i>
+          </a>
+          
+          <a href="https://github.com/ltngames">
+            <i class="iconoir-github"></i>
+          </a>
+          
+          <a href="https://www.facebook.com/ltngames/">
+            <i class="iconoir-facebook"></i>
+          </a>
+          
+          <a href="https://www.youtube.com/@ltn_games">
+            <i class="iconoir-youtube"></i>
+          </a>
+          
+          <a href="https://ltngames.itch.io/">
+            <i class="iconoir-itch"></i>
+          </a>
+          
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+<script>
+  const mainMenu = document.getElementById('mainMenu');
+  const navbarBurger = document.getElementById('mainMenuBurger');
+
+  navbarBurger.addEventListener('click', (event) => {
+    mainMenuBurger.classList.toggle('is-active');
+    mainMenu.classList.toggle('is-active');
+  });
+</script>
+<div id="content" class="container is-max-desktop">
+  <div class="content">
+    <div class="section">
+      <div class="columns">
+        <div class="column">
+          <h1 class="title"> Stat And Skill System </h1>
+          <h3>  </h3>
+          <table class="table">
+            <tbody>
+              <tr>
+                <td><strong>Category</strong></td>
+                <td>Plugin</td>
+              </tr>
+              <tr>
+                <td><strong>Engine(s)</strong></td>
+                <td>
+                  
+                  <span class="tag is-primary">RPG Maker MV</span>
+                  
+                  <span class="tag is-primary">RPG Maker MZ</span>
+                  
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Tags</strong></td>
+                <td>
+                  
+                  <span class="tag is-light">stats</span>
+                  
+                  <span class="tag is-light">skills</span>
+                  
+                  <span class="tag is-light">battle</span>
+                  
+                </td>
+              </tr>
+              <tr>
+                <td><strong>License(s)</strong></td>
+                <td>
+                  
+                  <a href="/terms-of-use">Proprietary</a>
+                  
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="column">
+          <figure class="image is-4by3">
+            <img src="https://img.itch.zone/aW1nLzg4OTc4NzMucG5n/315x250%23c/4Hz11f.png">
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="footer">
+  <div class="content has-text-centered mt-auto">
+    <div class="socials">
+      
+      <a href="https://twitter.com/ltngames">
+        <i class="iconoir-twitter"></i>
+      </a>
+      
+      <a href="https://github.com/ltngames">
+        <i class="iconoir-github"></i>
+      </a>
+      
+      <a href="https://www.facebook.com/ltngames/">
+        <i class="iconoir-facebook"></i>
+      </a>
+      
+      <a href="https://www.youtube.com/@ltn_games">
+        <i class="iconoir-youtube"></i>
+      </a>
+      
+      <a href="https://ltngames.itch.io/">
+        <i class="iconoir-itch"></i>
+      </a>
+      
+    </div>
+    <br>
+    <p>
+      Copyright © 2018 - 2023 · All rights reserved
+    </p>
+  </div>
+</footer>
+
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+
+<head>
+  <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+</head>
+<style>
+  .content {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .content pre {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+    padding: 1.25em 1.5em;
+    white-space: pre;
+    word-wrap: normal;
+    background-color: rgba(204, 204, 204, 0.685);
+    border-radius: 8px;
+  }
+</style>
+<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+      <img id="logo" src="/static/img/logo-small.png" height="95">
+    </a>
+
+    <a id="mainMenuBurger" role="button" class="navbar-burger is-dark" aria-label="menu" aria-expanded="false" data-target="mainMenu">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="mainMenu" class="navbar-menu">
+    <div class="navbar-start" id="navbar-links">
+      
+
+      
+      <a class="navbar-item" href="/games">Games</a>
+      
+      
+
+      
+      <a class="navbar-item" href="/assets">Assets</a>
+      
+      
+
+      
+      <a class="navbar-item" href="/about">About</a>
+      
+      
+
+      
+      <a class="navbar-item" href="/support">Support</a>
+      
+      
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="socials">
+          
+          <a href="https://twitter.com/ltngames">
+            <i class="iconoir-twitter"></i>
+          </a>
+          
+          <a href="https://github.com/ltngames">
+            <i class="iconoir-github"></i>
+          </a>
+          
+          <a href="https://www.facebook.com/ltngames/">
+            <i class="iconoir-facebook"></i>
+          </a>
+          
+          <a href="https://www.youtube.com/@ltn_games">
+            <i class="iconoir-youtube"></i>
+          </a>
+          
+          <a href="https://ltngames.itch.io/">
+            <i class="iconoir-itch"></i>
+          </a>
+          
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+<script>
+  const mainMenu = document.getElementById('mainMenu');
+  const navbarBurger = document.getElementById('mainMenuBurger');
+
+  navbarBurger.addEventListener('click', (event) => {
+    mainMenuBurger.classList.toggle('is-active');
+    mainMenu.classList.toggle('is-active');
+  });
+</script>
+<div id="content" class="container is-max-desktop">
+  <div class="content">
+    <h1> Terms of Use </h1>
+    <h3>  </h3>
+    <h2 id="rpg-maker-mv-plugin-terms" tabindex="-1">RPG Maker MV Plugin Terms</h2>
+<h3 id="free-plugins" tabindex="-1">Free Plugins</h3>
+<p>Our free plugins are designed for the RPG Maker community to facilitate learning and
+provide access to high-quality plugins for use in both games and hobby projects.</p>
+<p><strong>Free Plugins</strong> (bearing the &quot;FeniX Engine&quot; logo or name) are released under the
+<strong>MIT License</strong> and are freely available for use in any project.</p>
+<p><strong>You are permitted to:</strong></p>
+<ul>
+<li>Use them without restrictions in hobby and commercial projects.</li>
+<li>Modify, adapt, and create derivative works to be used or sold as your own plugins</li>
+<li>or creations.</li>
+</ul>
+<p><em>While it is not mandatory, we appreciate crediting or providing a direct link back
+to the original source.</em></p>
+<hr>
+<h3 id="premium-plugins" tabindex="-1">Premium Plugins</h3>
+<p>Premium plugins can be obtained through our <a href="https://ltngames.itch.io/">itch.io portal</a>,
+and they are governed by a distinct set of terms.</p>
+<p><strong>You are permitted to:</strong></p>
+<ul>
+<li>Utilize them in both hobby and commercial game development projects without limitations.</li>
+<li>Modify, adapt, and create derivative works for use in your own hobby or commercial</li>
+<li>game development projects.</li>
+</ul>
+<p><strong>You are not permitted to:</strong></p>
+<ul>
+<li>Trade or sell any code contained within the plugin files.</li>
+<li>Duplicate the plugin(s) for distribution, sale, or trade to unauthorized consumers.</li>
+<li>Adapt or copy code for use in your own distributed plugin(s).</li>
+</ul>
+<hr>
+<h3 id="price%2Fproduct-changes" tabindex="-1">Price/Product Changes</h3>
+<p><strong>LTN Games</strong> retains the right to modify or discontinue any product with or without
+prior notice. Additionally, <strong>LTN Games</strong> may introduce new products or services
+without prior notice. The prices of our products may be subject to change at any time,
+and these changes will be communicated by posting updates on the <strong>LTN Games</strong>
+website or itch.io portal.</p>
+
+  </div>
+</div>
+<footer class="footer">
+  <div class="content has-text-centered mt-auto">
+    <div class="socials">
+      
+      <a href="https://twitter.com/ltngames">
+        <i class="iconoir-twitter"></i>
+      </a>
+      
+      <a href="https://github.com/ltngames">
+        <i class="iconoir-github"></i>
+      </a>
+      
+      <a href="https://www.facebook.com/ltngames/">
+        <i class="iconoir-facebook"></i>
+      </a>
+      
+      <a href="https://www.youtube.com/@ltn_games">
+        <i class="iconoir-youtube"></i>
+      </a>
+      
+      <a href="https://ltngames.itch.io/">
+        <i class="iconoir-itch"></i>
+      </a>
+      
+    </div>
+    <br>
+    <p>
+      Copyright © 2018 - 2023 · All rights reserved
+    </p>
+  </div>
+</footer>
+</html>

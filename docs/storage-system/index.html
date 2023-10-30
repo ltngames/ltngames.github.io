@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+
+<head>
+  <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+</head>
+<style>
+  .docs-menu {
+    display: block;
+    padding: 2rem;
+    margin: 1rem;
+    max-height: 100vh;
+    max-width: 325px;
+    min-width: 275px;
+    overflow-y: auto;
+    z-index: 999;
+    background-color: #ffffff;
+  }
+
+  .docs-toggles {
+    display: none;
+    justify-content: space-between;
+    padding: 0.5rem 0.5rem;
+    height: 45px;
+    width: auto;
+    background-color: #a7a7a74f;
+    z-index: 1000;
+  }
+
+  @media screen and (max-width: 769px) {
+    .docs-menu.mobile {
+      display: none;
+    }
+
+    .docs-toggles {
+      display: block;
+    }
+  }
+
+  .content {
+    margin: 1rem 12rem 2rem 4rem;
+  }
+
+  @media screen and (max-width: 1200px) {
+    .content {
+      margin-right: 4rem;
+    }
+  }
+
+  .content .title {
+    margin-bottom: 3rem;
+    font-size: 2.2rem;
+  }
+
+  .content h2 {
+    position: relative;
+    display: block;
+    font-weight: 600;
+    line-height: 2;
+  }
+
+  .content h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #5050503f;
+  }
+
+  hr {
+    background-color: #dddddd;
+  }
+
+  .content pre {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+    padding: 1.25em 1.5em;
+    white-space: pre;
+    word-wrap: normal;
+    background-color: rgba(204, 204, 204, 0.685);
+    border-radius: 8px;
+  }
+
+  .is-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+  }
+
+  .is-hidden {
+    display: none
+  }
+</style>
+<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+      <img id="logo" src="/static/img/logo-small.png" height="95">
+    </a>
+
+    <a id="mainMenuBurger" role="button" class="navbar-burger is-dark" aria-label="menu" aria-expanded="false" data-target="mainMenu">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="mainMenu" class="navbar-menu">
+    <div class="navbar-start" id="navbar-links">
+      
+
+      
+      <a class="navbar-item" href="/games">Games</a>
+      
+      
+
+      
+      <a class="navbar-item" href="/assets">Assets</a>
+      
+      
+
+      
+      <a class="navbar-item" href="/about">About</a>
+      
+      
+
+      
+      <a class="navbar-item" href="/support">Support</a>
+      
+      
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="socials">
+          
+          <a href="https://twitter.com/ltngames">
+            <i class="iconoir-twitter"></i>
+          </a>
+          
+          <a href="https://github.com/ltngames">
+            <i class="iconoir-github"></i>
+          </a>
+          
+          <a href="https://www.facebook.com/ltngames/">
+            <i class="iconoir-facebook"></i>
+          </a>
+          
+          <a href="https://www.youtube.com/@ltn_games">
+            <i class="iconoir-youtube"></i>
+          </a>
+          
+          <a href="https://ltngames.itch.io/">
+            <i class="iconoir-itch"></i>
+          </a>
+          
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+<script>
+  const mainMenu = document.getElementById('mainMenu');
+  const navbarBurger = document.getElementById('mainMenuBurger');
+
+  navbarBurger.addEventListener('click', (event) => {
+    mainMenuBurger.classList.toggle('is-active');
+    mainMenu.classList.toggle('is-active');
+  });
+</script>
+<div id="docsToggles" class="docs-toggles is-sticky">
+  <button class="button is-primary is-light bd-fat-button is-small" id="docsNavButton">Show menu</button>
+</div>
+<div class="docs columns">
+  <div id="docsNav" class="docs-menu column is-sticky mobile">
+    <aside class="menu" >
+        <ul class="menu-list" class="menu-list"><li><a href="#getting-started">Getting Started</a></li><li><a href="#plugin-parameters">Plugin Parameters</a></li><li><a href="#plugin-commands">Plugin Commands</a></li><li><a href="#script-calls">Script Calls</a><ul class="menu-list" class="menu-list"><li><a href="#create-a-container">Create a Container</a></li><li><a href="#remove-a-container">Remove a Container</a></li><li><a href="#check-if-container-exists">Check if Container Exists</a></li><li><a href="#fetch-a-container">Fetch a Container</a></li><li><a href="#container-script-calls">Container Script Calls</a><ul class="menu-list" class="menu-list"><li><a href="#check-the-amount-of-items">Check the amount of items</a></li><li><a href="#check-if-you-can-add-an-item">Check if you can add an item</a></li><li><a href="#change-max-amount">Change max amount</a></li><li><a href="#check-amount-of-a-specific-item">Check amount of a specific item</a></li><li><a href="#add-an-item">Add an item</a></li><li><a href="#remove-an-item">Remove an item</a></li></ul class="menu-list"></li></ul class="menu-list"></li><li><a href="#terms-of-use">Terms Of Use</a></li><li><a href="#support">Support</a></li><li><a href="#bug-reports">Bug Reports</a></li></ul class="menu-list">
+      </aside>
+  </div>
+
+  <div class="container column">
+    <div id="content" class="content">
+      <h1 class="title"> Storage System Plugin Documentation </h1>
+      <h3 class="subtitle has-text-centered">  </h3>
+      <p>This plugin provides a way to have an unlimited amount of storage containers
+in your game, giving the player the ability to save items into containers
+around your game's world.</p>
+<p>This plugin provides a way to have an unlimited amount of storage containers in your game, giving the player the ability to save items into containers around your game's world.</p>
+<h2 id="getting-started" tabindex="-1">Getting Started</h2>
+<ol>
+<li>Create a storage container using the command: <code>Create Storage Container</code></li>
+<li>Use the command: <code>Open Scene</code> to open the storage scene</li>
+</ol>
+<p>Alternatively, you can use the plugin command: <code>OpenScene</code> to create a container and open the scene all in one go. The <code>Open Scene</code> command will create a container if the ID does not already exist, otherwise, it will open the existing container.</p>
+<p>You can also create container presets in the plugin's parameters. These presets will be auto-created on a new game, or you can disable auto-creation in the plugin parameters and use the plugin command: <code>Setup Presets</code> to do it manually.</p>
+<h2 id="plugin-parameters" tabindex="-1">Plugin Parameters</h2>
+<ul>
+<li><code>Container Presets</code>: Preset containers that you can use for containers in your world. These preset containers will have items, weapons, and armors that you decide they should have.</li>
+<li><code>Item Presets</code>: A set of items which can be used with the <code>Open Scene</code> command to fill a container with.</li>
+<li><code>Auto Create Presets</code>: If this is set to true, the plugin will automatically create all container presets you have created in the plugin parameters.</li>
+<li><code>Quantity Window Amount</code>: The amount of an item required before the quantity window will be displayed. If an item has less than the default amount, the item will be added to the container without the quantity window.</li>
+<li><code>Withdraw Term</code>: The term used for the help window when using the withdraw command.</li>
+<li><code>Deposit Term</code>: The term used for the help window when using the deposit command.</li>
+<li><code>Quantity Window Term</code>: The term used for the quantity window when choosing an amount.</li>
+</ul>
+<h2 id="plugin-commands" tabindex="-1">Plugin Commands</h2>
+<ul>
+<li><code>OpenScene</code>: This command will open the transfer scene for a specific storage container. If you use an ID and the container does not exist, then an empty container with the ID will be created to prevent the game from crashing.</li>
+<li><code>SetupPresets</code>: This command will set up the container presets you created in the plugin parameters.</li>
+<li><code>CreateStorageContainer</code>: This command will create a storage container with the items and ID you set in its arguments.</li>
+<li><code>GainItem</code>: This command will add items to a storage container.</li>
+</ul>
+<h2 id="script-calls" tabindex="-1">Script Calls</h2>
+<h3 id="create-a-container" tabindex="-1">Create a Container</h3>
+<pre><code>$storage.createContainer(id, maxItems)
+</code></pre>
+<p><code>id</code>: The id of the container, used when calling the storage scene or other script calls. Can be a string or a number.
+Default: Varies depending on the number of existing containers.</p>
+<p><code>maxItems</code>: The max amount of items allowed in this container. Must be a number.
+Default: 100</p>
+<h3 id="remove-a-container" tabindex="-1">Remove a Container</h3>
+<pre><code>$storage.removeContainer(id)
+</code></pre>
+<p><code>id</code>: The id of the container you want to remove, clearing all items contained within.</p>
+<h3 id="check-if-container-exists" tabindex="-1">Check if Container Exists</h3>
+<pre><code>$storage.containerExists(id)
+</code></pre>
+<p><code>id</code>: The id of the container you want to check for existence.</p>
+<h3 id="fetch-a-container" tabindex="-1">Fetch a Container</h3>
+<pre><code>$storage.getContainer(id)
+</code></pre>
+<p><code>id</code>: The id of the container you want to retrieve.</p>
+<h3 id="container-script-calls" tabindex="-1">Container Script Calls</h3>
+<p>These are the script calls you can use after retrieving a container.</p>
+<h4 id="check-the-amount-of-items" tabindex="-1">Check the amount of items</h4>
+<pre><code>$storage.getContainer(id).amountOfItems()
+</code></pre>
+<h4 id="check-if-you-can-add-an-item" tabindex="-1">Check if you can add an item</h4>
+<pre><code>$storage.getContainer(id).canAddItem(amount)
+</code></pre>
+<h4 id="change-max-amount" tabindex="-1">Change max amount</h4>
+<pre><code>$storage.getContainer(id).changeMaxAmount(amount)
+</code></pre>
+<h4 id="check-amount-of-a-specific-item" tabindex="-1">Check amount of a specific item</h4>
+<pre><code>$storage.getContainer(id).numItems($dataItems[1])
+</code></pre>
+<h4 id="add-an-item" tabindex="-1">Add an item</h4>
+<pre><code>$storage.getContainer(id).gainItem($dataItems[1], 5)
+</code></pre>
+<h4 id="remove-an-item" tabindex="-1">Remove an item</h4>
+<pre><code>$storage.getContainer(id).loseItem($dataItems[1], 5)
+</code></pre>
+<h2 id="terms-of-use" tabindex="-1">Terms Of Use</h2>
+<p>For detailed information regarding the terms of use, please refer to our <a href="https://ltngames.xyz/terms-of-use.html">Terms Of Use</a>.</p>
+<p><strong>You are permitted to:</strong></p>
+<ul>
+<li>Utilize them in both hobby and commercial game development projects without limitations.</li>
+<li>Modify, adapt, and create derivative works for use in your own hobby or commercial game development projects.</li>
+</ul>
+<p><strong>You are not permitted to:</strong></p>
+<ul>
+<li>Trade or sell any code contained within the plugin files.</li>
+<li>Duplicate the plugin(s) for distribution, sale, or trade to unauthorized consumers.</li>
+<li>Adapt or copy code for use in your own distributed plugin(s).</li>
+</ul>
+<h2 id="support" tabindex="-1">Support</h2>
+<p>If you require support, please do not hesitate to reach out to us via email at <a href="mailto:support@ltngames.xyz">support@ltngames.xyz</a>.</p>
+<h5 id="alternative-methods-for-support-(not-always-available)" tabindex="-1">Alternative Methods for Support (Not Always Available)</h5>
+<p>We provide various methods for seeking support and assistance. However, please note that not all methods may be available at all times:</p>
+<ul>
+<li><strong>Discord Server</strong>: Join our <a href="https://discord.gg/3hxjESk">Discord Server</a>.</li>
+<li><strong>Twitter</strong>: You can also reach out to us on Twitter via <a href="https://twitter.com/ltngames">@ltngames</a>.</li>
+<li><strong>RPG Maker Web Forums</strong>: Visit our dedicated <a href="https://forums.rpgmakerweb.com/members/ltngames.86027/">RPG Maker Web Forums</a> for community discussions and support.</li>
+</ul>
+<h2 id="bug-reports" tabindex="-1">Bug Reports</h2>
+<p>Efficiently report any bugs or issues you encounter through our online bug reporting form. We kindly request that, if your problem pertains to a bug, you use this method for reporting rather than contacting us via email.</p>
+<p><a href="https://ltngames.xyz/report-a-bug.html">Report A Bug</a></p>
+
+    </div>
+  </div>
+</div>
+<footer class="footer">
+  <div class="content has-text-centered mt-auto">
+    <div class="socials">
+      
+      <a href="https://twitter.com/ltngames">
+        <i class="iconoir-twitter"></i>
+      </a>
+      
+      <a href="https://github.com/ltngames">
+        <i class="iconoir-github"></i>
+      </a>
+      
+      <a href="https://www.facebook.com/ltngames/">
+        <i class="iconoir-facebook"></i>
+      </a>
+      
+      <a href="https://www.youtube.com/@ltn_games">
+        <i class="iconoir-youtube"></i>
+      </a>
+      
+      <a href="https://ltngames.itch.io/">
+        <i class="iconoir-itch"></i>
+      </a>
+      
+    </div>
+    <br>
+    <p>
+      Copyright © 2018 - 2023 · All rights reserved
+    </p>
+  </div>
+</footer>
+
+<script>
+  let menuVisible = true;
+  const menu = document.getElementById('docsNav');
+  const menuLinks = menu.querySelectorAll('a');
+  const headings = document.querySelectorAll('h1, h2, h3, h4');
+  const showMenuButton = document.getElementById('docsNavButton');
+  const options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.8,
+  };
+
+  let shouldUpdate = true;
+  const observer = new IntersectionObserver(onIntersection, options);
+
+  showMenuButton.addEventListener('click', (event) => {
+    menu.classList.toggle('mobile')
+  });
+
+  menuLinks.forEach(link => {
+    link.addEventListener('click', (event) => {
+      shouldUpdate = false
+      menuLinks.forEach(l => l.classList.remove('is-active'));
+      link.classList.add('is-active');
+      setTimeout(() => {
+        shouldUpdate = true;
+      }, 100);
+      if (!menu.classList.contains('mobile') && menu.style.display !== 'none') {
+        menu.classList.toggle('mobile');
+      }
+    });
+  })
+
+  function findActiveSectionId () {
+    let minDistance = Number.POSITIVE_INFINITY;
+    let activeSectionId = '';
+
+    headings.forEach(heading => {
+      if (!heading.id) { return }
+      const rect = heading.getBoundingClientRect();
+      if (rect.top >= 0 && rect.top < minDistance) {
+        minDistance = rect.top;
+        activeSectionId = heading.id;
+      }
+    });
+
+    return activeSectionId;
+  }
+
+  function onIntersection (entries) {
+    const currentSectionId = findActiveSectionId();
+    if (shouldUpdate === false) { return }
+    menuLinks.forEach(link => {
+      link.classList.remove('is-active');
+      if (link.getAttribute('href').substring(1) === currentSectionId) {
+        link.classList.add('is-active');
+      }
+    });
+  }
+  headings.forEach(heading => {
+    if (heading.id) {
+      observer.observe(heading);
+    }
+  })
+
+  menuLinks[0].classList.add('is-active');
+</script>
+
+</html>

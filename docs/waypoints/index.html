@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+
+<head>
+  <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+</head>
+<style>
+  .docs-menu {
+    display: block;
+    padding: 2rem;
+    margin: 1rem;
+    max-height: 100vh;
+    max-width: 325px;
+    min-width: 275px;
+    overflow-y: auto;
+    z-index: 999;
+    background-color: #ffffff;
+  }
+
+  .docs-toggles {
+    display: none;
+    justify-content: space-between;
+    padding: 0.5rem 0.5rem;
+    height: 45px;
+    width: auto;
+    background-color: #a7a7a74f;
+    z-index: 1000;
+  }
+
+  @media screen and (max-width: 769px) {
+    .docs-menu.mobile {
+      display: none;
+    }
+
+    .docs-toggles {
+      display: block;
+    }
+  }
+
+  .content {
+    margin: 1rem 12rem 2rem 4rem;
+  }
+
+  @media screen and (max-width: 1200px) {
+    .content {
+      margin-right: 4rem;
+    }
+  }
+
+  .content .title {
+    margin-bottom: 3rem;
+    font-size: 2.2rem;
+  }
+
+  .content h2 {
+    position: relative;
+    display: block;
+    font-weight: 600;
+    line-height: 2;
+  }
+
+  .content h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #5050503f;
+  }
+
+  hr {
+    background-color: #dddddd;
+  }
+
+  .content pre {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+    padding: 1.25em 1.5em;
+    white-space: pre;
+    word-wrap: normal;
+    background-color: rgba(204, 204, 204, 0.685);
+    border-radius: 8px;
+  }
+
+  .is-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+  }
+
+  .is-hidden {
+    display: none
+  }
+</style>
+<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+      <img id="logo" src="/static/img/logo-small.png" height="95">
+    </a>
+
+    <a id="mainMenuBurger" role="button" class="navbar-burger is-dark" aria-label="menu" aria-expanded="false" data-target="mainMenu">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="mainMenu" class="navbar-menu">
+    <div class="navbar-start" id="navbar-links">
+      
+
+      
+      <a class="navbar-item" href="/games">Games</a>
+      
+      
+
+      
+      <a class="navbar-item" href="/assets">Assets</a>
+      
+      
+
+      
+      <a class="navbar-item" href="/about">About</a>
+      
+      
+
+      
+      <a class="navbar-item" href="/support">Support</a>
+      
+      
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="socials">
+          
+          <a href="https://twitter.com/ltngames">
+            <i class="iconoir-twitter"></i>
+          </a>
+          
+          <a href="https://github.com/ltngames">
+            <i class="iconoir-github"></i>
+          </a>
+          
+          <a href="https://www.facebook.com/ltngames/">
+            <i class="iconoir-facebook"></i>
+          </a>
+          
+          <a href="https://www.youtube.com/@ltn_games">
+            <i class="iconoir-youtube"></i>
+          </a>
+          
+          <a href="https://ltngames.itch.io/">
+            <i class="iconoir-itch"></i>
+          </a>
+          
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+<script>
+  const mainMenu = document.getElementById('mainMenu');
+  const navbarBurger = document.getElementById('mainMenuBurger');
+
+  navbarBurger.addEventListener('click', (event) => {
+    mainMenuBurger.classList.toggle('is-active');
+    mainMenu.classList.toggle('is-active');
+  });
+</script>
+<div id="docsToggles" class="docs-toggles is-sticky">
+  <button class="button is-primary is-light bd-fat-button is-small" id="docsNavButton">Show menu</button>
+</div>
+<div class="docs columns">
+  <div id="docsNav" class="docs-menu column is-sticky mobile">
+    <aside class="menu" >
+        <ul class="menu-list" class="menu-list"><li><a href="#getting-started">Getting Started</a><ul class="menu-list" class="menu-list"><li><a href="#common-event">Common Event</a></li><li><a href="#waypoint-setup">Waypoint Setup</a></li><li><a href="#setup-background-image">Setup Background Image</a></li></ul class="menu-list"></li><li><a href="#parameters">Parameters</a><ul class="menu-list" class="menu-list"><li><a href="#general-options">General Options</a></li><li><a href="#transfer-options">Transfer Options</a></li><li><a href="#scene-options">Scene Options</a><ul class="menu-list" class="menu-list"><li><a href="#window-options">Window Options</a></li></ul class="menu-list"></li><li><a href="#waypoint-templates">Waypoint Templates</a></li></ul class="menu-list"></li><li><a href="#plugin-commands">Plugin Commands</a><ul class="menu-list" class="menu-list"><li><a href="#add-a-waypoint">Add A Waypoint</a></li><li><a href="#lock-a-waypoint">Lock A Waypoint</a></li><li><a href="#unlock-a-waypoint">Unlock A Waypoint</a></li><li><a href="#open-waypoint-scene">Open Waypoint Scene</a></li></ul class="menu-list"></li><li><a href="#script-calls">Script Calls</a><ul class="menu-list" class="menu-list"><li><a href="#get-waypoint-information">Get Waypoint Information</a></li><li><a href="#lock-a-waypoint-1">Lock A Waypoint</a></li><li><a href="#unlock-a-waypoint-1">Unlock A Waypoint</a></li><li><a href="#check-if-waypoint-is-locked">Check If Waypoint Is Locked</a></li><li><a href="#check-if-waypoint-exists">Check If Waypoint Exists</a></li></ul class="menu-list"></li><li><a href="#terms-of-use">Terms Of Use</a></li><li><a href="#support">Support</a></li><li><a href="#bug-reports">Bug Reports</a></li></ul class="menu-list">
+      </aside>
+  </div>
+
+  <div class="container column">
+    <div id="content" class="content">
+      <h1 class="title"> Waypoints Plugin Documentation </h1>
+      <h3 class="subtitle has-text-centered">  </h3>
+      <p>This Waypoints plugin gives you the ability to create waypoints for your game, giving the player the ability to &quot;fast travel&quot; to locations in your game. Much in the style of Diablo 2. You will be able to lock and unlock waypoints as well as choose your own animations and common event when you teleport through a waypoint.</p>
+<h2 id="getting-started" tabindex="-1">Getting Started</h2>
+<p>Before using this plugin, you need to configure its parameters, including defining a common event and categories for your waypoints.</p>
+<h3 id="common-event" tabindex="-1">Common Event</h3>
+<p>The common event comes into play when you perform a waypoint transfer and can be used to set up animations and various effects before or during the transfer.</p>
+<p><strong>Parameters For fine tuning waypoint transfer common event:</strong></p>
+<p><img src="/static/img/docs/waypoints/common_event_parameters.png" alt="Parameters For Common Event Tuning"></p>
+<h3 id="waypoint-setup" tabindex="-1">Waypoint Setup</h3>
+<p>When setting up waypoints in your game, you have a couple of options to choose from, depending on your preferences and the version of the plugin you're using. Waypoints provide players with the ability to &quot;fast travel&quot; to different locations within your game, similar to how it's done in games like Diablo 2. Here, we'll explore two methods for creating and managing your waypoints.</p>
+<h5 id="1.-via-plugin-parameters-(recommended)" tabindex="-1">1. Via Plugin Parameters (Recommended)</h5>
+<p>This is the latest and most user-friendly approach for creating waypoints, particularly in the newer version (v1.1) of the plugin. It streamlines the process and is ideal for getting started quickly. With the introduction of the &quot;Waypoint Templates&quot; parameter, you can easily set up and manage your waypoints without the need for lengthy plugin commands.</p>
+<p><img src="/static/img/docs/waypoints/template.png" alt="Waypoint Template"></p>
+<p>After configuring your Waypoint template, the next step is to actually add Waypoints to your game based on this template.</p>
+<p><strong>Command:</strong> <code>Waypoint Add TemplateID</code></p>
+<p><strong>Example:</strong></p>
+<pre><code>Waypoint Add wp-cabin
+Waypoint Add wp-forest
+</code></pre>
+<hr>
+<h5 id="2.-via-plugin-command" tabindex="-1">2. Via Plugin Command</h5>
+<p>Another approach for introducing new waypoints into your game is by using plugin commands. While this method may be considered slightly more involved, it offers a degree of flexibility and is particularly beneficial for those who frequently work within the event editor.</p>
+<p><strong>Command:</strong> <code>Waypoint Add Name Category MapId X Y LockedState</code></p>
+<p><strong>Example:</strong></p>
+<pre><code>Waypoint Add Start-Map Act-I 1 5 6 false
+Waypoint Add Second-Map Act-I 1 5 6 false
+</code></pre>
+<p><strong>Common Event Example:</strong></p>
+<p><img src="/static/img/docs/waypoints/starting_waypoint_common_event.png" alt="Starting Waypoint Common Event"></p>
+<h3 id="setup-background-image" tabindex="-1">Setup Background Image</h3>
+<p>To setup the background image to be used with the Waypoint scene you must first save the image you want to use in the <code>img/system</code> directory</p>
+<p>Once the image has been saved, be sure to select the file in the plugin's parameters under <code>Scene Background</code></p>
+<h2 id="parameters" tabindex="-1">Parameters</h2>
+<p><img src="/static/img/docs/waypoints/parameters.png" alt="All Parameters"></p>
+<h3 id="general-options" tabindex="-1">General Options</h3>
+<p><code>Waypoint Templates</code> - This is where you can setup and create all of your game's waypoints.
+See <a href="#waypoint-templates">Waypoint Templates</a></p>
+<p><code>Waypoint Categories</code> - All the categories for your waypoints. You can use chapters acts, or categorize your waypoints by area, its up to you.</p>
+<h3 id="transfer-options" tabindex="-1">Transfer Options</h3>
+<p><code>Transfer Common Event</code> - The common event to activate upon a waypoint transfer.</p>
+<p><code>Transfer Delay</code> - The time delay to wait before transferring. Make this delay larger if your common event is big.</p>
+<p><code>Transfer Fade</code> - The type of fade the screen will use upon transferring.</p>
+<h3 id="scene-options" tabindex="-1">Scene Options</h3>
+<p><code>Hide Categories</code> - Enable to hide a category if it contains no waypoints.</p>
+<p><code>Hide Waypoints</code> - Enable to grey out a waypoint if its locked</p>
+<p><code>Lockstate Icons</code> - The icons for the current lockstate of the waypoints.</p>
+<p><code>Enable Placeholder</code> - This is a solid color rectangle which is drawn behind a waypoint picture thumbnail. When no thumbnail picture is available for the waypoint then the placeholder will be drawn. The placeholder also acts as a border around the thumbnail picture when there is one available.</p>
+<p><code>Picture Placeholder Color</code> - The color of the placeholder rectangle. Hex Color Code eg: #fffff</p>
+<p><img src="/static/img/docs/waypoints/placeholder.png" alt="Placeholder"></p>
+<p><code>Scene Background</code> - The background image for the waypoints scene. Leave name empty if you don't want to use a background.</p>
+<h4 id="window-options" tabindex="-1">Window Options</h4>
+<p><code>Window Category Options</code> - Change these settings to adjust the scene to how
+you'd like it to appear.</p>
+<p><em>The category window is the top window showing each category/command. Moving and changing the width of this window will also change the width and position of the waypoint window below it.</em></p>
+<p><code>Waypoint List Options</code> - Change these settings to adjust the waypoints list window to how you'd like it to appear.</p>
+<h3 id="waypoint-templates" tabindex="-1">Waypoint Templates</h3>
+<p>A waypoint template has a number of properties that allow you to setup your waypoint inside the plugin's parameters.</p>
+<p><code>Template ID</code> - This is what you will use to control your waypoint via plugin command. It can be a string or a number, its up to you.</p>
+<p><code>Picture</code> - Add a thumbnail picture to your waypoint which will be shown in the waypoint menu.</p>
+<p><code>Name</code> - The name of the waypoint.</p>
+<p><code>Category</code> - The category to put this waypoint in.</p>
+<p><code>Description</code> - Add a description of the location the waypoint transfers you to</p>
+<p><code>MapId</code> - The id of the map this waypoint will transfer the player to.</p>
+<p><code>X</code> &amp; <code>Y</code> - The x and y position on the map for the player to transfer to.</p>
+<p><code>LockState</code> - The lock state of the waypoint, true for it to be locked and
+false for it to be unlocked.</p>
+<h2 id="plugin-commands" tabindex="-1">Plugin Commands</h2>
+<p>Main Keyword: <code>Waypoint</code></p>
+<p><strong>NOTE:</strong> <em>When you need to use names with more than one word, you can use a - (dash) as a space.</em></p>
+<p><strong>Example:</strong></p>
+<pre><code>Waypoint Add Fishing-Village-Inn Act-II 4 5 8 false
+</code></pre>
+<p>In the above example Fishing-Village-Inn will appear in the menu as Fishing Village Inn without the dash</p>
+<hr>
+<h3 id="add-a-waypoint" tabindex="-1">Add A Waypoint</h3>
+<p><strong>Command:</strong></p>
+<pre><code>Waypoint Add Name Category MapId X Y LockedState
+Waypoint Add TemplateID
+</code></pre>
+<p><strong>Command Information:</strong></p>
+<p><code>Add</code> - Keyword to let the plugin know you want to add a waypoint.</p>
+<p><code>TemplateID</code> - The ID of the waypoint you would like to add. Adding via template ID allows you to ignore the rest of the options in this plugin command.</p>
+<p><code>Name</code> - The name of the waypoint.</p>
+<p><code>Category</code> - The category to put this waypoint in.  Take note that when referencing the category it will always be lower case and with no spaces.</p>
+<p><code>MapId</code> - The id of the map this waypoint will transfer the player to.</p>
+<p><code>X</code> &amp; <code>Y</code> - The x and y position on the map for the player to transfer to.</p>
+<p><code>LockState</code> - The lock state of the waypoint, true for it to be locked and false for it to be unlocked.</p>
+<hr>
+<h3 id="lock-a-waypoint" tabindex="-1">Lock A Waypoint</h3>
+<p><strong>Command:</strong></p>
+<pre><code>Waypoint Lock Name Category
+Waypoint Lock TemplateID
+</code></pre>
+<p><strong>Command Information:</strong></p>
+<p><code>Lock</code> - The keyword to let the plugin know you want to lock a waypoint</p>
+<p><code>TemplateID</code> - The ID of the waypoint you would like to lock. Locking via template ID allows you to ignore the rest of the options in this plugin command.</p>
+<p><code>Name</code> - The name of the waypoint (must already be added)</p>
+<p><code>Category</code> - The category this waypoint is associated with.</p>
+<hr>
+<h3 id="unlock-a-waypoint" tabindex="-1">Unlock A Waypoint</h3>
+<p><strong>Command:</strong></p>
+<pre><code>Waypoint Unlock Name Category
+Waypoint Unlock TemplateID
+</code></pre>
+<p><strong>Command Information:</strong>
+<code>Unlock</code> - The keyword to let the plugin know you want to unlock a waypoint</p>
+<p><code>TemplateID</code> - The ID of the waypoint you would like to unlock. Unlocking via template ID allows you to ignore the rest of the options in this plugin command.</p>
+<p><code>Name</code> - The name of the waypoint (must already be added)</p>
+<p><code>Category</code> - The category this waypoint is associated with.</p>
+<hr>
+<h3 id="open-waypoint-scene" tabindex="-1">Open Waypoint Scene</h3>
+<p><strong>Command:</strong></p>
+<pre><code>Waypoint OpenScene
+</code></pre>
+<p><strong>Command Information:</strong>
+<code>OpenScene</code> - Keyword to let plugin know to open the waypoints scene.</p>
+<p><em>The waypoint scene is where the player will select a category and waypoint to travel to. As soon as a waypoint is selected it will run the common event and transfer the player</em>.</p>
+<h2 id="script-calls" tabindex="-1">Script Calls</h2>
+<p>The script calls are identical to the plugin commands except for the extra syntax you are required to use. Some script calls are useful for more advanced eventing.</p>
+<hr>
+<h3 id="get-waypoint-information" tabindex="-1">Get Waypoint Information</h3>
+<p><em>Return the waypoint Javascript object</em></p>
+<p><strong>Script:</strong></p>
+<pre><code>LTN_Waypoints.getInfo(type, name, category)
+</code></pre>
+<p><strong>Script Information:</strong>
+<em>Retrieve specific type of information from a waypoint. It will give you the value of the type you choose. Can return a string or a number.</em></p>
+<p><code>Type</code>- Name, Category, MapId, X, Y, LockState.</p>
+<p><code>Name</code> - The name of the waypoint (must already be added)</p>
+<p><code>Category</code> - The category this waypoint is associated with.</p>
+<hr>
+<h3 id="lock-a-waypoint-1" tabindex="-1">Lock A Waypoint</h3>
+<p><strong>Script:</strong></p>
+<pre><code>LTN_Waypoints.lock(name, category)
+</code></pre>
+<p><strong>Script Information:</strong>
+<code>Name</code> - The name of the waypoint (must already be added)</p>
+<p><code>Category</code> - The category this waypoint is associated with.</p>
+<hr>
+<h3 id="unlock-a-waypoint-1" tabindex="-1">Unlock A Waypoint</h3>
+<p><strong>Script:</strong></p>
+<pre><code>LTN_Waypoints.unlock(name, category)
+</code></pre>
+<p><strong>Script Information:</strong>
+<code>Name</code> - The name of the waypoint (must already be added)</p>
+<p><code>Category</code> - The category this waypoint is associated with.</p>
+<hr>
+<h3 id="check-if-waypoint-is-locked" tabindex="-1">Check If Waypoint Is Locked</h3>
+<p><em>Return true if waypoint is locked</em></p>
+<p><strong>Script:</strong></p>
+<pre><code>LTN_Waypoints.isLocked(name, category)
+</code></pre>
+<p><strong>Script Information:</strong>
+<code>Name</code> - The name of the waypoint (must already be added)</p>
+<p><code>Category</code> - The category this waypoint is associated with.</p>
+<hr>
+<h3 id="check-if-waypoint-exists" tabindex="-1">Check If Waypoint Exists</h3>
+<p><em>Return true if waypoint exists</em></p>
+<p><strong>Script:</strong></p>
+<pre><code>LTN_Waypoints.exists(name, category)
+</code></pre>
+<p><strong>Script Information:</strong>
+<code>Name</code> - The name of the waypoint (must already be added)</p>
+<p><code>Category</code> - The category this waypoint is associated with.</p>
+<h2 id="terms-of-use" tabindex="-1">Terms Of Use</h2>
+<p>For detailed information regarding the terms of use, please refer to our <a href="https://ltngames.xyz/terms-of-use.html">Terms Of Use</a>.</p>
+<p><strong>You are permitted to:</strong></p>
+<ul>
+<li>Utilize them in both hobby and commercial game development projects without limitations.</li>
+<li>Modify, adapt, and create derivative works for use in your own hobby or commercial game development projects.</li>
+</ul>
+<p><strong>You are not permitted to:</strong></p>
+<ul>
+<li>Trade or sell any code contained within the plugin files.</li>
+<li>Duplicate the plugin(s) for distribution, sale, or trade to unauthorized consumers.</li>
+<li>Adapt or copy code for use in your own distributed plugin(s).</li>
+</ul>
+<h2 id="support" tabindex="-1">Support</h2>
+<p>If you require support, please do not hesitate to reach out to us via email at <a href="mailto:support@ltngames.xyz">support@ltngames.xyz</a>.</p>
+<h5 id="alternative-methods-for-support-(not-always-available)" tabindex="-1">Alternative Methods for Support (Not Always Available)</h5>
+<p>We provide various methods for seeking support and assistance. However, please note that not all methods may be available at all times:</p>
+<ul>
+<li><strong>Discord Server</strong>: Join our <a href="https://discord.gg/3hxjESk">Discord Server</a>.</li>
+<li><strong>Twitter</strong>: You can also reach out to us on Twitter via <a href="https://twitter.com/ltngames">@ltngames</a>.</li>
+<li><strong>RPG Maker Web Forums</strong>: Visit our dedicated <a href="https://forums.rpgmakerweb.com/members/ltngames.86027/">RPG Maker Web Forums</a> for community discussions and support.</li>
+</ul>
+<h2 id="bug-reports" tabindex="-1">Bug Reports</h2>
+<p>Efficiently report any bugs or issues you encounter through our online bug reporting form. We kindly request that, if your problem pertains to a bug, you use this method for reporting rather than contacting us via email.</p>
+<p><a href="https://ltngames.xyz/report-a-bug.html">Report A Bug</a></p>
+
+    </div>
+  </div>
+</div>
+<footer class="footer">
+  <div class="content has-text-centered mt-auto">
+    <div class="socials">
+      
+      <a href="https://twitter.com/ltngames">
+        <i class="iconoir-twitter"></i>
+      </a>
+      
+      <a href="https://github.com/ltngames">
+        <i class="iconoir-github"></i>
+      </a>
+      
+      <a href="https://www.facebook.com/ltngames/">
+        <i class="iconoir-facebook"></i>
+      </a>
+      
+      <a href="https://www.youtube.com/@ltn_games">
+        <i class="iconoir-youtube"></i>
+      </a>
+      
+      <a href="https://ltngames.itch.io/">
+        <i class="iconoir-itch"></i>
+      </a>
+      
+    </div>
+    <br>
+    <p>
+      Copyright © 2018 - 2023 · All rights reserved
+    </p>
+  </div>
+</footer>
+
+<script>
+  let menuVisible = true;
+  const menu = document.getElementById('docsNav');
+  const menuLinks = menu.querySelectorAll('a');
+  const headings = document.querySelectorAll('h1, h2, h3, h4');
+  const showMenuButton = document.getElementById('docsNavButton');
+  const options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.8,
+  };
+
+  let shouldUpdate = true;
+  const observer = new IntersectionObserver(onIntersection, options);
+
+  showMenuButton.addEventListener('click', (event) => {
+    menu.classList.toggle('mobile')
+  });
+
+  menuLinks.forEach(link => {
+    link.addEventListener('click', (event) => {
+      shouldUpdate = false
+      menuLinks.forEach(l => l.classList.remove('is-active'));
+      link.classList.add('is-active');
+      setTimeout(() => {
+        shouldUpdate = true;
+      }, 100);
+      if (!menu.classList.contains('mobile') && menu.style.display !== 'none') {
+        menu.classList.toggle('mobile');
+      }
+    });
+  })
+
+  function findActiveSectionId () {
+    let minDistance = Number.POSITIVE_INFINITY;
+    let activeSectionId = '';
+
+    headings.forEach(heading => {
+      if (!heading.id) { return }
+      const rect = heading.getBoundingClientRect();
+      if (rect.top >= 0 && rect.top < minDistance) {
+        minDistance = rect.top;
+        activeSectionId = heading.id;
+      }
+    });
+
+    return activeSectionId;
+  }
+
+  function onIntersection (entries) {
+    const currentSectionId = findActiveSectionId();
+    if (shouldUpdate === false) { return }
+    menuLinks.forEach(link => {
+      link.classList.remove('is-active');
+      if (link.getAttribute('href').substring(1) === currentSectionId) {
+        link.classList.add('is-active');
+      }
+    });
+  }
+  headings.forEach(heading => {
+    if (heading.id) {
+      observer.observe(heading);
+    }
+  })
+
+  menuLinks[0].classList.add('is-active');
+</script>
+
+</html>

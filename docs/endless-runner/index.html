@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+
+<head>
+  <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+</head>
+<style>
+  .docs-menu {
+    display: block;
+    padding: 2rem;
+    margin: 1rem;
+    max-height: 100vh;
+    max-width: 325px;
+    min-width: 275px;
+    overflow-y: auto;
+    z-index: 999;
+    background-color: #ffffff;
+  }
+
+  .docs-toggles {
+    display: none;
+    justify-content: space-between;
+    padding: 0.5rem 0.5rem;
+    height: 45px;
+    width: auto;
+    background-color: #a7a7a74f;
+    z-index: 1000;
+  }
+
+  @media screen and (max-width: 769px) {
+    .docs-menu.mobile {
+      display: none;
+    }
+
+    .docs-toggles {
+      display: block;
+    }
+  }
+
+  .content {
+    margin: 1rem 12rem 2rem 4rem;
+  }
+
+  @media screen and (max-width: 1200px) {
+    .content {
+      margin-right: 4rem;
+    }
+  }
+
+  .content .title {
+    margin-bottom: 3rem;
+    font-size: 2.2rem;
+  }
+
+  .content h2 {
+    position: relative;
+    display: block;
+    font-weight: 600;
+    line-height: 2;
+  }
+
+  .content h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #5050503f;
+  }
+
+  hr {
+    background-color: #dddddd;
+  }
+
+  .content pre {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+    padding: 1.25em 1.5em;
+    white-space: pre;
+    word-wrap: normal;
+    background-color: rgba(204, 204, 204, 0.685);
+    border-radius: 8px;
+  }
+
+  .is-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+  }
+
+  .is-hidden {
+    display: none
+  }
+</style>
+<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+      <img id="logo" src="/static/img/logo-small.png" height="95">
+    </a>
+
+    <a id="mainMenuBurger" role="button" class="navbar-burger is-dark" aria-label="menu" aria-expanded="false" data-target="mainMenu">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="mainMenu" class="navbar-menu">
+    <div class="navbar-start" id="navbar-links">
+      
+
+      
+      <a class="navbar-item" href="/games">Games</a>
+      
+      
+
+      
+      <a class="navbar-item" href="/assets">Assets</a>
+      
+      
+
+      
+      <a class="navbar-item" href="/about">About</a>
+      
+      
+
+      
+      <a class="navbar-item" href="/support">Support</a>
+      
+      
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="socials">
+          
+          <a href="https://twitter.com/ltngames">
+            <i class="iconoir-twitter"></i>
+          </a>
+          
+          <a href="https://github.com/ltngames">
+            <i class="iconoir-github"></i>
+          </a>
+          
+          <a href="https://www.facebook.com/ltngames/">
+            <i class="iconoir-facebook"></i>
+          </a>
+          
+          <a href="https://www.youtube.com/@ltn_games">
+            <i class="iconoir-youtube"></i>
+          </a>
+          
+          <a href="https://ltngames.itch.io/">
+            <i class="iconoir-itch"></i>
+          </a>
+          
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+<script>
+  const mainMenu = document.getElementById('mainMenu');
+  const navbarBurger = document.getElementById('mainMenuBurger');
+
+  navbarBurger.addEventListener('click', (event) => {
+    mainMenuBurger.classList.toggle('is-active');
+    mainMenu.classList.toggle('is-active');
+  });
+</script>
+<div id="docsToggles" class="docs-toggles is-sticky">
+  <button class="button is-primary is-light bd-fat-button is-small" id="docsNavButton">Show menu</button>
+</div>
+<div class="docs columns">
+  <div id="docsNav" class="docs-menu column is-sticky mobile">
+    <aside class="menu" >
+        <ul class="menu-list" class="menu-list"><li><a href="#getting-started">Getting Started</a></li><li><a href="#character-sprite-setup">Character Sprite Setup</a></li><li><a href="#levels">Levels</a><ul class="menu-list" class="menu-list"><li><a href="#setting-up-an-obstacle">Setting Up An Obstacle</a></li><li><a href="#setup-level-progression">Setup Level Progression</a></li><li><a href="#tracking-a-win-or-a-loss">Tracking A Win or a Loss</a></li><li><a href="#tracking-the-score">Tracking The Score</a></li><li><a href="#creating-action-lists">Creating Action Lists</a></li></ul class="menu-list"></li><li><a href="#collision-box-customization">Collision Box Customization</a></li><li><a href="#debugging-collision-boxes">Debugging Collision Boxes</a></li><li><a href="#plugin-commands">Plugin Commands</a></li><li><a href="#terms-of-use">Terms Of Use</a></li><li><a href="#support">Support</a></li><li><a href="#bug-reports">Bug Reports</a></li></ul class="menu-list">
+      </aside>
+  </div>
+
+  <div class="container column">
+    <div id="content" class="content">
+      <h1 class="title"> Endless Runner Plugin Documentation </h1>
+      <h3 class="subtitle has-text-centered">  </h3>
+      <p>An endless runner! Duck or jump over obstacles to earn points in this mini-game plugin for RPG Maker MV. Give your players a chance to unwind from saving the world and let them have fun in this easy-to-use mini-game.</p>
+<p><img src="/static//img/docs/endless-runner/cover.png" alt="Cover Image"></p>
+<h2 id="getting-started" tabindex="-1">Getting Started</h2>
+<p>To kick off your project, follow these essential steps:</p>
+<p><strong>1. Install the Plugin:</strong></p>
+<ul>
+<li>Copy and install the plugin to your <code>js/plugins</code> directory.</li>
+</ul>
+<p><strong>2. Organize Your Assets:</strong></p>
+<ul>
+<li>Gather all the necessary assets (images, sounds, etc.) and place them in the <code>img/</code> directory.</li>
+</ul>
+<p>Now, let's dive into the core steps:</p>
+<p><strong>Step 1: Character Spritesheet Setup:</strong></p>
+<ul>
+<li>Prepare your character's spritesheet. It should include animations for regular movement, jumping, ducking, dashing, and death.</li>
+<li>Customize frame dimensions, max frames, and animation speed in the plugin's parameters.</li>
+</ul>
+<p><strong>Step 2: Level and Obstacle Setup:</strong></p>
+<ul>
+<li>Design and configure game levels, including background images, obstacles, background objects, collectibles, and music.</li>
+<li>Tailor the difficulty progression for each level to create a unique experience.</li>
+</ul>
+<p><strong>Step 3: Creating Events and Using the Plugin Command:</strong></p>
+<ul>
+<li>Create in-game events or scenes that trigger the mini-game.</li>
+<li>Utilize the plugin command <code>Endless Start</code> to initiate the endless runner experience.</li>
+</ul>
+<p><strong>Important Note:</strong></p>
+<ul>
+<li>Be sure to select the character spritesheet image, as failing to do so may lead to game crashes.</li>
+</ul>
+<p>For in-depth guidance on each step, refer to the remaining sections in this manual.</p>
+<h2 id="character-sprite-setup" tabindex="-1">Character Sprite Setup</h2>
+<p>When setting up your character sprite, ensure it includes animations for normal movement, jumping, ducking, dashing, and death. You can customize various aspects in the plugin's parameters:</p>
+<p><img src="/static//img/docs/endless-runner/spritesheet_param.png" alt="Character Sprite Parameters"></p>
+<p><strong>Frame Width &amp; Height:</strong></p>
+<ul>
+<li>This determines the size of each frame. You can freely create both large and small characters and adjust the frame size to ensure it's correctly rendered in the game.</li>
+</ul>
+<p><strong>Max Frame:</strong></p>
+<ul>
+<li>This defines the maximum number of frames per animation pose.</li>
+</ul>
+<p><strong>Animation Speed:</strong></p>
+<ul>
+<li>Specify the speed at which the animations play.</li>
+</ul>
+<p><strong>Poses:</strong></p>
+<ul>
+<li>Poses are essentially rows of frames that define a complete animation. For example, jumping is one pose, sliding is another, and so on. Depending on your spritesheet, you may need to adjust each row to correspond to different poses.</li>
+</ul>
+<p><strong>Example Spritesheet:</strong></p>
+<p><img src="/static//img/docs/endless-runner/example_spritesheet.png" alt="Sample Spritesheet"></p>
+<p>Customize your character sprite's animations to make your game visually engaging and interactive.</p>
+<h2 id="levels" tabindex="-1">Levels</h2>
+<p>Levels serve as containers holding various elements, including background images, obstacles, background objects, collectibles, music, and the difficulty progression.</p>
+<p><img src="/static//img/docs/endless-runner/level_param.png" alt="Level Parameters"></p>
+<p>Your primary focus, in terms of configuration, will revolve around setting up each level to provide a unique gaming experience. Here's what you need to know:</p>
+<p><strong>Changing Levels:</strong>
+To switch to a different level, adjust the level variable in the plugin's parameters. Set the variable's value to the desired level you want to load when entering the mini-game scene.</p>
+<p><strong>Ground Image:</strong></p>
+<ul>
+<li>The ground image determines the surface upon which the player sprite moves.</li>
+</ul>
+<p><strong>Ground Height:</strong></p>
+<ul>
+<li>You can adjust the ground's height here, but keeping it at 0 will position the player at the very top of the image.</li>
+</ul>
+<p><strong>Jump Obstacles:</strong></p>
+<ul>
+<li>These are obstacles that players need to jump over. They are placed on top of the ground image, similar to the player. Successfully passing them earns the player a score boost.</li>
+</ul>
+<p><img src="/static//img/docs/endless-runner/jump_obstacle_example.png" alt="Jump Obstacle Example"></p>
+<p><strong>Duck Obstacles:</strong></p>
+<ul>
+<li>These obstacles require players to duck underneath them. They are positioned at the top of the screen. Just like jump obstacles, passing them adds to the player's score.</li>
+</ul>
+<p><img src="/static//img/docs/endless-runner/duck_obstacle_example.png" alt="Duck Obstacle Example"></p>
+<p><strong>Moving Obstacles:</strong></p>
+<ul>
+<li>These obstacles move vertically, going up and down during gameplay. They start at the top and move down to the ground before rising again. Passing these obstacles successfully also contributes to the player's score.</li>
+</ul>
+<p><img src="/static//img/docs/endless-runner/move_obstacle_example.png" alt="Moving Obstacle Example"></p>
+<p><strong>Background Objects:</strong></p>
+<ul>
+<li>These decorative elements appear behind other obstacles. They are positioned on the ground, similar to jump obstacles or the player. Background objects don't affect the player's health or trigger collisions; they are purely for decoration.</li>
+</ul>
+<p><strong>Collectibles:</strong></p>
+<ul>
+<li>Collectibles are similar to regular obstacles but with additional functionality. They execute a list of script calls that can either harm the player or boost their life. The specific effects are defined in the actions list of the collectible.</li>
+</ul>
+<p><img src="/static//img/docs/endless-runner/collectibles_example.png" alt="Collectibles Example"></p>
+<p><strong>Obstacle Padding:</strong></p>
+<ul>
+<li>Obstacle padding ensures that jump, duck, and moving obstacles don't overlap. The value is specified in pixels. For example, setting it to 200 pixels ensures each obstacle has approximately a 200-pixel gap between them.</li>
+</ul>
+<p><img src="/static//img/docs/endless-runner/obstacle_padding_example.png" alt="Obstacle Padding Example"></p>
+<p>Configure these elements to create diverse and engaging levels for your game.</p>
+<h3 id="setting-up-an-obstacle" tabindex="-1">Setting Up An Obstacle</h3>
+<p><img src="/static//img/docs/endless-runner/obstacle_param.png" alt="Obstacle Parameters"></p>
+<p><strong>Obstacle Image:</strong></p>
+<ul>
+<li>This is the image used for the obstacle.</li>
+</ul>
+<p><strong>Y Start Position:</strong></p>
+<ul>
+<li>Determines where the obstacle begins on the Y-axis. It's possible to override the default positions for jump and duck obstacles, although it's generally not recommended.</li>
+</ul>
+<p><strong>Y Offset:</strong></p>
+<ul>
+<li>Use this option to make minor adjustments, ensuring that the obstacle aligns correctly with other elements.</li>
+</ul>
+<p><strong>Move Direction:</strong></p>
+<ul>
+<li>Specifies whether the obstacle remains stationary or moves up and down.</li>
+</ul>
+<p><strong>Move Speed:</strong></p>
+<ul>
+<li>This controls the speed at which moving obstacles go up and down. Please note that this setting is only relevant for obstacles that aren't marked as &quot;Stationary.&quot;</li>
+</ul>
+<p><strong>Collider:</strong></p>
+<ul>
+<li>Adjusts the collision box around the obstacle. Useful for ensuring that unique graphics align correctly during collisions.</li>
+</ul>
+<p><strong>Collision:</strong></p>
+<ul>
+<li>This setting allows you to enable or disable collisions for this obstacle, determining whether it affects the player.</li>
+</ul>
+<p><strong>Appear On Score:</strong></p>
+<ul>
+<li>Defines the score threshold players must reach for the obstacle to appear in the scene.</li>
+</ul>
+<p><strong>Actions:</strong></p>
+<ul>
+<li>This section contains an action list where you can define script calls that execute when specific events occur, such as player collision with the obstacle. For more details, see &quot;Creating Action Lists.&quot;</li>
+</ul>
+<h3 id="setup-level-progression" tabindex="-1">Setup Level Progression</h3>
+<p>Level progression is crucial for adjusting the game's difficulty as players progress. If you want the level to become more challenging as the player reaches a specific score, follow these steps:</p>
+<p><img src="/static//img/docs/endless-runner/progression_param.png" alt="Progression Parameters"></p>
+<p>This is a basic setup. You need to do the following:</p>
+<ol>
+<li>Set the score threshold.</li>
+<li>Specify the speed increase that occurs when the player reaches that score.</li>
+<li>This also allows you to set the default movement speed when the level begins. Simply set the score to 0 and the speed to the desired value for the player's initial movement speed.</li>
+</ol>
+<h3 id="tracking-a-win-or-a-loss" tabindex="-1">Tracking A Win or a Loss</h3>
+<p>To monitor whether a level has been won or lost, use the &quot;Level Win Variable&quot; parameter:</p>
+<p><strong>Level Win Variable:</strong></p>
+<ul>
+<li>This variable ID stores information about whether the level was won (returns true) or lost (returns false). It helps track the level's outcome.</li>
+</ul>
+<h3 id="tracking-the-score" tabindex="-1">Tracking The Score</h3>
+<p>To keep track of the final score before a player wins or loses, use the &quot;Level Score Variable&quot; parameter:</p>
+<p><strong>Level Score Variable:</strong></p>
+<ul>
+<li>This variable ID stores the final score achieved during the level. It's updated each time a game over or win occurs within the level.</li>
+</ul>
+<h3 id="creating-action-lists" tabindex="-1">Creating Action Lists</h3>
+<p>Action lists are collections of script calls that trigger when specific events happen. For instance, they can be used when the player dies, gets hit by an obstacle, or collects an item.</p>
+<p>Customize your action lists to enhance the gameplay experience.</p>
+<h5 id="action-list-method-types" tabindex="-1">Action List Method Types</h5>
+<p>Action list methods can be used by employing any of the following methods:</p>
+<ul>
+<li>
+<p><strong>moveUpDown(maxHeight, upSpeed, downSpeed)</strong>
+This method moves the character sprite upwards and then back down, resembling the style of the classic Sonic The Hedgehog games.</p>
+</li>
+<li>
+<p><strong>flash(flashSpeed)</strong>
+The flash method rapidly alternates the player sprite's opacity, creating a flickering effect.</p>
+</li>
+<li>
+<p><strong>addLife(value)</strong>
+Use this to increment the player's current number of lives by 1.</p>
+</li>
+<li>
+<p><strong>setLife(value)</strong>
+This method allows you to specify the exact number of lives the player should have. For instance, setting it to 1 ensures the player has only one life remaining.</p>
+</li>
+<li>
+<p><strong>custom(script)</strong>
+The &quot;custom&quot; method is for executing default RPG Maker MV script calls safely. To use a custom script call, wrap your code in a custom tag, similar to the example below:</p>
+</li>
+</ul>
+<pre><code>custom($gameVariables.setValue(1, true))
+</code></pre>
+<h2 id="collision-box-customization" tabindex="-1">Collision Box Customization</h2>
+<p>If your mini-game uses unique graphics, you may need to tailor the collision boxes for each obstacle and the player.</p>
+<p><img src="/static//img/docs/endless-runner/collider_param.png" alt="Collision Parameters"></p>
+<h2 id="debugging-collision-boxes" tabindex="-1">Debugging Collision Boxes</h2>
+<p>For ease in adjusting your collision boxes during playtesting, enable &quot;Debug Collision Boxes&quot; to visualize the boxes surrounding each obstacle and the player.</p>
+<p><img src="/static//img/docs/endless-runner/collision_debug_example.png" alt="Collision Debug Example"></p>
+<h2 id="plugin-commands" tabindex="-1">Plugin Commands</h2>
+<p>There is a single available plugin command used to initiate the mini-game's scene:</p>
+<pre><code>Endless-Runner Start
+</code></pre>
+<p>Use this command to commence the mini-game within your game.</p>
+<h2 id="terms-of-use" tabindex="-1">Terms Of Use</h2>
+<p>For detailed information regarding the terms of use, please refer to our <a href="https://ltngames.xyz/terms-of-use.html">Terms Of Use</a>.</p>
+<p><strong>You are permitted to:</strong></p>
+<ul>
+<li>Utilize them in both hobby and commercial game development projects without limitations.</li>
+<li>Modify, adapt, and create derivative works for use in your own hobby or commercial game development projects.</li>
+</ul>
+<p><strong>You are not permitted to:</strong></p>
+<ul>
+<li>Trade or sell any code contained within the plugin files.</li>
+<li>Duplicate the plugin(s) for distribution, sale, or trade to unauthorized consumers.</li>
+<li>Adapt or copy code for use in your own distributed plugin(s).</li>
+</ul>
+<h2 id="support" tabindex="-1">Support</h2>
+<p>If you require support, please do not hesitate to reach out to us via email at <a href="mailto:support@ltngames.xyz">support@ltngames.xyz</a>.</p>
+<h5 id="alternative-methods-for-support-(not-always-available)" tabindex="-1">Alternative Methods for Support (Not Always Available)</h5>
+<p>We provide various methods for seeking support and assistance. However, please note that not all methods may be available at all times:</p>
+<ul>
+<li><strong>Discord Server</strong>: Join our <a href="https://discord.gg/3hxjESk">Discord Server</a>.</li>
+<li><strong>Twitter</strong>: You can also reach out to us on Twitter via <a href="https://twitter.com/ltngames">@ltngames</a>.</li>
+<li><strong>RPG Maker Web Forums</strong>: Visit our dedicated <a href="https://forums.rpgmakerweb.com/members/ltngames.86027/">RPG Maker Web Forums</a> for community discussions and support.</li>
+</ul>
+<h2 id="bug-reports" tabindex="-1">Bug Reports</h2>
+<p>Efficiently report any bugs or issues you encounter through our online bug reporting form. We kindly request that, if your problem pertains to a bug, you use this method for reporting rather than contacting us via email.</p>
+<p><a href="https://ltngames.xyz/report-a-bug.html">Report A Bug</a></p>
+
+    </div>
+  </div>
+</div>
+<footer class="footer">
+  <div class="content has-text-centered mt-auto">
+    <div class="socials">
+      
+      <a href="https://twitter.com/ltngames">
+        <i class="iconoir-twitter"></i>
+      </a>
+      
+      <a href="https://github.com/ltngames">
+        <i class="iconoir-github"></i>
+      </a>
+      
+      <a href="https://www.facebook.com/ltngames/">
+        <i class="iconoir-facebook"></i>
+      </a>
+      
+      <a href="https://www.youtube.com/@ltn_games">
+        <i class="iconoir-youtube"></i>
+      </a>
+      
+      <a href="https://ltngames.itch.io/">
+        <i class="iconoir-itch"></i>
+      </a>
+      
+    </div>
+    <br>
+    <p>
+      Copyright © 2018 - 2023 · All rights reserved
+    </p>
+  </div>
+</footer>
+
+<script>
+  let menuVisible = true;
+  const menu = document.getElementById('docsNav');
+  const menuLinks = menu.querySelectorAll('a');
+  const headings = document.querySelectorAll('h1, h2, h3, h4');
+  const showMenuButton = document.getElementById('docsNavButton');
+  const options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.8,
+  };
+
+  let shouldUpdate = true;
+  const observer = new IntersectionObserver(onIntersection, options);
+
+  showMenuButton.addEventListener('click', (event) => {
+    menu.classList.toggle('mobile')
+  });
+
+  menuLinks.forEach(link => {
+    link.addEventListener('click', (event) => {
+      shouldUpdate = false
+      menuLinks.forEach(l => l.classList.remove('is-active'));
+      link.classList.add('is-active');
+      setTimeout(() => {
+        shouldUpdate = true;
+      }, 100);
+      if (!menu.classList.contains('mobile') && menu.style.display !== 'none') {
+        menu.classList.toggle('mobile');
+      }
+    });
+  })
+
+  function findActiveSectionId () {
+    let minDistance = Number.POSITIVE_INFINITY;
+    let activeSectionId = '';
+
+    headings.forEach(heading => {
+      if (!heading.id) { return }
+      const rect = heading.getBoundingClientRect();
+      if (rect.top >= 0 && rect.top < minDistance) {
+        minDistance = rect.top;
+        activeSectionId = heading.id;
+      }
+    });
+
+    return activeSectionId;
+  }
+
+  function onIntersection (entries) {
+    const currentSectionId = findActiveSectionId();
+    if (shouldUpdate === false) { return }
+    menuLinks.forEach(link => {
+      link.classList.remove('is-active');
+      if (link.getAttribute('href').substring(1) === currentSectionId) {
+        link.classList.add('is-active');
+      }
+    });
+  }
+  headings.forEach(heading => {
+    if (heading.id) {
+      observer.observe(heading);
+    }
+  })
+
+  menuLinks[0].classList.add('is-active');
+</script>
+
+</html>

@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+
+<head>
+  <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+</head>
+
+<style>
+  #content {
+    margin: 2rem 5em;
+  }
+
+  .card-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin: 3rem 1rem;
+  }
+
+  .media-card {
+    position: relative;
+    min-width: 410px;
+    min-height: 500px;
+    max-width: 410px;
+    max-height: 500px;
+    border-radius: 5px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: 0.3s;
+    margin: 1rem 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .media-card:hover {
+    outline: 1px solid purple;
+    background: rgba(100, 100, 100, 0.2);
+    transition: 0.3s;
+  }
+
+  .media-card-title {
+    box-sizing: border-box;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.7);
+    /* Black see-through */
+    color: white;
+    font-size: 1.5rem;
+    padding: 15px;
+    text-align: left;
+    border-radius: 5px 5px 0 0;
+    margin: auto;
+    width: 100%;
+  }
+
+  .media-card-load {
+    border-radius: 5px 5px 0 0;
+    background-size: cover;
+    background-position: center;
+    min-height: 300px;
+    max-height: 300px;
+    animation: pulse 2.5s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      background-color: rgba(80, 80, 80, 0.3);
+    }
+
+    50% {
+      background-color: rgba(80, 80, 80, 0.75);
+    }
+
+    100% {
+      background-color: rgba(80, 80, 80, 0.3);
+    }
+  }
+
+  .media-card-load>img {
+    opacity: 0;
+    transition: opacity 500ms ease-in-out;
+  }
+
+  .media-card-loaded>img {
+    opacity: 100;
+  }
+
+  .media-card img {
+    border-radius: 5px 5px 0 0;
+    min-height: 300px;
+    max-height: 300px;
+    width: 100%;
+    display: block;
+  }
+
+  .media-card-content {
+    padding: 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .media-card i {
+    font-size: 1.5rem;
+    padding: 0 5px 0 0;
+  }
+
+  .media-card-buttons {
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 5px 5px;
+    /* Black see-through */
+    color: white;
+    font-size: 1.5rem;
+    padding: inherit;
+    text-align: left;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .card-button {
+    background-color: #fa5c5c;
+    border: none;
+    color: white;
+    margin-right: 5px;
+    padding: 4px 29px 9px 11px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+
+  .card-button:first-child {
+    border-radius: 0 0 0 5px;
+  }
+
+  .card-button:hover {
+    background-color: #e94747;
+    color: white;
+    transition: 0.3s;
+  }
+
+  .strike {
+    text-decoration: line-through
+  }
+</style>
+<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+      <img id="logo" src="/static/img/logo-small.png" height="95">
+    </a>
+
+    <a id="mainMenuBurger" role="button" class="navbar-burger is-dark" aria-label="menu" aria-expanded="false" data-target="mainMenu">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="mainMenu" class="navbar-menu">
+    <div class="navbar-start" id="navbar-links">
+      
+
+      
+      <a class="navbar-item" href="/games">Games</a>
+      
+      
+
+      
+      <a class="navbar-item" href="/assets">Assets</a>
+      
+      
+
+      
+      <a class="navbar-item" href="/about">About</a>
+      
+      
+
+      
+      <a class="navbar-item" href="/support">Support</a>
+      
+      
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="socials">
+          
+          <a href="https://twitter.com/ltngames">
+            <i class="iconoir-twitter"></i>
+          </a>
+          
+          <a href="https://github.com/ltngames">
+            <i class="iconoir-github"></i>
+          </a>
+          
+          <a href="https://www.facebook.com/ltngames/">
+            <i class="iconoir-facebook"></i>
+          </a>
+          
+          <a href="https://www.youtube.com/@ltn_games">
+            <i class="iconoir-youtube"></i>
+          </a>
+          
+          <a href="https://ltngames.itch.io/">
+            <i class="iconoir-itch"></i>
+          </a>
+          
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+<script>
+  const mainMenu = document.getElementById('mainMenu');
+  const navbarBurger = document.getElementById('mainMenuBurger');
+
+  navbarBurger.addEventListener('click', (event) => {
+    mainMenuBurger.classList.toggle('is-active');
+    mainMenu.classList.toggle('is-active');
+  });
+</script>
+
+<div id="content">
+  <div class="tabs is-toggle is-toggle-rounded is-centered">
+    <ul>
+      <li id="all-tab" class="is-active"><a>All</a></li>
+      <li id="paid-tab"><a>Premium Plugins</a></li>
+      <li id="free-tab"><a>Free Plugins</a></li>
+    </ul>
+  </div>
+  <div class="container has-text-centered">
+    <h1 class="title">Plugins</h1>
+    <h3 class="subtitle">Explore our collection of top-tier RPG Maker plugins</h3>
+      <div class="card-list">
+      
+        <!-- --------------- -->
+        <!--  Free Plugins   -->
+        <!-- --------------- -->
+        
+        <div class="media-card" data-type="free">
+          <div class="media-card-load">
+            <img src="https://img.itch.zone/aW1nLzM3MzQ0MDQucG5n/315x250%23c/z3cJ1E.png" loading="lazy" alt="Plugin Image">
+          </div>
+      
+          <div class="media-card-content">
+            Gvie each actor their own inventory space, trade with other actors,  and have access to a global stash.
+          </div>
+      
+          <div class="media-card-buttons">
+            <a class="card-button" href=https://ltngames.itch.io/fenixenginemv-actor-item-stash>
+              <i class="iconoir-itch"></i>
+              Download
+            </a>
+          </div>
+        </div>
+        
+        <div class="media-card" data-type="free">
+          <div class="media-card-load">
+            <img src="https://img.itch.zone/aW1nLzM3MzQ0NjQucG5n/315x250%23c/EIyoK2.png" loading="lazy" alt="Plugin Image">
+          </div>
+      
+          <div class="media-card-content">
+            Improve the UI of the status window in frontview battles
+          </div>
+      
+          <div class="media-card-buttons">
+            <a class="card-button" href=https://ltngames.itch.io/fenixenginemv-better-battle-status>
+              <i class="iconoir-itch"></i>
+              Download
+            </a>
+          </div>
+        </div>
+        
+        <div class="media-card" data-type="free">
+          <div class="media-card-load">
+            <img src="https://img.itch.zone/aW1nLzM3MzQ2MDkucG5n/315x250%23c/ayG2pV.png" loading="lazy" alt="Plugin Image">
+          </div>
+      
+          <div class="media-card-content">
+            A chapter selection system for your games
+          </div>
+      
+          <div class="media-card-buttons">
+            <a class="card-button" href=https://ltngames.itch.io/fenixenginemv-chapter-select>
+              <i class="iconoir-itch"></i>
+              Download
+            </a>
+          </div>
+        </div>
+        
+        <div class="media-card" data-type="free">
+          <div class="media-card-load">
+            <img src="https://img.itch.zone/aW1nLzM3NDU2OTIucG5n/315x250%23c/9%2BS3um.png" loading="lazy" alt="Plugin Image">
+          </div>
+      
+          <div class="media-card-content">
+            A customizable pause scene which enhances mobile gameplay and increases accesibility.
+          </div>
+      
+          <div class="media-card-buttons">
+            <a class="card-button" href=https://ltngames.itch.io/fenixenginemv-pause-mode>
+              <i class="iconoir-itch"></i>
+              Download
+            </a>
+          </div>
+        </div>
+        
+        <div class="media-card" data-type="free">
+          <div class="media-card-load">
+            <img src="https://img.itch.zone/aW1nLzM3MzQ1MzcucG5n/315x250%23c/3cVWUc.png" loading="lazy" alt="Plugin Image">
+          </div>
+      
+          <div class="media-card-content">
+            Place social media buttons on your title screen and gather your followers
+          </div>
+      
+          <div class="media-card-buttons">
+            <a class="card-button" href=https://ltngames.itch.io/fenixenginemv-socialmediabuttons>
+              <i class="iconoir-itch"></i>
+              Download
+            </a>
+          </div>
+        </div>
+        
+      
+        <!-- --------------- -->
+        <!-- Premium Plugins -->
+        <!-- --------------- -->
+        
+      
+        <div class="media-card" data-type="premium">
+          <div class="media-card-load">
+            <img src="https://img.itch.zone/aW1nLzg4OTc2NzQucG5n/315x250%23c/%2Bgwkir.png" loading="lazy" alt="Plugin Image">
+          </div>
+      
+          <div class="media-card-content">
+            Duck, jump, and embark in a customizable endless runner mini-game!
+            <br>
+            <div>
+              
+              <i class="fa fa-tag"></i><small class="strike">$9.99</small> <strong>$4.99 </strong><small>USD</small> | On Sale! <b>50% off!</b>
+              
+            </div>
+          </div>
+      
+          <div class="media-card-buttons">
+            <a class="card-button" href=https://ltngames.itch.io/endless-runner-plugin>
+              <i class="iconoir-itch"></i>
+              Buy
+            </a>
+          </div>
+        </div>
+      
+        
+      
+        <div class="media-card" data-type="premium">
+          <div class="media-card-load">
+            <img src="https://img.itch.zone/aW1nLzg5MDE1MzYucG5n/315x250%23c/Z4xnda.png" loading="lazy" alt="Plugin Image">
+          </div>
+      
+          <div class="media-card-content">
+            Unlock the power to skip videos in RPG Maker, offering you greater control over the player's viewing experience.
+            <br>
+            <div>
+              
+              <i class="fa fa-tag"></i><small class="strike">$1.99</small> <strong>$1 </strong><small>USD</small> | On Sale! <b>50% off!</b>
+              
+            </div>
+          </div>
+      
+          <div class="media-card-buttons">
+            <a class="card-button" href=https://ltngames.itch.io/skip-video>
+              <i class="iconoir-itch"></i>
+              Buy
+            </a>
+          </div>
+        </div>
+      
+        
+      
+        <div class="media-card" data-type="premium">
+          <div class="media-card-load">
+            <img src="https://img.itch.zone/aW1nLzg4OTc4NzMucG5n/315x250%23c/4Hz11f.png" loading="lazy" alt="Plugin Image">
+          </div>
+      
+          <div class="media-card-content">
+            Elevate your RPG with customizable stats and skills. Shape your game like never before.
+            <br>
+            <div>
+              
+              <i class="fa fa-tag"></i><small class="strike">$9.99</small> <strong>$5.99 </strong><small>USD</small> | On Sale! <b>40% off!</b>
+              
+            </div>
+          </div>
+      
+          <div class="media-card-buttons">
+            <a class="card-button" href=https://ltngames.itch.io/stat-skill-levels-plugin>
+              <i class="iconoir-itch"></i>
+              Buy
+            </a>
+          </div>
+        </div>
+      
+        
+      
+        <div class="media-card" data-type="premium">
+          <div class="media-card-load">
+            <img src="https://img.itch.zone/aW1nLzg4OTc3ODUucG5n/315x250%23c/4S%2BtFQ.png" loading="lazy" alt="Plugin Image">
+          </div>
+      
+          <div class="media-card-content">
+            Expand your world by seamlessly integrating an endless array of unique storage containers into your gameplay experience.
+            <br>
+            <div>
+              
+              <i class="fa fa-tag"></i><small class="strike">$6.99</small> <strong>$4.19 </strong><small>USD</small> | On Sale! <b>40% off!</b>
+              
+            </div>
+          </div>
+      
+          <div class="media-card-buttons">
+            <a class="card-button" href=https://ltngames.itch.io/storage-system-plugin>
+              <i class="iconoir-itch"></i>
+              Buy
+            </a>
+          </div>
+        </div>
+      
+        
+      
+        <div class="media-card" data-type="premium">
+          <div class="media-card-load">
+            <img src="https://img.itch.zone/aW1nLzkzOTI4NjMucG5n/315x250%23c/bFjjRv.png" loading="lazy" alt="Plugin Image">
+          </div>
+      
+          <div class="media-card-content">
+            Explore your world with ease, unlocking the power of fast and convenient travel.
+            <br>
+            <div>
+              
+              <i class="fa fa-tag"></i><small class="strike">$4.99</small> <strong>$2.49 </strong><small>USD</small> | On Sale! <b>50% off!</b>
+              
+            </div>
+          </div>
+      
+          <div class="media-card-buttons">
+            <a class="card-button" href=https://ltngames.itch.io/waypoints-plugin>
+              <i class="iconoir-itch"></i>
+              Buy
+            </a>
+          </div>
+        </div>
+      
+        
+      
+      </div>
+  </div>
+</div>
+
+<script>
+  const imgDivs = document.querySelectorAll('.media-card-load');
+  const tabButtons = document.querySelectorAll('.tabs li');
+  let filter = 'premium';
+
+  tabButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      tabButtons.forEach((button) => {
+        button.classList.remove('is-active');
+      });
+      button.classList.add('is-active');
+      filter = button.id.replace('-tab', '')
+      updatePlugins();
+    });
+  });
+
+  imgDivs.forEach((imgDiv) => {
+    const img = imgDiv.querySelector('img');
+    img.addEventListener('load', () => {
+      // imgDiv.classList.remove('media-card-load');
+      imgDiv.classList.add('media-card-loaded');
+    });
+  });
+
+  function updatePlugins () {
+    const allPlugins = document.querySelectorAll('.media-card');
+    allPlugins.forEach((plugin) => {
+      const type = plugin.getAttribute('data-type');
+      if ((filter === 'paid' && type === 'premium') || (filter === 'free' && type === 'free')
+        || filter === 'all') {
+        plugin.style.display = 'flex';
+      } else {
+        plugin.style.display = 'none';
+      }
+    });
+  }
+</script>
+<footer class="footer">
+  <div class="content has-text-centered mt-auto">
+    <div class="socials">
+      
+      <a href="https://twitter.com/ltngames">
+        <i class="iconoir-twitter"></i>
+      </a>
+      
+      <a href="https://github.com/ltngames">
+        <i class="iconoir-github"></i>
+      </a>
+      
+      <a href="https://www.facebook.com/ltngames/">
+        <i class="iconoir-facebook"></i>
+      </a>
+      
+      <a href="https://www.youtube.com/@ltn_games">
+        <i class="iconoir-youtube"></i>
+      </a>
+      
+      <a href="https://ltngames.itch.io/">
+        <i class="iconoir-itch"></i>
+      </a>
+      
+    </div>
+    <br>
+    <p>
+      Copyright © 2018 - 2023 · All rights reserved
+    </p>
+  </div>
+</footer>
+
+</html>
