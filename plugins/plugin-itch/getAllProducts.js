@@ -56,7 +56,7 @@ module.exports = async function getAllProducts(options) {
         salePrice: minPrice - (minPrice * saleRate / 100).toFixed(2),
         isPublished: product.published,
         publishedAt: product.published_at,
-        isPaid: minPrice,
+        isPaid: minPrice > 0,
         purchases: product.purchases_count,
         downloads: product.downloads_count,
         views: product.views_count,
