@@ -1,4 +1,4 @@
-const { getDescription, getScreenshots, getMetadata } = require('./ItchScraper.js')
+const { itchProduct, getDescription, getScreenshots, getMetadata } = require('./ItchScraper.js')
 const getAllProducts = require('./getAllProducts.js')
 const fs = require('fs/promises')
 
@@ -34,24 +34,15 @@ module.exports = {
         continue;
       }
       const productSlug = product.slug;
-
-      const metadata = await new Promise(resolve => {
+      const itchData = await new Promise(resolve => {
         setTimeout(() => {
-          resolve(getMetadata(productSlug, options));
+          resolve(itchProduct(productSlug, options));
         }, options.delay);
-      });
+      })
 
-      const pageContent = await new Promise(resolve => {
-        setTimeout(() => {
-          resolve(getDescription(productSlug, options));
-        }, options.delay);
-      });
-
-      const screenshots = await new Promise(resolve => {
-        setTimeout(() => {
-          resolve(getScreenshots(productSlug, options));
-        }, options.delay);
-      });
+      const metadata = itchData.metadata;
+      const pageContent = itchData.descriptionHtml;
+      const screenshots = itchProduct.screenshotImages;
 
       data.push({
         metadata,
