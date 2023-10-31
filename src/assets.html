@@ -29,7 +29,7 @@
     {% for plugin in freePluginData %}
     <div class="media-card" data-type="free">
       <div class="media-card-load">
-        <img src="{{plugin.thumbnail}}" loading="lazy" alt="Plugin Thumbnail">
+        <img src="{{plugin.thumbnail}}" width="315" height="250" loading="lazy" alt="Plugin thumbnail for {{plugin.title}}">
       </div>
 
       <div class="media-card-content">
@@ -52,7 +52,7 @@
 
     <div class="media-card" data-type="premium">
       <div class="media-card-load">
-        <img src="{{plugin.thumbnail}}" loading="lazy" alt="Plugin Image">
+        <img src="{{plugin.thumbnail}}" width="315" height="250" loading="lazy" alt="Plugin thumbnail for {{plugin.title}}">
       </div>
 
       <div class="media-card-content">
