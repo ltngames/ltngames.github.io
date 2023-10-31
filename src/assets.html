@@ -9,7 +9,7 @@
 
 {% include 'header.html' %}
 
-<div id="content">
+<div class="container has-text-centered">
   <div class="tabs is-toggle is-toggle-rounded is-centered">
     <ul>
       <li id="all-tab" class="is-active"><a>All</a></li>
@@ -17,66 +17,64 @@
       <li id="free-tab"><a>Free Plugins</a></li>
     </ul>
   </div>
-  <div class="container has-text-centered">
-    <h1 class="title">Plugins</h1>
-    <h3 class="subtitle">Explore our collection of top-tier RPG Maker plugins</h3>
-      <div class="card-list">
-      
-        <!-- --------------- -->
-        <!--  Free Plugins   -->
-        <!-- --------------- -->
-        {% for plugin in freePluginData %}
-        <div class="media-card" data-type="free">
-          <div class="media-card-load">
-            <img src="{{plugin.thumbnail}}" loading="lazy" alt="Plugin Thumbnail">
-          </div>
-      
-          <div class="media-card-content">
-            {{plugin.shortText}}
-          </div>
-      
-          <div class="media-card-buttons">
-            <a class="card-button" href={{plugin.link}}>
-              <i class="iconoir-itch"></i>
-              Download
-            </a>
-          </div>
-        </div>
-        {% endfor %}
-      
-        <!-- --------------- -->
-        <!-- Premium Plugins -->
-        <!-- --------------- -->
-        {% for plugin in pluginData %}
-      
-        <div class="media-card" data-type="premium">
-          <div class="media-card-load">
-            <img src="{{plugin.thumbnail}}" loading="lazy" alt="Plugin Image">
-          </div>
-      
-          <div class="media-card-content">
-            {{plugin.shortText}}
-            <br>
-            <div>
-              {% if plugin.saleRate %}
-              <i class="fa fa-tag"></i><small class="strike">{{plugin.price}}</small> <strong>${{plugin.salePrice}} </strong><small>USD</small> | On Sale! <b>{{plugin.saleRate}}% off!</b>
-              {% else %}
-              <strong>{{plugin.price}} <small>USD</small></strong>
-              {% endif %}
-            </div>
-          </div>
-      
-          <div class="media-card-buttons">
-            <a class="card-button" href={{plugin.link}}>
-              <i class="iconoir-itch"></i>
-              Buy
-            </a>
-          </div>
-        </div>
-      
-        {% endfor %}
-      
+  <h1 class="title">Plugins</h1>
+  <h3 class="subtitle">Explore our collection of top-tier RPG Maker plugins</h3>
+  <div class="card-list">
+
+    <!-- --------------- -->
+    <!--  Free Plugins   -->
+    <!-- --------------- -->
+    {% for plugin in freePluginData %}
+    <div class="media-card" data-type="free">
+      <div class="media-card-load">
+        <img src="{{plugin.thumbnail}}" loading="lazy" alt="Plugin Thumbnail">
       </div>
+
+      <div class="media-card-content">
+        {{plugin.shortText}}
+      </div>
+
+      <div class="media-card-buttons">
+        <a class="card-button" href={{plugin.link}}>
+          <i class="iconoir-itch"></i>
+          Download
+        </a>
+      </div>
+    </div>
+    {% endfor %}
+
+    <!-- --------------- -->
+    <!-- Premium Plugins -->
+    <!-- --------------- -->
+    {% for plugin in pluginData %}
+
+    <div class="media-card" data-type="premium">
+      <div class="media-card-load">
+        <img src="{{plugin.thumbnail}}" loading="lazy" alt="Plugin Image">
+      </div>
+
+      <div class="media-card-content">
+        {{plugin.shortText}}
+        <br>
+        <div>
+          {% if plugin.saleRate %}
+          <i class="fa fa-tag"></i><small class="strike">{{plugin.price}}</small> <strong>${{plugin.salePrice}} </strong><small>USD</small> | On Sale! <b>{{plugin.saleRate}}% off!</b>
+          {% else %}
+          <strong>{{plugin.price}} <small>USD</small></strong>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="media-card-buttons">
+        <a class="card-button" href={{plugin.link}}>
+          <i class="iconoir-itch"></i>
+          Buy
+        </a>
+      </div>
+    </div>
+
+    {% endfor %}
+
   </div>
 </div>
 

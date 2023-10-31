@@ -9,36 +9,34 @@
 
 {% include 'header.html' %}
 
-<div id="content">
-  <div class="container has-text-centered">
-    <h1 class="title">Games</h1>
-    <h3 class="subtitle">Explore our collection of top-tier RPG Maker plugins</h3>
-    <div class="card-list">
-      <!-- --------------- -->
-      <!-- Games -->
-      <!-- --------------- -->
-      {% for game in gameData %}
+<div class="container has-text-centered">
+  <h1 class="title">Games</h1>
+  <h3 class="subtitle">Explore our collection of top-tier RPG Maker plugins</h3>
+  <div class="card-list">
+    <!-- --------------- -->
+    <!-- Games -->
+    <!-- --------------- -->
+    {% for game in gameData %}
 
-      <div class="media-card" data-type="premium">
-        <div class="media-card-load">
-          <img src="{{game.thumbnail}}" loading="lazy" alt="Game Thumbnail">
-        </div>
-
-        <div class="media-card-content">
-          {{game.shortText}}
-        </div>
-
-        <div class="media-card-buttons">
-          <a class="card-button" href={{game.link}}>
-            <i class="iconoir-itch"></i>
-            View
-          </a>
-        </div>
+    <div class="media-card" data-type="premium">
+      <div class="media-card-load">
+        <img src="{{game.thumbnail}}" loading="lazy" alt="Game Thumbnail">
       </div>
 
-      {% endfor %}
+      <div class="media-card-content">
+        {{game.shortText}}
+      </div>
 
+      <div class="media-card-buttons">
+        <a class="card-button" href={{game.link}}>
+          <i class="iconoir-itch"></i>
+          View
+        </a>
+      </div>
     </div>
+
+    {% endfor %}
+
   </div>
 </div>
 

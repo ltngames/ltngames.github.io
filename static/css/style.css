@@ -1,8 +1,8 @@
 @import "./bulma.css";
 @import "/static/icons/style.css";
 
-.navbar {
-  margin-bottom: 2rem;
+.container {
+  margin-top: 2rem;
 }
 
 .hero.is-gradient {
@@ -63,6 +63,12 @@
   margin: 3rem 1rem;
 }
 
+@media (max-width: 520px) {
+  .card-list {
+    margin: 0;
+  }
+}
+
 .media-card {
   position: relative;
   min-width: 410px;
@@ -76,6 +82,14 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+@media (max-width: 520px) {
+  .media-card {
+    min-width: 95%;
+    max-width: 95%;
+    margin: 1rem;
+  }
 }
 
 .media-card:hover {
