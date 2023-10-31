@@ -6,7 +6,7 @@ const ITCH_API_KEY = process.env.ITCH_KEY
 
 if (ITCH_API_KEY == null) {
   console.error('Unable to find itch.io API key')
-  process.exit()
+  process.exit(1)
 }
 
 async function writeJson (data, filename) {
