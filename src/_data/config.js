@@ -1,9 +1,10 @@
 module.exports = {
+  siteName: 'LTN Games',
   title: 'LTN Games | Indie Studio',
   logo: '/static/img/logo-small.png',
   navbarItems: [
-    { text: 'Games', href: '/games'},
     { text: 'Assets', href: '/assets'},
+    { text: 'Games', href: '/games'},
     { text: 'About', href: '/about'},
     { text: 'Support', href: '/support'}
   ],
