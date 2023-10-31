@@ -30,7 +30,7 @@ async function scrapeItchProduct (productUrl) {
       metadata
     } 
   } catch (error) {
-    console.error(`Failed to scrape itch.io product ${productUrl}`, error)
+    console.error(`Failed to scrape itch.io product ${productUrl}`, error.message)
   }
 }
 
