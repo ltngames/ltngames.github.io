@@ -1,6 +1,7 @@
 ---
 title: Skip Video Plugin Documentation
 layout: documentation.html
+metaDescription: Documentation for our Skip Video RPG Maker plugin
 ---
 
 This plugin grants the player the ability to skip a video played within RPG Maker.

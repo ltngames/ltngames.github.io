@@ -1,6 +1,7 @@
 ---
 title: Storage System Plugin Documentation
 layout: documentation.html
+metaDescription: Documentation for our Storage System RPG Maker plugin
 ---
 
  This plugin provides a way to have an unlimited amount of storage containers

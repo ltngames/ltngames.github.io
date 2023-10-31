@@ -1,6 +1,7 @@
 ---
 title: Waypoints Plugin Documentation
 layout: documentation.html
+metaDescription: Documentation for our Waypoints RPG Maker plugin
 ---
 
  This Waypoints plugin gives you the ability to create waypoints for your game, giving the player the ability to "fast travel" to locations in your game. Much in the style of Diablo 2. You will be able to lock and unlock waypoints as well as choose your own animations and common event when you teleport through a waypoint.

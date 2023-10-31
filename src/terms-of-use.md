@@ -1,6 +1,7 @@
 ---
 title: Terms of Use
 layout: base.html
+metaDescription: The terms of use for our assets
 ---
 
 ## RPG Maker MV Plugin Terms

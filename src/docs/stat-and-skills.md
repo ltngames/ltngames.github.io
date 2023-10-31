@@ -1,6 +1,7 @@
 ---
 title: Stat And Skills Plugin Documentation
 layout: documentation.html
+metaDescription: Documentation for our Stat and Skills RPG Maker plugin
 ---
 
 ![banner](/static/img/docs/stat-and-skills/skill_and_stat_levels-banner.png)

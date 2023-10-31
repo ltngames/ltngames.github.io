@@ -1,6 +1,7 @@
 ---
 title: Support
 layout: base.html
+metaDescription: How to get support for our assets for RPG Maker, Godot and more
 ---
 
 For assistance with any of our products, please don't hesitate to reach out to us.
