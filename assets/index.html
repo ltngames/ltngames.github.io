@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 
 <head>
+  <title>LTN Games | Assets</title>
   <link rel="stylesheet" type="text/css" href="/static/css/style.css">
 </head>
 
@@ -25,12 +26,12 @@
       
 
       
-      <a class="navbar-item" href="/games">Games</a>
+      <a class="navbar-item" href="/assets">Assets</a>
       
       
 
       
-      <a class="navbar-item" href="/assets">Assets</a>
+      <a class="navbar-item" href="/games">Games</a>
       
       
 
@@ -89,13 +90,13 @@
 <div class="container has-text-centered">
   <div class="tabs is-toggle is-toggle-rounded is-centered">
     <ul>
-      <li id="all-tab" class="is-active"><a>All</a></li>
-      <li id="paid-tab"><a>Premium Plugins</a></li>
-      <li id="free-tab"><a>Free Plugins</a></li>
+      <li id="all-tab" class="is-active"><a href="all">All</a></li>
+      <li id="premium-tab"><a href="premium">Premium Plugins</a></li>
+      <li id="free-tab"><a href="free">Free Plugins</a></li>
     </ul>
   </div>
-  <h1 class="title">Plugins</h1>
-  <h3 class="subtitle">Explore our collection of top-tier RPG Maker plugins</h3>
+  <h1 class="title">Assets</h1>
+  <h2 class="subtitle">Discover our diverse collection of high-quality assets</h2>
   <div class="card-list">
 
     <!-- --------------- -->
@@ -328,6 +329,7 @@
 
   tabButtons.forEach((button) => {
     button.addEventListener('click', () => {
+      event.preventDefault();
       tabButtons.forEach((button) => {
         button.classList.remove('is-active');
       });
@@ -349,7 +351,7 @@
     const allPlugins = document.querySelectorAll('.media-card');
     allPlugins.forEach((plugin) => {
       const type = plugin.getAttribute('data-type');
-      if ((filter === 'paid' && type === 'premium') || (filter === 'free' && type === 'free')
+      if ((filter === 'premium' && type === 'premium') || (filter === 'free' && type === 'free')
         || filter === 'all') {
         plugin.style.display = 'flex';
       } else {

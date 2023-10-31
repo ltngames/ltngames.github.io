@@ -39,6 +39,10 @@
   .socials a {
     color: #363636;
   }
+
+  .container {
+    width: 95%;
+  }
 }
 
 .socials a:hover {
