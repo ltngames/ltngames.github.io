@@ -28,6 +28,10 @@ module.exports = function (config) {
     `;
   });
 
+  config.addFilter('tojson', function (content) {
+    return JSON.stringify(content);
+  });
+
   config.addPassthroughCopy('static/')
   return {
     dir: {

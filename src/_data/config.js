@@ -2,6 +2,14 @@ module.exports = {
   siteName: 'LTN Games',
   title: 'LTN Games | Indie Studio',
   logo: '/static/img/logo-small.png',
+  taglines: [
+    'An Indie Studio Crafting Games and Assets for Everyone.',
+    'Igniting imagination, one pixel at a time.',
+    'Immerse Yourself in Gaming Magic with Every Byte.',
+    'Designing Adventures for Joyful Escapes.',
+    'Unlock New Dimensions of Gameplay with Our RPG Maker Plugins',
+    '01110000 01101100 01110101 01100111 01101001 01101110 01110011',
+  ],
   navbarItems: [
     { text: 'Assets', href: '/assets'},
     { text: 'Games', href: '/games'},

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="LTN Games an indie studio creating games and assets for RPG Maker, Godot and more">
+  <meta name="description" content="LTN Games an indie studio crafting games and assets with RPG Maker, Godot and more">
   <meta charset="UTF-8">
   <head>
     <title>{{ config.title }}</title>
@@ -15,11 +15,23 @@
       <p class="title">
         LTN Games
       </p>
-      <p class="subtitle">
-        A small indie game studio creating games and resources for everyone.
+      <p id="tagline" class="subtitle">
+        {{config.taglines[0]}}
       </p>
     </div>
   </div>
 </section>
+<script>
+  const taglineElement = document.getElementById("tagline");
+
+  const allTaglines = {{ config.taglines | tojson }};
+
+  function getRandomTagline () {
+    const randomIndex = Math.floor(Math.random() * allTaglines.length);
+    return allTaglines[randomIndex];
+  }
+
+  taglineElement.textContent = getRandomTagline();
+</script>
 {% include 'footer.html' %}
 </html>
