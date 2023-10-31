@@ -1,5 +1,6 @@
 const fs = require('fs/promises');
 const axios = require('axios');
+const itchScraper = require('./plugins/plugin-itch/.eleventy.js');
 
 const ITCH_API_KEY = process.env.ITCH_KEY
 
@@ -21,58 +22,24 @@ async function writePluginsData (data, isFree = false) {
 
 ;(async () => {
   try {
-    const itchResponse = await axios.get('https://itch.io/api/1/key/my-games', {
-      headers: {
-        Authorization: `Bearer ${ITCH_API_KEY}`,
-        'Content-Type': 'application/json'
+    const allProducts = await itchScraper.retrieveUserProducts({
+      itchKey: ITCH_API_KEY,
+      username: 'ltngames',
+      filter: product => {
+        return product.published
       }
+    });
+
+    const freePluginData = allProducts.filter(product => {
+      return !product.isPaid && product.classification === 'tool'
     })
 
-    const games = itchResponse.data.games
-    const freePlugins = games.filter(p => p.min_price <= 0 && p.published && p.classification === 'tool')
-    const paidPlugins = games.filter(p => p.min_price > 0 && p.published && p.classification === 'tool')
-
-    const paidPluginData = paidPlugins.map(plugin => {
-      const formatter = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD'
-      })
-
-      let minPrice = plugin.min_price
-      let saleRate = null
-      const digits = minPrice.toString().length
-
-      if (digits <= 3) {
-        const priceArr = String(minPrice).match(/\d/g)
-        priceArr.splice(1, 0, '.')
-        minPrice = priceArr.toString().replace(/[,]/g, '')
-      }
-
-      const formattedMinPrice = formatter.format(minPrice)
-
-      if (plugin.sale) {
-        this.isSale = true
-        saleRate = plugin.sale.rate
-      }
-
-      return {
-        title: plugin.title,
-        image: plugin.cover_url,
-        link: plugin.url,
-        description: plugin.short_text,
-        price: formattedMinPrice,
-        salePrice: minPrice - (minPrice * saleRate / 100).toFixed(2),
-        saleRate
-      }
+    const paidPluginData = allProducts.filter(product => {
+      return product.isPaid && product.classification === 'tool'
     })
 
-    const freePluginData = freePlugins.map(plugin => {
-      return {
-        title: plugin.title,
-        image: plugin.cover_url,
-        link: plugin.url,
-        description: plugin.short_text
-      }
+    const games = allProducts.map(product => {
+      return product.classification === 'game'
     })
 
     // write to file

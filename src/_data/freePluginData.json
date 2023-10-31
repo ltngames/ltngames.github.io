@@ -1,32 +1,82 @@
 [
   {
+    "metadata": [],
+    "pageContent": "<h2>What does this plugin do?</h2>\n<p> This plugins will provide a new way to interact with your actors inventory by granting each actor their very own inventory space! You can trade items between your party members, or choose to deposit or withdraw items in the global stash which is accessed in a new menu. All items gained through event commands are added to a temporary stash which lets you decide what to do with an item, all of which can be accessed on the current map.</p>\n<h4>Temporary Stash</h4>\n<p> Because each actor now has their own inventory space, when using event commands like \"Change Items\", \"Change Weapons\", and \"Change Armors\" to add items, they will be moved to the temporary item stash instead of the default inventory. Now that items are pushed to the temporary item stash you can then use the plugin commands or script calls and let the player decide what to do with it's items.</p>\n<h4>Trading</h4>\n<p>You can now trade between two actors in the same party, it's as simple as viewing the new item scene and selecting trade. Trading items is a good way to lighten the load and organize the way your items are used.</p>\n<h4>Global Item Stash</h4>\n<p>A global item stash is now accessible via a brand new scene. This scene will display all items stored in the global stash and provides you a way to deposit and withdraw items. This scene is a way to provide the player with a to move items they don't currently require to a stash that is not accessed through the main menu but through an event.</p>\n<h4>Selling/Buying</h4>\n<p>Selling and buying items at shops now allow you to select an actor before<br>purchasing or selling. This means all items will be stashed into the selected<br>actor's item stash.<br>Only small changes have been made, the first thing to take note of is<br>before purchasing or selling an item you will be asked to select the actor in<br>which the item should be added to their inventory space. The second is that the<br>\"possession\" text drawn in the shop will display how many items out of the max amount<br>allowed to own.</p>\n<h4>Equipping</h4>\n<p> Same as buying or selling, you can only equip an item that the actor owns in their own item stash. Nothing has changed here except for not being able to equip items that are in another actor's inventory space.</p>\n<h3><br>Terms of Use</h3>\n<p><a href=\"https://fenixenginemv.gitlab.io/\" referrerpolicy=\"origin\" rel=\"nofollow noopener\"><img src=\"https://img.itch.zone/aW1nLzM3MzQ0MjcucG5n/original/TyNUMF.png\" loading=\"lazy\"></a></p>\n<p><strong><em>FeniXEngine </em></strong>plugins and tools are <strong>MIT </strong>licensed and free for use in commercial and non-commercial games.</p>\n<h3>Reporting Bugs</h3>\n<p>If you find any bugs or compatibility issues, feel free to fill out <a href=\"https://fenixenginemv.gitlab.io/bug_report.html\" referrerpolicy=\"origin\" rel=\"nofollow noopener\">this form</a> and let us know about it.<br></p>",
     "title": "Actor Item Stash X for RPG Maker MV",
-    "image": "https://img.itch.zone/aW1nLzM3MzQ0MDQucG5n/315x250%23c/z3cJ1E.png",
+    "id": 322546,
+    "thumbnail": "https://img.itch.zone/aW1nLzM3MzQ0MDQucG5n/315x250%23c/z3cJ1E.png",
     "link": "https://ltngames.itch.io/fenixenginemv-actor-item-stash",
-    "description": "Gvie each actor their own inventory space, trade with other actors,  and have access to a global stash."
+    "slug": "fenixenginemv-actor-item-stash",
+    "shortText": "Gvie each actor their own inventory space, trade with other actors,  and have access to a global stash.",
+    "price": "$0.00",
+    "salePrice": 0,
+    "isPaid": false,
+    "type": "default",
+    "classification": "tool",
+    "saleRate": null
   },
   {
+    "metadata": [],
+    "pageContent": "<h3>What does this plugin do ?</h3>\n<p>This plugin changes the way the battle status window is displayed in frontview battles. It draws actor portraits based on the actors face name and index and draws them in battle. Each portrait will act as a normal sprite, meaning enemy attack animations and damage popups will be displayed on the actor portrait.&nbsp;</p>\n<h3>Parameters</h3>\n<p> The plugin's parameters provides numerous position options for both the actor command window and the portrait sprites.</p>\n<p><img src=\"https://img.itch.zone/aW1nLzE2NzYxMjAucG5n/original/FdPAyB.png\" loading=\"lazy\"><br></p>\n<p>A few key parameters are the \"Death Tone\" within the portrait options. This color tone is used to change the color of the portrait when the actor's hp is at 0.<br></p>\n<p><img src=\"https://img.itch.zone/aW1nLzE2NzYxMjMucG5n/original/oVa2%2Bs.png\" loading=\"lazy\"></p>\n<p>You can choose two types of cursor or selection cues that lets the player know which actor is currently selected. Aside from the command window lining up with the portrait you may also choose to use the default rectangle cursor or change the color tone of the portrait.<br></p>\n<h3>Terms of Use</h3>\n<p><a href=\"https://fenixengine.xyz\" referrerpolicy=\"origin\" rel=\"nofollow noopener\"><img src=\"https://img.itch.zone/aW1nLzM3MzQ0MjcucG5n/original/TyNUMF.png\" loading=\"lazy\"></a>\n</p>\n<p>\n<strong><em>FeniXEngine </em></strong>plugins and tools are <strong>MIT </strong>licensed and free for use in commercial and non-commercial games.</p>\n<h3>Reporting Bugs</h3>\n<p>If you find any bugs or compatibility issues, feel free to fill out <a href=\"https://fenixenginemv.gitlab.io/bug_report.html\" referrerpolicy=\"origin\" rel=\"nofollow noopener\">this form</a> and let us know about it.<br></p>",
     "title": "Battle Status X for RPG Maker MV",
-    "image": "https://img.itch.zone/aW1nLzM3MzQ0NjQucG5n/315x250%23c/EIyoK2.png",
+    "id": 337530,
+    "thumbnail": "https://img.itch.zone/aW1nLzM3MzQ0NjQucG5n/315x250%23c/EIyoK2.png",
     "link": "https://ltngames.itch.io/fenixenginemv-better-battle-status",
-    "description": "Improve the UI of the status window in frontview battles"
+    "slug": "fenixenginemv-better-battle-status",
+    "shortText": "Improve the UI of the status window in frontview battles",
+    "price": "$0.00",
+    "salePrice": 0,
+    "isPaid": false,
+    "type": "default",
+    "classification": "tool",
+    "saleRate": null
   },
   {
+    "metadata": [],
+    "pageContent": "<h3>What does this plugin do ?</h3>\n<p>This plugin provides the user the option of creating chapters for their game. Each chapter will allow you to reset and setup switches and variables which will be required for the player to play through the chapter again.</p>\n<p><em></em><strong>Note:</strong>&nbsp;Currently in beta status&nbsp;and this plugin and its page may not reflect the final product. <em><br></em></p>\n<h3>Parameters</h3>\n<h3><img src=\"https://img.itch.zone/aW1nLzI2NDI3NjIucG5n/original/4SiGyL.png\" style=\"\" loading=\"lazy\"></h3>\n<h3><img src=\"https://img.itch.zone/aW1nLzI2NDI3NjEucG5n/original/98rlBD.png\" loading=\"lazy\"></h3>\n<h3>Script Calls</h3>\n<p>$gameSystem.chapters()&nbsp;<br>This script call return an array of all chapters</p>\n<p> $gameSystem.getChapterById(chapterId) <br>Returns the chapter object by its ID</p>\n<p> $gameSystem.getChapterDescription() <br>Returns the chapters description</p>\n<p> $gameSystem.isChapterLocked() <br>Returns true is the chapter is locked</p>\n<p> $gameSystem.lockChapter() <br>Locks the chapter</p>\n<p> $gameSystem.unlockChapter()<br> Unlocks the chapter</p>\n<h3>Plugin Commands</h3>\n<p>## Open Chapter Select Scene&nbsp;<br>Chapter Open</p>\n<p> ## Lock a chapter<br>Chapter Lock chapterId</p>\n<p> ## Unlock a chapter<br>Chapter Unlock chapterId</p>\n<h3>Terms Of&nbsp;Use</h3>\n<p><a href=\"https://fenixengine.xyz\" rel=\"nofollow noopener\" referrerpolicy=\"origin\"><img src=\"https://img.itch.zone/aW1nLzM3MzQ0MjcucG5n/original/TyNUMF.png\" loading=\"lazy\"></a>\n</p>\n<ul><strong><em>FeniXEngine </em></strong>plugins and tools are <strong>MIT </strong>licensed and free for use in commercial and non-commercial games.</ul>\n<h3>Reporting Bugs</h3>\n<p>If you find any bugs or compatibility issues, feel free to fill out <a href=\"https://fenixenginemv.gitlab.io/bug_report.html\" rel=\"nofollow noopener\" referrerpolicy=\"origin\">this form</a> and let us know about it.<br></p>",
     "title": "Chapter Select X For RPG Maker MV",
-    "image": "https://img.itch.zone/aW1nLzM3MzQ2MDkucG5n/315x250%23c/ayG2pV.png",
+    "id": 428108,
+    "thumbnail": "https://img.itch.zone/aW1nLzM3MzQ2MDkucG5n/315x250%23c/ayG2pV.png",
     "link": "https://ltngames.itch.io/fenixenginemv-chapter-select",
-    "description": "A chapter selection system for your games"
+    "slug": "fenixenginemv-chapter-select",
+    "shortText": "A chapter selection system for your games",
+    "price": "$0.00",
+    "salePrice": 0,
+    "isPaid": false,
+    "type": "default",
+    "classification": "tool",
+    "saleRate": null
   },
   {
+    "metadata": [],
+    "pageContent": "<h3>What does this plugin do ?</h3>\n<p>Provides you with a pause scene which allows you to access the main menu and other game options through clickable buttons. The idea for this plugin is to improve mobile accessibility through an&nbsp;improved UI by giving the user access to important options and information in one scene.</p>\n<p><br></p>\n<h3>Unique Button Types</h3>\n<p><strong>Return button: </strong>This button provides a way to quickly exit the pause scene via touch of a button or by navigating with the keyboard.</p>\n<p><strong>Mute Button:</strong> Quickly mute all audio by opening the pause scene and touching the speaker button. Greyed out button means audio is muted!&nbsp;</p>\n<p><strong>Common Event Buttons:</strong> Create your own buttons using a common event as the action the button will perform.<br></p>\n<h3>Parameters</h3>\n<p>This plugin provides many options from changing each buttons image to adding your very own common event buttons. Each element on the pause scene is adjustable, that includes the current location, play time and if you're using <a href=\"https://ltngames.itch.io/fenixenginemv-socialmediabuttons\">Social Media Buttons X</a> plugin, then you can add them to the pause scene and adjust its location too.<br></p>\n<p><img src=\"https://img.itch.zone/aW1nLzM3NDU4NTEucG5n/original/GIjTl5.png\" loading=\"lazy\"><br></p>\n<h3>Terms Of&nbsp;Use<em>\n</em><a href=\"https://fenixengine.xyz/\" referrerpolicy=\"origin\" rel=\"nofollow noopener\"><img src=\"https://img.itch.zone/aW1nLzM3NDU3MDEucG5n/original/sVQwua.png\" loading=\"lazy\"></a><em></em><em><br></em></h3>\n<ul class=\"text-center\"><em><strong><em>FeniXEngine </em></strong>plugins and tools are <strong>MIT </strong>licensed and free for use in commercial and non-commercial games.</em><em><br></em><em></em><em><em></em><em></em></em><br></ul>\n<h3>Reporting Bugs</h3>\n<p>If you find any bugs or compatibility issues, feel free to fill out <a href=\"https://fenixengine.xyz/bug_report.html\" referrerpolicy=\"origin\" rel=\"nofollow noopener\">this form</a> and let us know about it.</p>\n<p><em></em></p>",
     "title": "Pause Mode X for RPG Maker MV",
-    "image": "https://img.itch.zone/aW1nLzM3NDU2OTIucG5n/315x250%23c/9%2BS3um.png",
+    "id": 335760,
+    "thumbnail": "https://img.itch.zone/aW1nLzM3NDU2OTIucG5n/315x250%23c/9%2BS3um.png",
     "link": "https://ltngames.itch.io/fenixenginemv-pause-mode",
-    "description": "A customizable pause scene which enhances mobile gameplay and increases accesibility."
+    "slug": "fenixenginemv-pause-mode",
+    "shortText": "A customizable pause scene which enhances mobile gameplay and increases accesibility.",
+    "price": "$0.00",
+    "salePrice": 0,
+    "isPaid": false,
+    "type": "default",
+    "classification": "tool",
+    "saleRate": null
   },
   {
+    "metadata": [],
+    "pageContent": "<h3>What does this plugin do?</h3>\n<p>It adds social media images to your title screen, allows for special effects like applying a filter and playing a sound effect&nbsp;when touching one. Upon click it will take the user to an external URL using the devices preferred application like the browser or twitter app.</p>\n<h3>Plugin Parameters</h3>\n<p>Plenty of parameters to choose from so you can customize the way the buttons interact with the player.&nbsp;</p>\n<ul><li>&nbsp;Change the sound you hear when you&nbsp;touch/rollover the button.&nbsp;</li><li>Apply a filter to change the hue or add other special effects when you touch/rollover the button</li><li>Add as many buttons as you like and adjust the URL for each of them</li></ul>\n<p><img src=\"https://img.itch.zone/aW1nLzE2NTUwMTYucG5n/original/TERnpl.png\" loading=\"lazy\"><br></p>\n<p>Changing the filter applied is easy and you have many options to choose from, you can even adjust the intensity of the effect applied!</p>\n<p><img src=\"https://img.itch.zone/aW1nLzE2NTUwMTUucG5n/original/gcvq9x.png\" loading=\"lazy\"><br></p>\n<h3>Terms Of&nbsp;Use</h3>\n<p><a href=\"https://fenixenginemv.gitlab.io\" referrerpolicy=\"origin\" rel=\"nofollow noopener\"><img src=\"https://img.itch.zone/aW1nLzM3MzQ0MjcucG5n/original/TyNUMF.png\" loading=\"lazy\"></a></p>\n<p><strong><em>FeniXEngine </em></strong>plugins and tools are <strong>MIT </strong>licensed and free for use in commercial and non-commercial games.<br></p><h3>Reporting Bugs</h3>\n<p>If you find any bugs or compatibility issues, feel free to fill out <a href=\"https://fenixenginemv.gitlab.io/bug_report.html\" referrerpolicy=\"origin\" rel=\"nofollow noopener\">this form</a> and let us know about it.<br>\n</p>",
     "title": "Social Media Buttons X for RPG Maker MV",
-    "image": "https://img.itch.zone/aW1nLzM3MzQ1MzcucG5n/315x250%23c/3cVWUc.png",
+    "id": 333982,
+    "thumbnail": "https://img.itch.zone/aW1nLzM3MzQ1MzcucG5n/315x250%23c/3cVWUc.png",
     "link": "https://ltngames.itch.io/fenixenginemv-socialmediabuttons",
-    "description": "Place social media buttons on your title screen and gather your followers"
+    "slug": "fenixenginemv-socialmediabuttons",
+    "shortText": "Place social media buttons on your title screen and gather your followers",
+    "price": "$0.00",
+    "salePrice": 0,
+    "isPaid": false,
+    "type": "default",
+    "classification": "tool",
+    "saleRate": null
   }
 ]

@@ -171,11 +171,11 @@
         {% for plugin in freePluginData %}
         <div class="media-card" data-type="free">
           <div class="media-card-load">
-            <img src="{{plugin.image}}" loading="lazy" alt="Plugin Image">
+            <img src="{{plugin.thumbnail}}" loading="lazy" alt="Plugin Thumbnail">
           </div>
       
           <div class="media-card-content">
-            {{plugin.description}}
+            {{plugin.shortText}}
           </div>
       
           <div class="media-card-buttons">
@@ -194,11 +194,11 @@
       
         <div class="media-card" data-type="premium">
           <div class="media-card-load">
-            <img src="{{plugin.image}}" loading="lazy" alt="Plugin Image">
+            <img src="{{plugin.thumbnail}}" loading="lazy" alt="Plugin Image">
           </div>
       
           <div class="media-card-content">
-            {{plugin.description}}
+            {{plugin.shortText}}
             <br>
             <div>
               {% if plugin.saleRate %}
