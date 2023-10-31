@@ -9,14 +9,10 @@ if (ITCH_API_KEY == null) {
   process.exit()
 }
 
-async function writePluginsData (data, isFree = false) {
+async function writeJson (data, filename) {
   const contents = JSON.stringify(data, null, 2)
   let outDir = ''
-  if (isFree) {
-    outDir = `${__dirname}/src/_data/freePluginData.json`
-  } else {
-    outDir = `${__dirname}/src/_data/pluginData.json`
-  }
+    outDir = `${__dirname}/src/_data/${filename}.json`
   await fs.writeFile(outDir, contents, 'utf8')
 }
 
@@ -30,6 +26,10 @@ async function writePluginsData (data, isFree = false) {
       }
     });
 
+    const games = allProducts.filter(product => {
+      return product.classification === 'game'
+    })
+
     const freePluginData = allProducts.filter(product => {
       return !product.isPaid && product.classification === 'tool'
     })
@@ -38,13 +38,10 @@ async function writePluginsData (data, isFree = false) {
       return product.isPaid && product.classification === 'tool'
     })
 
-    const games = allProducts.map(product => {
-      return product.classification === 'game'
-    })
-
     // write to file
-    await writePluginsData(freePluginData, true)
-    await writePluginsData(paidPluginData)
+    await writeJson(freePluginData, 'freePluginData')
+    await writeJson(paidPluginData, 'pluginData')
+    await writeJson(games, 'gameData')
   } catch (error) {
     console.error(error);
   }

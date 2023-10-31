@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+
+<head>
+  <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+</head>
+
+<style>
+  #content {
+    margin: 2rem 5em;
+  }
+
+  .card-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin: 3rem 1rem;
+  }
+
+  .media-card {
+    position: relative;
+    min-width: 410px;
+    min-height: 500px;
+    max-width: 410px;
+    max-height: 500px;
+    border-radius: 5px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: 0.3s;
+    margin: 1rem 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .media-card:hover {
+    outline: 1px solid purple;
+    background: rgba(100, 100, 100, 0.2);
+    transition: 0.3s;
+  }
+
+  .media-card-title {
+    box-sizing: border-box;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.7);
+    /* Black see-through */
+    color: white;
+    font-size: 1.5rem;
+    padding: 15px;
+    text-align: left;
+    border-radius: 5px 5px 0 0;
+    margin: auto;
+    width: 100%;
+  }
+
+  .media-card-load {
+    border-radius: 5px 5px 0 0;
+    background-size: cover;
+    background-position: center;
+    min-height: 300px;
+    max-height: 300px;
+    animation: pulse 2.5s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      background-color: rgba(80, 80, 80, 0.3);
+    }
+
+    50% {
+      background-color: rgba(80, 80, 80, 0.75);
+    }
+
+    100% {
+      background-color: rgba(80, 80, 80, 0.3);
+    }
+  }
+
+  .media-card-load>img {
+    opacity: 0;
+    transition: opacity 500ms ease-in-out;
+  }
+
+  .media-card-loaded>img {
+    opacity: 100;
+  }
+
+  .media-card img {
+    border-radius: 5px 5px 0 0;
+    min-height: 300px;
+    max-height: 300px;
+    width: 100%;
+    display: block;
+  }
+
+  .media-card-content {
+    padding: 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .media-card i {
+    font-size: 1.5rem;
+    padding: 0 5px 0 0;
+  }
+
+  .media-card-buttons {
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 5px 5px;
+    /* Black see-through */
+    color: white;
+    font-size: 1.5rem;
+    padding: inherit;
+    text-align: left;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .card-button {
+    background-color: #fa5c5c;
+    border: none;
+    color: white;
+    margin-right: 5px;
+    padding: 4px 29px 9px 11px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+
+  .card-button:first-child {
+    border-radius: 0 0 0 5px;
+  }
+
+  .card-button:hover {
+    background-color: #e94747;
+    color: white;
+    transition: 0.3s;
+  }
+
+  .strike {
+    text-decoration: line-through
+  }
+</style>
+{% include 'header.html' %}
+
+<div id="content">
+  <div class="container has-text-centered">
+    <h1 class="title">Games</h1>
+    <h3 class="subtitle">Explore our collection of top-tier RPG Maker plugins</h3>
+    <div class="card-list">
+      <!-- --------------- -->
+      <!-- Games -->
+      <!-- --------------- -->
+      {% for game in gameData %}
+
+      <div class="media-card" data-type="premium">
+        <div class="media-card-load">
+          <img src="{{game.thumbnail}}" loading="lazy" alt="Game Thumbnail">
+        </div>
+
+        <div class="media-card-content">
+          {{game.shortText}}
+        </div>
+
+        <div class="media-card-buttons">
+          <a class="card-button" href={{game.link}}>
+            <i class="iconoir-itch"></i>
+            View
+          </a>
+        </div>
+      </div>
+
+      {% endfor %}
+
+    </div>
+  </div>
+</div>
+
+<script>
+  const imgDivs = document.querySelectorAll('.media-card-load');
+
+  imgDivs.forEach((imgDiv) => {
+    const img = imgDiv.querySelector('img');
+    img.addEventListener('load', () => {
+      // imgDiv.classList.remove('media-card-load');
+      imgDiv.classList.add('media-card-loaded');
+    });
+  });
+</script>
+{% include 'footer.html' %}
+
+</html>
