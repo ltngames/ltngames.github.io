@@ -25,7 +25,7 @@ module.exports = {
     })
   },
 
-  async retrieveProductData (options = { delay: 200 }) {
+  async retrieveUserProducts (options = { delay: 200 }) {
     const products = await getAllProducts(options);
     const data = [];
 
@@ -56,7 +56,7 @@ module.exports = {
   },
 
   async writeProductData (options) {
-    const data = await this.retrieveProductData(options)
+    const data = await this.retrieveUserProducts(options)
     const contents = JSON.stringify(data, null, 2)
     const cwd = process.cwd()
     const dataDir = options.dir || './src/_data'
