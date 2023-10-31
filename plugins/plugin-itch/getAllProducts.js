@@ -9,6 +9,12 @@ module.exports = async function getAllProducts(options) {
 
   const ITCH_API_KEY = process.env.ITCH_KEY || options.itchKey
 
+  const defaults = {
+    includeStats: false
+  }
+
+  options = Object.assign({}, defaults, options)
+
   try {
     const itchResponse = await axios.get('https://itch.io/api/1/key/my-games', {
       headers: {
@@ -45,7 +51,7 @@ module.exports = async function getAllProducts(options) {
         saleRate = product.sale.rate
       }
 
-      return {
+      const common = {
         title: product.title,
         id: product.id,
         thumbnail: product.cover_url,
@@ -54,16 +60,25 @@ module.exports = async function getAllProducts(options) {
         shortText: product.short_text,
         price: formattedMinPrice,
         salePrice: minPrice - (minPrice * saleRate / 100).toFixed(2),
-        isPublished: product.published,
-        publishedAt: product.published_at,
         isPaid: minPrice > 0,
-        purchases: product.purchases_count,
-        downloads: product.downloads_count,
-        views: product.views_count,
         type: product.type,
         classification: product.classification,
         isSale: product.sale,
         saleRate,
+      }
+
+      const stats = {
+        downloads: product.downloads_count,
+        views: product.views_count,
+        purchases: product.purchases_count,
+        isPublished: product.published,
+        publishedAt: product.published_at,
+      }
+
+      if (options.includeStats) {
+        return { ...common, ...stats }
+      } else {
+        return { ...common }
       }
     })
 
@@ -73,6 +88,6 @@ module.exports = async function getAllProducts(options) {
 
     return productsData
   } catch (error) {
-    console.error(error);
+    console.error(error.message);
   }
 }
