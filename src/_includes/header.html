@@ -54,7 +54,16 @@
   const navbarBurger = document.getElementById('mainMenuBurger');
 
   navbarBurger.addEventListener('click', (event) => {
-    mainMenuBurger.classList.toggle('is-active');
-    mainMenu.classList.toggle('is-active');
+    if (mainMenu.classList.contains('is-active')) {
+      mainMenu.classList.add('closing');
+
+      mainMenu.addEventListener('animationend', function onAnimationEnd () {
+        mainMenu.classList.remove('is-active');
+        mainMenu.classList.remove('closing');
+        mainMenu.removeEventListener('animationend', onAnimationEnd); // Remove the listener
+      }, { once: true });;
+    } else {
+      mainMenu.classList.add('is-active');
+    }
   });
 </script>

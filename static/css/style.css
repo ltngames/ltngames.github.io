@@ -21,6 +21,35 @@
   min-height: 75vh;
 }
 
+.navbar-menu.is-active {
+  overflow: hidden;
+  animation: openAnimation 0.2s ease;
+}
+
+@keyframes openAnimation {
+  0% {
+    max-height: 0;
+  }
+
+  100% {
+    max-height: 475px;
+  }
+}
+
+.navbar-menu.is-active.closing {
+  animation: closeAnimation 0.2s ease;
+}
+
+@keyframes closeAnimation {
+  0% {
+    max-height: 475px;
+  }
+
+  100% {
+    max-height: 0px;
+  }
+}
+
 .socials {
   font-size: 22px;
   transition: transform 0.3s ease;
