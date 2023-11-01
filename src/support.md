@@ -37,7 +37,7 @@ __Online Forums__
 * RPG Maker Central
   
 __Discord Servers__
-* * Official RPG Maker Server
+* Official RPG Maker Server
 * LTN Games
 * RPG Maker Portal
 
