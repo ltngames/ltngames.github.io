@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="LTN Games an indie studio creating games and assets for RPG Maker, Godot and more">
+  <meta name="description" content="LTN Games an indie studio crafting games and assets with RPG Maker, Godot and more">
   <meta charset="UTF-8">
   <head>
     <title>LTN Games | Indie Studio</title>
@@ -54,28 +54,28 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="socials">
-          
-          <a href="https://twitter.com/ltngames" aria-label="Go to LTN Games twitter">
-            <i class="iconoir-twitter"></i>
-          </a>
-          
-          <a href="https://github.com/ltngames" aria-label="Go to LTN Games github">
-            <i class="iconoir-github"></i>
-          </a>
-          
-          <a href="https://www.facebook.com/ltngames/" aria-label="Go to LTN Games facebook">
-            <i class="iconoir-facebook"></i>
-          </a>
-          
-          <a href="https://www.youtube.com/@ltn_games" aria-label="Go to LTN Games youtube">
-            <i class="iconoir-youtube"></i>
-          </a>
-          
-          <a href="https://ltngames.itch.io/" aria-label="Go to LTN Games itch">
-            <i class="iconoir-itch"></i>
-          </a>
-          
-        </div>
+  
+  <a href="https://twitter.com/ltngames" aria-label="Go to LTN Games twitter">
+    <i class="iconoir-twitter"></i>
+  </a>
+  
+  <a href="https://github.com/ltngames" aria-label="Go to LTN Games github">
+    <i class="iconoir-github"></i>
+  </a>
+  
+  <a href="https://www.facebook.com/ltngames/" aria-label="Go to LTN Games facebook">
+    <i class="iconoir-facebook"></i>
+  </a>
+  
+  <a href="https://www.youtube.com/@ltn_games" aria-label="Go to LTN Games youtube">
+    <i class="iconoir-youtube"></i>
+  </a>
+  
+  <a href="https://ltngames.itch.io/" aria-label="Go to LTN Games itch">
+    <i class="iconoir-itch"></i>
+  </a>
+  
+</div>
       </div>
     </div>
 
@@ -87,8 +87,17 @@
   const navbarBurger = document.getElementById('mainMenuBurger');
 
   navbarBurger.addEventListener('click', (event) => {
-    mainMenuBurger.classList.toggle('is-active');
-    mainMenu.classList.toggle('is-active');
+    if (mainMenu.classList.contains('is-active')) {
+      mainMenu.classList.add('closing');
+
+      mainMenu.addEventListener('animationend', function onAnimationEnd () {
+        mainMenu.classList.remove('is-active');
+        mainMenu.classList.remove('closing');
+        mainMenu.removeEventListener('animationend', onAnimationEnd); // Remove the listener
+      }, { once: true });;
+    } else {
+      mainMenu.classList.add('is-active');
+    }
   });
 </script>
 <section class="hero is-dark is-fullheight-with-navbar">
@@ -97,37 +106,49 @@
       <p class="title">
         LTN Games
       </p>
-      <p class="subtitle">
-        A small indie game studio creating games and resources for everyone.
+      <p id="tagline" class="subtitle">
+        An Indie Studio Crafting Games and Assets for Everyone.
       </p>
     </div>
   </div>
 </section>
+<script>
+  const taglineElement = document.getElementById("tagline");
+
+  const allTaglines = ["An Indie Studio Crafting Games and Assets for Everyone.","Igniting imagination, one pixel at a time.","Immerse Yourself in Gaming Magic with Every Byte.","Designing Adventures for Joyful Escapes.","Unlock New Dimensions of Gameplay with Our RPG Maker Plugins","01110000 01101100 01110101 01100111 01101001 01101110 01110011"];
+
+  function getRandomTagline () {
+    const randomIndex = Math.floor(Math.random() * allTaglines.length);
+    return allTaglines[randomIndex];
+  }
+
+  taglineElement.textContent = getRandomTagline();
+</script>
 <footer class="footer">
   <div class="content has-text-centered mt-auto">
     <div class="socials">
-      
-      <a href="https://twitter.com/ltngames" aria-label="Go to LTN Games twitter">
-        <i class="iconoir-twitter"></i>
-      </a>
-      
-      <a href="https://github.com/ltngames" aria-label="Go to LTN Games github">
-        <i class="iconoir-github"></i>
-      </a>
-      
-      <a href="https://www.facebook.com/ltngames/" aria-label="Go to LTN Games facebook">
-        <i class="iconoir-facebook"></i>
-      </a>
-      
-      <a href="https://www.youtube.com/@ltn_games" aria-label="Go to LTN Games youtube">
-        <i class="iconoir-youtube"></i>
-      </a>
-      
-      <a href="https://ltngames.itch.io/" aria-label="Go to LTN Games itch">
-        <i class="iconoir-itch"></i>
-      </a>
-      
-    </div>
+  
+  <a href="https://twitter.com/ltngames" aria-label="Go to LTN Games twitter">
+    <i class="iconoir-twitter"></i>
+  </a>
+  
+  <a href="https://github.com/ltngames" aria-label="Go to LTN Games github">
+    <i class="iconoir-github"></i>
+  </a>
+  
+  <a href="https://www.facebook.com/ltngames/" aria-label="Go to LTN Games facebook">
+    <i class="iconoir-facebook"></i>
+  </a>
+  
+  <a href="https://www.youtube.com/@ltn_games" aria-label="Go to LTN Games youtube">
+    <i class="iconoir-youtube"></i>
+  </a>
+  
+  <a href="https://ltngames.itch.io/" aria-label="Go to LTN Games itch">
+    <i class="iconoir-itch"></i>
+  </a>
+  
+</div>
     <br>
     <p>
       Copyright © 2018 - 2023 · All rights reserved

@@ -143,28 +143,28 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="socials">
-          
-          <a href="https://twitter.com/ltngames" aria-label="Go to LTN Games twitter">
-            <i class="iconoir-twitter"></i>
-          </a>
-          
-          <a href="https://github.com/ltngames" aria-label="Go to LTN Games github">
-            <i class="iconoir-github"></i>
-          </a>
-          
-          <a href="https://www.facebook.com/ltngames/" aria-label="Go to LTN Games facebook">
-            <i class="iconoir-facebook"></i>
-          </a>
-          
-          <a href="https://www.youtube.com/@ltn_games" aria-label="Go to LTN Games youtube">
-            <i class="iconoir-youtube"></i>
-          </a>
-          
-          <a href="https://ltngames.itch.io/" aria-label="Go to LTN Games itch">
-            <i class="iconoir-itch"></i>
-          </a>
-          
-        </div>
+  
+  <a href="https://twitter.com/ltngames" aria-label="Go to LTN Games twitter">
+    <i class="iconoir-twitter"></i>
+  </a>
+  
+  <a href="https://github.com/ltngames" aria-label="Go to LTN Games github">
+    <i class="iconoir-github"></i>
+  </a>
+  
+  <a href="https://www.facebook.com/ltngames/" aria-label="Go to LTN Games facebook">
+    <i class="iconoir-facebook"></i>
+  </a>
+  
+  <a href="https://www.youtube.com/@ltn_games" aria-label="Go to LTN Games youtube">
+    <i class="iconoir-youtube"></i>
+  </a>
+  
+  <a href="https://ltngames.itch.io/" aria-label="Go to LTN Games itch">
+    <i class="iconoir-itch"></i>
+  </a>
+  
+</div>
       </div>
     </div>
 
@@ -176,8 +176,17 @@
   const navbarBurger = document.getElementById('mainMenuBurger');
 
   navbarBurger.addEventListener('click', (event) => {
-    mainMenuBurger.classList.toggle('is-active');
-    mainMenu.classList.toggle('is-active');
+    if (mainMenu.classList.contains('is-active')) {
+      mainMenu.classList.add('closing');
+
+      mainMenu.addEventListener('animationend', function onAnimationEnd () {
+        mainMenu.classList.remove('is-active');
+        mainMenu.classList.remove('closing');
+        mainMenu.removeEventListener('animationend', onAnimationEnd); // Remove the listener
+      }, { once: true });;
+    } else {
+      mainMenu.classList.add('is-active');
+    }
   });
 </script>
 <div id="docsToggles" class="docs-toggles is-sticky">
@@ -389,28 +398,28 @@ Waypoint Unlock TemplateID
 <footer class="footer">
   <div class="content has-text-centered mt-auto">
     <div class="socials">
-      
-      <a href="https://twitter.com/ltngames" aria-label="Go to LTN Games twitter">
-        <i class="iconoir-twitter"></i>
-      </a>
-      
-      <a href="https://github.com/ltngames" aria-label="Go to LTN Games github">
-        <i class="iconoir-github"></i>
-      </a>
-      
-      <a href="https://www.facebook.com/ltngames/" aria-label="Go to LTN Games facebook">
-        <i class="iconoir-facebook"></i>
-      </a>
-      
-      <a href="https://www.youtube.com/@ltn_games" aria-label="Go to LTN Games youtube">
-        <i class="iconoir-youtube"></i>
-      </a>
-      
-      <a href="https://ltngames.itch.io/" aria-label="Go to LTN Games itch">
-        <i class="iconoir-itch"></i>
-      </a>
-      
-    </div>
+  
+  <a href="https://twitter.com/ltngames" aria-label="Go to LTN Games twitter">
+    <i class="iconoir-twitter"></i>
+  </a>
+  
+  <a href="https://github.com/ltngames" aria-label="Go to LTN Games github">
+    <i class="iconoir-github"></i>
+  </a>
+  
+  <a href="https://www.facebook.com/ltngames/" aria-label="Go to LTN Games facebook">
+    <i class="iconoir-facebook"></i>
+  </a>
+  
+  <a href="https://www.youtube.com/@ltn_games" aria-label="Go to LTN Games youtube">
+    <i class="iconoir-youtube"></i>
+  </a>
+  
+  <a href="https://ltngames.itch.io/" aria-label="Go to LTN Games itch">
+    <i class="iconoir-itch"></i>
+  </a>
+  
+</div>
     <br>
     <p>
       Copyright © 2018 - 2023 · All rights reserved

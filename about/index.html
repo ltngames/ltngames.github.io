@@ -70,28 +70,28 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="socials">
-          
-          <a href="https://twitter.com/ltngames" aria-label="Go to LTN Games twitter">
-            <i class="iconoir-twitter"></i>
-          </a>
-          
-          <a href="https://github.com/ltngames" aria-label="Go to LTN Games github">
-            <i class="iconoir-github"></i>
-          </a>
-          
-          <a href="https://www.facebook.com/ltngames/" aria-label="Go to LTN Games facebook">
-            <i class="iconoir-facebook"></i>
-          </a>
-          
-          <a href="https://www.youtube.com/@ltn_games" aria-label="Go to LTN Games youtube">
-            <i class="iconoir-youtube"></i>
-          </a>
-          
-          <a href="https://ltngames.itch.io/" aria-label="Go to LTN Games itch">
-            <i class="iconoir-itch"></i>
-          </a>
-          
-        </div>
+  
+  <a href="https://twitter.com/ltngames" aria-label="Go to LTN Games twitter">
+    <i class="iconoir-twitter"></i>
+  </a>
+  
+  <a href="https://github.com/ltngames" aria-label="Go to LTN Games github">
+    <i class="iconoir-github"></i>
+  </a>
+  
+  <a href="https://www.facebook.com/ltngames/" aria-label="Go to LTN Games facebook">
+    <i class="iconoir-facebook"></i>
+  </a>
+  
+  <a href="https://www.youtube.com/@ltn_games" aria-label="Go to LTN Games youtube">
+    <i class="iconoir-youtube"></i>
+  </a>
+  
+  <a href="https://ltngames.itch.io/" aria-label="Go to LTN Games itch">
+    <i class="iconoir-itch"></i>
+  </a>
+  
+</div>
       </div>
     </div>
 
@@ -103,8 +103,17 @@
   const navbarBurger = document.getElementById('mainMenuBurger');
 
   navbarBurger.addEventListener('click', (event) => {
-    mainMenuBurger.classList.toggle('is-active');
-    mainMenu.classList.toggle('is-active');
+    if (mainMenu.classList.contains('is-active')) {
+      mainMenu.classList.add('closing');
+
+      mainMenu.addEventListener('animationend', function onAnimationEnd () {
+        mainMenu.classList.remove('is-active');
+        mainMenu.classList.remove('closing');
+        mainMenu.removeEventListener('animationend', onAnimationEnd); // Remove the listener
+      }, { once: true });;
+    } else {
+      mainMenu.classList.add('is-active');
+    }
   });
 </script>
 <div id="content" class="container is-max-desktop">
@@ -112,6 +121,7 @@
     <h1> About LTN Games </h1>
     <h3>  </h3>
     <p>At LTN Games, we are driven by a mission to deliver exceptional gaming experiences that captivate players across the globe. We're not just game developers; we're dedicated to creating a wealth of resources, tutorials, and high-quality game assets. Our goal is to empower developers of all backgrounds who share our passion for crafting engaging and visually stunning games.</p>
+<p>Celebrating over 8 years of our app and game development journey, we're thrilled to embark on a new journey of sharing our wealth of knowledge with the global community. While our focus has predominantly been on creating RPG Maker plugins, we're now poised to broaden our horizons, offering a wider range of assets and embarking on exciting new game development ventures.</p>
 <h2 id="what-we-do" tabindex="-1">What We Do</h2>
 <h3 id="assets" tabindex="-1">Assets</h3>
 <p>While on our journey as game developers, we naturally found ourselves creating assets that can be used by other game engines. It's one of those things that just happen when you're deeply involved in game development and we happen to focus more creating assets than actual games.</p>
@@ -120,35 +130,35 @@
 <h3 id="open-source" tabindex="-1">Open Source</h3>
 <p>We believe in the power of collaboration and giving back to the community. That's why we've contributed to several open source projects for the RPG Maker community under the FeniXEngine name.</p>
 <h2 id="get-in-touch" tabindex="-1">Get in Touch</h2>
-<p>We value your feedback and enjoy connecting with fellow game enthusiasts. If you have questions, suggestions, or simply want to say hello, don't hesitate to reach out. You can find us on [social media links], or you can contact us via email at [email address].</p>
+<p>We value your feedback and enjoy connecting with fellow game enthusiasts. If you have questions, suggestions, or simply want to say hello, don't hesitate to reach out on any of our social media channels.</p>
 
   </div>
 </div>
 <footer class="footer">
   <div class="content has-text-centered mt-auto">
     <div class="socials">
-      
-      <a href="https://twitter.com/ltngames" aria-label="Go to LTN Games twitter">
-        <i class="iconoir-twitter"></i>
-      </a>
-      
-      <a href="https://github.com/ltngames" aria-label="Go to LTN Games github">
-        <i class="iconoir-github"></i>
-      </a>
-      
-      <a href="https://www.facebook.com/ltngames/" aria-label="Go to LTN Games facebook">
-        <i class="iconoir-facebook"></i>
-      </a>
-      
-      <a href="https://www.youtube.com/@ltn_games" aria-label="Go to LTN Games youtube">
-        <i class="iconoir-youtube"></i>
-      </a>
-      
-      <a href="https://ltngames.itch.io/" aria-label="Go to LTN Games itch">
-        <i class="iconoir-itch"></i>
-      </a>
-      
-    </div>
+  
+  <a href="https://twitter.com/ltngames" aria-label="Go to LTN Games twitter">
+    <i class="iconoir-twitter"></i>
+  </a>
+  
+  <a href="https://github.com/ltngames" aria-label="Go to LTN Games github">
+    <i class="iconoir-github"></i>
+  </a>
+  
+  <a href="https://www.facebook.com/ltngames/" aria-label="Go to LTN Games facebook">
+    <i class="iconoir-facebook"></i>
+  </a>
+  
+  <a href="https://www.youtube.com/@ltn_games" aria-label="Go to LTN Games youtube">
+    <i class="iconoir-youtube"></i>
+  </a>
+  
+  <a href="https://ltngames.itch.io/" aria-label="Go to LTN Games itch">
+    <i class="iconoir-itch"></i>
+  </a>
+  
+</div>
     <br>
     <p>
       Copyright © 2018 - 2023 · All rights reserved
