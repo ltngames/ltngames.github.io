@@ -72,6 +72,12 @@
   color: #ffffff;
 }
 
+@media (max-width: 1024px) {
+  .navbar-menu .socials a {
+    color: #363636;
+  }
+}
+
 .socials a:hover {
   transform: scale(1.2);
 }
