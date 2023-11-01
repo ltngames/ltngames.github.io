@@ -1,12 +1,6 @@
 <footer class="footer">
   <div class="content has-text-centered mt-auto">
-    <div class="socials">
-      {% for social in config.socials %}
-      <a href="{{social[1]}}" aria-label="Go to LTN Games {{social[0]}}">
-        <i class="iconoir-{{social[0]}}"></i>
-      </a>
-      {% endfor %}
-    </div>
+    {% include 'socials.html' %}
     <br>
     <p>
       Copyright © 2018 - 2023 · All rights reserved

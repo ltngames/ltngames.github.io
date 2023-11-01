@@ -5,6 +5,12 @@
   margin-top: 2rem;
 }
 
+@media (max-width: 1024px) {
+  .container {
+    width: 95%;
+  }
+}
+
 .hero.is-gradient {
   background: linear-gradient(305deg, rgb(91, 89, 89) 0%, rgb(86, 86, 86) 100%);
 }
@@ -57,25 +63,16 @@
 }
 
 .socials a {
-  color: #ffffff;
+  color: #363636;
   display: inline-block;
   margin-right: 1rem;
-  transition: color 0.3s ease;
-  /* Add a color transition */
 }
 
-@media (max-width: 1024px) {
-  .socials a {
-    color: #363636;
-  }
-
-  .container {
-    width: 95%;
-  }
+.navbar-menu .socials a {
+  color: #ffffff;
 }
 
 .socials a:hover {
-  color: #cd7ce6c9;
   transform: scale(1.2);
 }
 

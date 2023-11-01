@@ -36,13 +36,7 @@
 
     <div class="navbar-end">
       <div class="navbar-item">
-        <div class="socials">
-          {% for social in config.socials %}
-          <a href="{{social[1]}}" aria-label="Go to LTN Games {{social[0]}}">
-            <i class="iconoir-{{social[0]}}"></i>
-          </a>
-          {% endfor %}
-        </div>
+        {% include 'socials.html' %}
       </div>
     </div>
 
