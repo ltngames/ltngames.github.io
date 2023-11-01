@@ -6,7 +6,7 @@ metaDescription: About LTN Games, our mission and what we do
 
 At LTN Games, we are driven by a mission to deliver exceptional gaming experiences that captivate players across the globe. We're not just game developers; we're dedicated to creating a wealth of resources, tutorials, and high-quality game assets. Our goal is to empower developers of all backgrounds who share our passion for crafting engaging and visually stunning games.
 
-Celebrating over 8 years of app and game development, we're thrilled to embark on a journey of sharing our wealth of knowledge with the global community. While our focus has predominantly been on creating RPG Maker plugins, we're now poised to broaden our horizons, offering a wider range of assets and embarking on exciting new game development ventures.
+Celebrating over 8 years of our app and game development journey, we're thrilled to embark on a new journey of sharing our wealth of knowledge with the global community. While our focus has predominantly been on creating RPG Maker plugins, we're now poised to broaden our horizons, offering a wider range of assets and embarking on exciting new game development ventures.
 
 
 ## What We Do
