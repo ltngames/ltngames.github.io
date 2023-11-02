@@ -1,5 +1,7 @@
 ---
 title: About LTN Games
+subtitle: Want to know what we are all about?
+titleCentered: true
 layout: base.html
 metaDescription: About LTN Games, our mission and what we do
 ---
@@ -10,7 +12,7 @@ Celebrating over 8 years of our app and game development journey, we're thrilled
 
 
 ## What We Do
-
+---
 ### Assets
 
 While on our journey as game developers, we naturally found ourselves creating assets that can be used by other game engines. It's one of those things that just happen when you're deeply involved in game development and we happen to focus more creating assets than actual games.
@@ -24,5 +26,5 @@ Game development is at the core of our passion. We pour our creativity and dedic
 We believe in the power of collaboration and giving back to the community. That's why we've contributed to several open source projects for the RPG Maker community under the FeniXEngine name.
 
 ## Get in Touch
-
+---
 We value your feedback and enjoy connecting with fellow game enthusiasts. If you have questions, suggestions, or simply want to say hello, don't hesitate to reach out on any of our social media channels.

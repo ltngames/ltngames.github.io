@@ -1,14 +1,13 @@
 ---
 title: Support
+subtitle: Learn how you can get support for our assets
+titleCentered: true
 layout: base.html
 metaDescription: How to get support for our assets for RPG Maker, Godot and more
 ---
 
-For assistance with any of our products, please don't hesitate to reach out to us.
-We're here to help you.
-
-## RPG Maker Plugin Support
-
+### RPG Maker Plugin Support
+---
 ### Premium Plugins
 If you've acquired one of our premium plugins, you're entitled to premium support. We offer multiple avenues for assistance, including email support and Discord, to cater to your needs. Here's how you can access these premium support options:
 
@@ -25,7 +24,9 @@ However, if you choose to use a different email address, please be prepared to p
 
 Feel free to reach out to us through your preferred support channel, and we'll do our best to assist you promptly and effectively. Your satisfaction is our priority, and we're committed to resolving any issues or questions you may have with your premium plugins.
 
-### Free Plugins
+---
+
+#### Free Plugins
 When it comes to our free community plugins, we recommend taking advantage of various social platforms for support, as we do not provide email support for these offerings.
 
 However, it's important to note that LTN Games periodically participates in these platforms, so you may still receive "official" support when needed.

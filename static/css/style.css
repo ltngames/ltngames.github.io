@@ -3,6 +3,7 @@
 
 .container {
   margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 @media (max-width: 1024px) {

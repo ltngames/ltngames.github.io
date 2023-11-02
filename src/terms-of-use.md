@@ -1,12 +1,14 @@
 ---
 title: Terms of Use
+subtitle: Learn what you can and cannot do with our assets
+titleCentered: true
 layout: base.html
 metaDescription: The terms of use for our assets
 ---
 
-## RPG Maker MV Plugin Terms
-
-### Free Plugins
+### RPG Maker MV Plugin Terms
+---
+#### Free Plugins
 
 Our free plugins are designed for the RPG Maker community to facilitate learning and
 provide access to high-quality plugins for use in both games and hobby projects.
@@ -24,7 +26,7 @@ to the original source.*
 
 ---
 
-### Premium Plugins
+#### Premium Plugins
 
 Premium plugins can be obtained through our [itch.io portal](https://ltngames.itch.io/),
 and they are governed by a distinct set of terms.
@@ -41,7 +43,7 @@ and they are governed by a distinct set of terms.
 
 ---
 
-### Price/Product Changes
+#### Price/Product Changes
 
 **LTN Games** retains the right to modify or discontinue any product with or without
 prior notice. Additionally, **LTN Games** may introduce new products or services
