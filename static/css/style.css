@@ -12,6 +12,14 @@
   }
 }
 
+.hero-container {
+  flex-grow: 1;
+  margin: 0 auto;
+  position: relative;
+  width: auto;
+  max-width: 1344px;
+}
+
 .hero.is-gradient {
   background: linear-gradient(305deg, rgb(91, 89, 89) 0%, rgb(86, 86, 86) 100%);
 }

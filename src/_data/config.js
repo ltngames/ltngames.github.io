@@ -11,6 +11,7 @@ module.exports = {
     '01110000 01101100 01110101 01100111 01101001 01101110 01110011',
   ],
   navbarItems: [
+    { text: 'Blog', href: '/blog'},
     { text: 'Assets', href: '/assets'},
     { text: 'Games', href: '/games'},
     { text: 'About', href: '/about'},
