@@ -1,0 +1,12 @@
+<div class="media">
+  <div class="media-left">
+    <figure class="image is-24x24 is-rounded">
+      <img class="is-rounded"
+          src="{% if author.avatar %}{{ author.avatar }}{% else %}/static/img/placeholders/96x96.png{% endif %}"
+          alt="{{author.name}} Avatar">
+    </figure>
+  </div>
+  <div class="media-content">
+    <p class="subtitle is-6">@{{ author.name }} {% if dateString %} - {{dateString}} {% endif %}</p>
+  </div>
+</div>

@@ -55,10 +55,8 @@
     <div class="titleSection {%if titleCentered %} has-text-centered {%endif%}">
       <h1 class="title"> {{ title }} </h1>
       <h2 class="subtitle"> {{ subtitle }} </h2>
-      <p class="data-line">
-        <strong>By:</strong> {{ author }}
-        <strong class="is-pulled-right">{{ dateString }}</strong>
-      </p>
+        {% assign author = config.authors[author] %}
+        {% include 'author.html' with author %}
     </div>
     <div class="content">
       {{ content }}

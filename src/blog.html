@@ -99,16 +99,10 @@ pagination:
           </figure>
         </div>
         <div class="card-content">
-          <div class="media">
-            <div class="media-left">
-              <figure class="image is-24x24 is-rounded">
-                <img class="is-rounded" src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-              </figure>
-            </div>
-            <div class="media-content">
-              <p class="subtitle is-6">@{{ post.data.author }} - {{post.data.dateString}}</p>
-            </div>
-          </div>
+
+          {% assign dateString = post.data.dateString %}
+          {% assign author = config.authors[post.data.author] %}
+          {% include 'author.html' %}
 
           <div class="content">
             <p class="title is-4">{{ post.data.title }}</p>

@@ -23,5 +23,13 @@ module.exports = {
     facebook: 'https://www.facebook.com/ltngames/',
     youtube: 'https://www.youtube.com/@ltn_games',
     itch: 'https://ltngames.itch.io/'
-  }
+  },
+  authors: 
+    {
+      ltngames: {
+        name: 'LTN Games',
+        avatar: '/static/img/logo-small.png',
+        link: 'https://ltngames.xyz/',
+      }
+    }
 }
