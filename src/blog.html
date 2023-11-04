@@ -25,6 +25,18 @@ pagination:
     gap: 30px;
   }
 
+  @media (max-width: 1217px) {
+    .posts {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 769px) {
+    .posts {
+      grid-template-columns: 1fr;
+    }
+  }
+
   .posts .card {
     box-shadow: 0 0 0 0 rgba(10, 10, 10, 0.1), 0 0 0 0 rgba(10, 10, 10, 0.02);
   }
