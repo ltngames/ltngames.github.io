@@ -66,24 +66,7 @@ pagination:
 </section>
 <div class="container">
   {% include 'tags.html' with assign allPostTags = true %}
-  <div class="block">
-    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
-      <a href="{{ pagination.href.previous }}" class="pagination-previous {% if pagination.href.previous == null %} is-disabled {% endif %}">Previous</a>
-      <a href="{{ pagination.href.next }}" class="pagination-next {% if pagination.href.next == null %} is-disabled {% endif %}">Next</a>
-      <ul class="pagination-list">
-        {% for page in pagination.pages %}
-        <li>
-          <li>
-            <a class="pagination-link {% if pagination.pageNumber == forloop.index0 %} is-current {% endif %}"
-               href="{{ pagination.hrefs[ forloop.index0 ] }}"
-               {% if pagination.pageNumber == forloop.index0 %} aria-current="page" {% endif %}>{{ forloop.index }}
-            </a>
-          </li>
-        </li>
-        {% endfor %}
-      </ul>
-    </nav>
-  </div>
+  {% include 'pagination.html' %}
   <div class="posts">
     {%- for post in posts -%}
     <a href="{{post.url}}">
@@ -108,22 +91,7 @@ pagination:
     </a>
     {%- endfor -%}
   </div>
-  <div class="block">
-    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
-      <a href="{{ pagination.href.previous }}" class="pagination-previous {% if pagination.href.previous == null %} is-disabled {% endif %}">Previous</a>
-      <a href="{{ pagination.href.next }}" class="pagination-next {% if pagination.href.next == null %} is-disabled {% endif %}">Next</a>
-      <ul class="pagination-list">
-        {% for page in pagination.pages %}
-        <li>
-        <li>
-          <a class="pagination-link {% if pagination.pageNumber == forloop.index0 %} is-current {% endif %}" href="{{ pagination.hrefs[ forloop.index0 ] }}" {% if pagination.pageNumber==forloop.index0 %} aria-current="page" {% endif %}>{{ forloop.index }}
-          </a>
-        </li>
-        </li>
-        {% endfor %}
-      </ul>
-    </nav>
-  </div>
+  {% include 'pagination.html' %}
 </div>
 </div>
 {% include 'footer.html' %}
