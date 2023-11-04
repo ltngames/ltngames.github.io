@@ -30,6 +30,12 @@
     border-radius: 10px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
+
+  figcaption {
+    padding-top: 1rem;
+    font-size: 16px;
+    opacity: 0.7;
+  }
 </style>
 
 <head>
@@ -41,8 +47,11 @@
 <div class="container is-max-desktop">
   <div class="post-container">
     <figure class="image is-5by4">
-      <img class="is-round" src="{{image}}" alt="Blog post cover image">
+      <p>
+        <img class="is-round" src="{{coverImage}}" alt="Blog post cover image">
+      </p>
     </figure>
+    <figcaption>{{ coverCaption }}</figcaption>
     <div class="titleSection {%if titleCentered %} has-text-centered {%endif%}">
       <h1 class="title"> {{ title }} </h1>
       <h2 class="subtitle"> {{ subtitle }} </h2>
