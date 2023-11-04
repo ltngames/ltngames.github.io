@@ -1,8 +1,8 @@
 ---
 layout: post.html
 title: The New LTN Games Website
-image: /static/img/docs/stat-and-skills/levelling_scene.png
-date: 2023-11-02
+image: /static/img/posts/covers/new-website.png
+date: 2023-11-05
 author: ltngames
 description: We are thrilled to unveil our brand-new website, designed to provide an enhanced experience for game developers, enthusiasts, and all those who share our passion for immersive gaming.
 tags:
