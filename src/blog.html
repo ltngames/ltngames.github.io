@@ -1,0 +1,98 @@
+---
+eleventyImport:
+collections: ["post"]
+pagination:
+  data: collections.post
+  size: 6
+  alias: posts
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="{{metaDescription}}">
+<meta charset="UTF-8">
+
+<head>
+  <title>{{ config.siteName }} Blog</title>
+  <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+  {% include 'favicons.html' %}
+</head>
+<style>
+  .posts {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+  }
+
+  @media (max-width: 1217px) {
+    .posts {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 769px) {
+    .posts {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .posts .card {
+    box-shadow: 0 0 0 0 rgba(10, 10, 10, 0.1), 0 0 0 0 rgba(10, 10, 10, 0.02);
+  }
+
+  .posts .card:hover .card-image img {
+    filter: brightness(115%);
+    transition: filter 0.3s;
+  }
+
+  .posts .card-image img {
+    transition: filter 0.3s;
+    filter: brightness(95%);
+    box-shadow: 0 5px 10px -3px #00000078;
+  }
+
+  .posts .card-content {
+    padding: 1rem 0 1rem 0;
+  }
+</style>
+{% include 'header.html' %}
+<section class="hero is-dark">
+  <div class="hero-body">
+    <div class="hero-container is-max-desktop">
+      <p class="title"> Blog </p>
+    </div>
+  </div>
+</section>
+<div class="container">
+  {% include 'tags.html' with assign allPostTags = true %}
+  {% include 'pagination.html' %}
+  <div class="posts">
+    {%- for post in posts -%}
+    <a href="{{post.url}}">
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <img src="{{ post.data.coverImage }}" alt="Blog Post Cover Image">
+          </figure>
+        </div>
+        <div class="card-content">
+          {% assign dateString = post.data.dateString %}
+          {% assign author = config.authors[post.data.author] %}
+          {% include 'author.html' %}
+        
+          <div class="content">
+            <p class="title is-4">{{ post.data.title }}</p>
+            <p>{{ post.data.description }}</p>
+          </div>
+        </div>
+      </div>
+    </a>
+    {%- endfor -%}
+  </div>
+  {% include 'pagination.html' %}
+</div>
+</div>
+{% include 'footer.html' %}
+
+</html>
