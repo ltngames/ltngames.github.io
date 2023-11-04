@@ -57,6 +57,7 @@
       <h2 class="subtitle"> {{ subtitle }} </h2>
         {% assign author = config.authors[author] %}
         {% include 'author.html' with author %}
+        {% include 'tags.html' %}
     </div>
     <div class="content">
       {{ content }}

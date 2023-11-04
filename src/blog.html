@@ -65,16 +65,7 @@ pagination:
   </div>
 </section>
 <div class="container">
-  <div class="block">
-    <h3>Categories</h3>
-    <span class="tag is-dark is-rounded">All</span>
-    <span class="tag is-dark is-rounded">News</span>
-    <span class="tag is-dark is-rounded">Tutorial</span>
-    <span class="tag is-dark is-rounded">Game</span>
-    <span class="tag is-dark is-rounded">Asset</span>
-    <span class="tag is-dark is-rounded">Events</span>
-    <span class="tag is-dark is-rounded">Showcase</span>
-  </div>
+  {% include 'tags.html' with assign allPostTags = true %}
   <div class="block">
     <nav class="pagination is-centered" role="navigation" aria-label="pagination">
       <a href="{{ pagination.href.previous }}" class="pagination-previous {% if pagination.href.previous == null %} is-disabled {% endif %}">Previous</a>
