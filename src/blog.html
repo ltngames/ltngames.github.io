@@ -51,6 +51,10 @@ pagination:
     filter: brightness(95%);
     box-shadow: 0 5px 10px -3px #00000078;
   }
+
+  .posts .card-content {
+    padding: 1rem 0 1rem 0;
+  }
 </style>
 {% include 'header.html' %}
 <section class="hero is-dark">
@@ -99,11 +103,10 @@ pagination:
           </figure>
         </div>
         <div class="card-content">
-
           {% assign dateString = post.data.dateString %}
           {% assign author = config.authors[post.data.author] %}
           {% include 'author.html' %}
-
+        
           <div class="content">
             <p class="title is-4">{{ post.data.title }}</p>
             {{ post.data.description }}
