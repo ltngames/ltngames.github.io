@@ -5,9 +5,8 @@ coverImage: /static/img/posts/covers/new-website.png
 coverCaption: A screenshot of LTN Games homepage
 date: 2023-11-05
 author: ltngames
-description: We are thrilled to unveil our brand-new website, designed to provide an enhanced experience for game developers, enthusiasts, and all those who share our passion for immersive gaming.
-tags:
-  - announcement
+description: We are thrilled to unveil our brand-new website, designed to provide an enhanced experience for game developers, enthusiasts, and all those who share our passion.
+tags: ['announcement']
 ---
 
 Welcome to the new home of LTN Games! We are thrilled to unveil our brand-new website, designed to provide an enhanced experience, a stable, and more frequently updated corner of the web.
