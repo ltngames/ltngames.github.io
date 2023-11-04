@@ -1,6 +1,10 @@
 ---
 eleventyImport:
 collections: ["post"]
+pagination:
+  data: collections.post
+  size: 6
+  alias: posts
 ---
 
 <!DOCTYPE html>
@@ -57,21 +61,24 @@ collections: ["post"]
   </div>
   <div class="block">
     <nav class="pagination is-centered" role="navigation" aria-label="pagination">
-      <a class="pagination-previous">Previous</a>
-      <a class="pagination-next">Next page</a>
+      <a href="{{ pagination.href.previous }}" class="pagination-previous {% if pagination.href.previous == null %} is-disabled {% endif %}">Previous</a>
+      <a href="{{ pagination.href.next }}" class="pagination-next {% if pagination.href.next == null %} is-disabled {% endif %}">Next</a>
       <ul class="pagination-list">
-        <li><a class="pagination-link" aria-label="Goto page 1">1</a></li>
-        <li><span class="pagination-ellipsis">&hellip;</span></li>
-        <li><a class="pagination-link" aria-label="Goto page 45">45</a></li>
-        <li><a class="pagination-link is-current" aria-label="Page 46" aria-current="page">46</a></li>
-        <li><a class="pagination-link" aria-label="Goto page 47">47</a></li>
-        <li><span class="pagination-ellipsis">&hellip;</span></li>
-        <li><a class="pagination-link" aria-label="Goto page 86">86</a></li>
+        {% for page in pagination.pages %}
+        <li>
+          <li>
+            <a class="pagination-link {% if pagination.pageNumber == forloop.index0 %} is-current {% endif %}"
+               href="{{ pagination.hrefs[ forloop.index0 ] }}"
+               {% if pagination.pageNumber == forloop.index0 %} aria-current="page" {% endif %}>{{ forloop.index }}
+            </a>
+          </li>
+        </li>
+        {% endfor %}
       </ul>
     </nav>
   </div>
   <div class="posts">
-    {%- for post in collections.post -%}
+    {%- for post in posts -%}
     <a href="{{post.url}}">
       <div class="card">
         <div class="card-image">
@@ -103,19 +110,21 @@ collections: ["post"]
   </div>
   <div class="block">
     <nav class="pagination is-centered" role="navigation" aria-label="pagination">
-      <a class="pagination-previous">Previous</a>
-      <a class="pagination-next">Next page</a>
+      <a href="{{ pagination.href.previous }}" class="pagination-previous {% if pagination.href.previous == null %} is-disabled {% endif %}">Previous</a>
+      <a href="{{ pagination.href.next }}" class="pagination-next {% if pagination.href.next == null %} is-disabled {% endif %}">Next</a>
       <ul class="pagination-list">
-        <li><a class="pagination-link" aria-label="Goto page 1">1</a></li>
-        <li><span class="pagination-ellipsis">&hellip;</span></li>
-        <li><a class="pagination-link" aria-label="Goto page 45">45</a></li>
-        <li><a class="pagination-link is-current" aria-label="Page 46" aria-current="page">46</a></li>
-        <li><a class="pagination-link" aria-label="Goto page 47">47</a></li>
-        <li><span class="pagination-ellipsis">&hellip;</span></li>
-        <li><a class="pagination-link" aria-label="Goto page 86">86</a></li>
+        {% for page in pagination.pages %}
+        <li>
+        <li>
+          <a class="pagination-link {% if pagination.pageNumber == forloop.index0 %} is-current {% endif %}" href="{{ pagination.hrefs[ forloop.index0 ] }}" {% if pagination.pageNumber==forloop.index0 %} aria-current="page" {% endif %}>{{ forloop.index }}
+          </a>
+        </li>
+        </li>
+        {% endfor %}
       </ul>
     </nav>
   </div>
+</div>
 </div>
 {% include 'footer.html' %}
 
