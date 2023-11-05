@@ -1,10 +1,12 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta charset="UTF-8">
+
 <head>
-  <title>LTN Games | Waypoints</title>
+  <title>LTN Games Blog</title>
   <link rel="stylesheet" type="text/css" href="/static/css/style.css">
   <link rel="icon" type="image/png" sizes="512x512" href="/static/img/favicons/android-chrome-512x512.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/static/img/favicons/android-chrome-192x192.png">
@@ -13,6 +15,44 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/static/img/favicons/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/static/img/favicons/apple-touch-icon.png">
 </head>
+<style>
+  .posts {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+  }
+
+  @media (max-width: 1217px) {
+    .posts {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 769px) {
+    .posts {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .posts .card {
+    box-shadow: 0 0 0 0 rgba(10, 10, 10, 0.1), 0 0 0 0 rgba(10, 10, 10, 0.02);
+  }
+
+  .posts .card:hover .card-image img {
+    filter: brightness(115%);
+    transition: filter 0.3s;
+  }
+
+  .posts .card-image img {
+    transition: filter 0.3s;
+    filter: brightness(95%);
+    box-shadow: 0 5px 10px -3px #00000078;
+  }
+
+  .posts .card-content {
+    padding: 1rem 0 1rem 0;
+  }
+</style>
 <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="/" aria-label="Go back to the homepage">
@@ -105,56 +145,94 @@
     }
   });
 </script>
-<div id="content" class="container is-max-desktop">
-  <div class="content">
-    <div class="section">
-      <div class="columns">
-        <div class="column">
-          <h1 class="title"> Waypoints </h1>
-          <h3>  </h3>
-          <table class="table">
-            <tbody>
-              <tr>
-                <td><strong>Category</strong></td>
-                <td>Plugin</td>
-              </tr>
-              <tr>
-                <td><strong>Engine(s)</strong></td>
-                <td>
-                  
-                  <span class="tag is-primary">RPG Maker MV</span>
-                  
-                  <span class="tag is-primary">RPG Maker MZ</span>
-                  
-                </td>
-              </tr>
-              <tr>
-                <td><strong>Tags</strong></td>
-                <td>
-                  
-                  <span class="tag is-light">travel</span>
-                  
-                </td>
-              </tr>
-              <tr>
-                <td><strong>License(s)</strong></td>
-                <td>
-                  
-                  <a href="/terms-of-use">Proprietary</a>
-                  
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="column">
-          <figure class="image is-4by3">
-            <img src="https://img.itch.zone/aW1nLzkzOTI4NjMucG5n/315x250%23c/bFjjRv.png">
-          </figure>
-        </div>
-      </div>
+<section class="hero is-dark">
+  <div class="hero-body">
+    <div class="hero-container is-max-desktop">
+      <p class="title"> Blog </p>
     </div>
   </div>
+</section>
+<div class="container">
+  <div class="tags">
+  
+  <h3>Categories</h3>
+    
+      
+        
+      
+    
+  
+  
+    
+  
+    
+    <a class="tag is-dark is-rounded is-medium" href="/tag/announcement">announcement</a>
+    
+  
+</div>
+  <div class="block">
+  <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+    <a href="" class="pagination-previous  is-disabled ">Previous</a>
+    <a href="" class="pagination-next  is-disabled ">Next</a>
+    <ul class="pagination-list">
+      
+      <li>
+      <li>
+        <a class="pagination-link  is-current " href="/blog/"  aria-current="page" >1
+        </a>
+      </li>
+      </li>
+      
+    </ul>
+  </nav>
+</div>
+  <div class="posts"><a href="/posts/2023-11-02-new-website/">
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <img src="/static/img/posts/covers/new-website.png" alt="Blog Post Cover Image">
+          </figure>
+        </div>
+        <div class="card-content">
+          
+          
+          <div class="media">
+  <div class="media-left">
+    <figure class="image is-24x24 is-rounded">
+      <img class="is-rounded"
+          src="/static/img/logo-small.png"
+          alt="LTN Games Avatar">
+    </figure>
+  </div>
+  <div class="media-content">
+    <p class="subtitle is-6">@LTN Games  - November 5, 2023 </p>
+  </div>
+</div>
+        
+          <div class="content">
+            <p class="title is-4">The New LTN Games Website</p>
+            <p>We are thrilled to unveil our brand-new website, designed to provide an enhanced experience for game developers, enthusiasts, and all those who share our passion.</p>
+          </div>
+        </div>
+      </div>
+    </a></div>
+  <div class="block">
+  <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+    <a href="" class="pagination-previous  is-disabled ">Previous</a>
+    <a href="" class="pagination-next  is-disabled ">Next</a>
+    <ul class="pagination-list">
+      
+      <li>
+      <li>
+        <a class="pagination-link  is-current " href="/blog/"  aria-current="page" >1
+        </a>
+      </li>
+      </li>
+      
+    </ul>
+  </nav>
+</div>
+</div>
 </div>
 <footer class="footer">
   <div class="content has-text-centered mt-auto">

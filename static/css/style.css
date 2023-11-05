@@ -1,6 +1,10 @@
 @import "./bulma.css";
 @import "/static/icons/style.css";
 
+body {
+  font-size: 18px;
+}
+
 .container {
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -10,6 +14,23 @@
   .container {
     width: 95%;
   }
+}
+
+.tags {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 18px;
+  margin-top: 1rem;
+}
+
+.hero-container {
+  flex-grow: 1;
+  margin: 0 auto;
+  position: relative;
+  width: auto;
+  max-width: 1344px;
 }
 
 .hero.is-gradient {
