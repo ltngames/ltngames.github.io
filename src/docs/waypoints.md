@@ -1,6 +1,6 @@
 ---
 title: Waypoints Plugin Documentation
-layout: documentation.html
+layout: /layouts/documentation.html
 metaDescription: Documentation for our Waypoints RPG Maker plugin
 ---
 

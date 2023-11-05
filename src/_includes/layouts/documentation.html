@@ -6,7 +6,7 @@
 <head>
   <title>{{ config.siteName }} | {{ title }}</title>
   <link rel="stylesheet" type="text/css" href="/static/css/style.css">
-  {% include 'favicons.html' %}
+  {% include 'components/favicons.html' %}
 </head>
 <style>
   .docs-menu {
@@ -97,7 +97,7 @@
     display: none
   }
 </style>
-{% include 'header.html' %}
+{% include 'components/header.html' %}
 <div id="docsToggles" class="docs-toggles is-sticky">
   <button class="button is-primary is-light bd-fat-button is-small" id="docsNavButton">Show menu</button>
 </div>
@@ -114,7 +114,7 @@
     </div>
   </div>
 </div>
-{% include 'footer.html' %}
+{% include 'components/footer.html' %}
 
 <script>
   let menuVisible = true;

@@ -1,7 +1,7 @@
 const { DateTime } = require('luxon')
 
 module.exports = {
-  layout: 'post.html',
+  layout: 'layouts/post.html',
   tags: ['post'],
   author: 'ltngames',
   eleventyComputed: {

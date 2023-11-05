@@ -16,7 +16,7 @@ pagination:
 <head>
   <title>{{ config.siteName }} Blog</title>
   <link rel="stylesheet" type="text/css" href="/static/css/style.css">
-  {% include 'favicons.html' %}
+  {% include 'components/favicons.html' %}
 </head>
 <style>
   .posts {
@@ -56,7 +56,7 @@ pagination:
     padding: 1rem 0 1rem 0;
   }
 </style>
-{% include 'header.html' %}
+{% include 'components/header.html' %}
 <section class="hero is-dark">
   <div class="hero-body">
     <div class="hero-container is-max-desktop">
@@ -65,8 +65,8 @@ pagination:
   </div>
 </section>
 <div class="container">
-  {% include 'tags.html' with assign allPostTags = true %}
-  {% include 'pagination.html' %}
+  {% include 'components/tags.html' with assign allPostTags = true %}
+  {% include 'components/pagination.html' %}
   <div class="posts">
     {%- for post in posts -%}
     <a href="{{post.url}}">
@@ -79,7 +79,7 @@ pagination:
         <div class="card-content">
           {% assign dateString = post.data.dateString %}
           {% assign author = config.authors[post.data.author] %}
-          {% include 'author.html' %}
+          {% include 'components/author.html' %}
         
           <div class="content">
             <p class="title is-4">{{ post.data.title }}</p>
@@ -90,9 +90,9 @@ pagination:
     </a>
     {%- endfor -%}
   </div>
-  {% include 'pagination.html' %}
+  {% include 'components/pagination.html' %}
 </div>
 </div>
-{% include 'footer.html' %}
+{% include 'components/footer.html' %}
 
 </html>

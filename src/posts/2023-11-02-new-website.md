@@ -1,5 +1,5 @@
 ---
-layout: post.html
+layout: /layouts/post.html
 title: The New LTN Games Website
 coverImage: /static/img/posts/covers/new-website.png
 coverCaption: A screenshot of LTN Games homepage

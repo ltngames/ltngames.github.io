@@ -1,6 +1,6 @@
 ---
 title: Skip Video Plugin Documentation
-layout: documentation.html
+layout: /layouts/documentation.html
 metaDescription: Documentation for our Skip Video RPG Maker plugin
 ---
 

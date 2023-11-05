@@ -41,9 +41,9 @@
 <head>
   <title>{{ config.siteName }} Blog | {{ title }}</title>
   <link rel="stylesheet" type="text/css" href="/static/css/style.css">
-  {% include 'favicons.html' %}
+  {% include 'components/favicons.html' %}
 </head>
-{% include 'header.html' %}
+{% include 'components/header.html' %}
 <div class="container is-max-desktop">
   <div class="post-container">
     <figure class="image is-5by4">
@@ -56,14 +56,14 @@
       <h1 class="title"> {{ title }} </h1>
       <h2 class="subtitle"> {{ subtitle }} </h2>
         {% assign author = config.authors[author] %}
-        {% include 'author.html' with author %}
-        {% include 'tags.html' %}
+        {% include 'components/author.html' with author %}
+        {% include 'components/tags.html' %}
     </div>
     <div class="content">
       {{ content }}
     </div>
   </div>
 </div>
-{% include 'footer.html' %}
+{% include 'components/footer.html' %}
 
 </html>

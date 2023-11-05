@@ -6,9 +6,9 @@
   <head>
     <title>{{ config.title }}</title>
     <link rel="stylesheet" type="text/css" href="/static/css/style.css">
-    {% include 'favicons.html' %}
+    {% include 'components/favicons.html' %}
   </head>
-{% include 'header.html' %}
+{% include 'components/header.html' %}
 <section class="hero is-dark is-fullheight-with-navbar">
   <div class="hero-body">
     <div>
@@ -33,5 +33,5 @@
 
   taglineElement.textContent = getRandomTagline();
 </script>
-{% include 'footer.html' %}
+{% include 'components/footer.html' %}
 </html>

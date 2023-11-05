@@ -1,6 +1,6 @@
 ---
 title: Stat And Skills Plugin Documentation
-layout: documentation.html
+layout: /layouts/documentation.html
 metaDescription: Documentation for our Stat and Skills RPG Maker plugin
 ---
 
