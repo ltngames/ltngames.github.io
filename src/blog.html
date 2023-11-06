@@ -6,14 +6,11 @@ pagination:
   size: 6
   alias: posts
 ---
-{% layout 'layouts/base.html' %}
+{% layout 'layouts/base.html' %}\
 
-<head>
-  {% include 'components/head.html' %}
-  {% block head %}
-    <link rel="stylesheet" type="text/css" href="/static/css/blog.css">
-  {% endblock %}
-</head>
+{% block head %}
+  <link rel="stylesheet" type="text/css" href="/static/css/blog.css">
+{% endblock %}
 
 {% block body %}
 <section class="hero is-dark">
