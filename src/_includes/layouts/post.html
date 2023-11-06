@@ -17,8 +17,8 @@
       <h1 class="title"> {{ title }} </h1>
       <h2 class="subtitle"> {{ subtitle }} </h2>
       {% assign author = config.authors[author] %}
-      {% include 'components/author.html' with author %}
-      {% include 'components/tags.html' %}
+      {% include 'partials/author.html' with author %}
+      {% include 'partials/tags.html' %}
     </div>
     <div class="content">
       {{ content }}

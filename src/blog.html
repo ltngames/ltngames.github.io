@@ -21,8 +21,8 @@ pagination:
   </div>
 </section>
 <div class="container">
-  {% include 'components/tags.html' with assign allPostTags = true %}
-  {% include 'components/pagination.html' %}
+  {% include 'partials/tags.html' with assign allPostTags = true %}
+  {% include 'partials/pagination.html' %}
   <div class="posts">
     {%- for post in posts -%}
     <a href="{{post.url}}">
@@ -35,7 +35,7 @@ pagination:
         <div class="card-content">
           {% assign dateString = post.data.dateString %}
           {% assign author = config.authors[post.data.author] %}
-          {% include 'components/author.html' %}
+          {% include 'partials/author.html' %}
 
           <div class="content">
             <p class="title is-4">{{ post.data.title }}</p>
@@ -46,7 +46,7 @@ pagination:
     </a>
     {%- endfor -%}
   </div>
-  {% include 'components/pagination.html' %}
+  {% include 'partials/pagination.html' %}
 </div>
 </div>
 {% endblock %}
