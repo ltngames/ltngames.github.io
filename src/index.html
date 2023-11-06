@@ -1,9 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+{% layout 'layouts/base.html' %}
+
 <head>
   {% include 'components/head.html' %}
 </head>
-{% include 'components/header.html' %}
+
+{% block body %}
 <section class="hero is-dark is-fullheight-with-navbar">
   <div class="hero-body">
     <div>
@@ -28,5 +29,4 @@
 
   taglineElement.textContent = getRandomTagline();
 </script>
-{% include 'components/footer.html' %}
-</html>
+{% endblock %}

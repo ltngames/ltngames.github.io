@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="A collection of game dev assets for RPG Maker, Godot, and more">
-<meta charset="UTF-8">
+
+{% layout 'layouts/base.html' %}
 
 <head>
   {% include 'components/head.html' %}
 </head>
 
-{% include 'components/header.html' %}
+{% block body %}
 
 <div class="container has-text-centered">
   <div class="tabs is-toggle is-toggle-rounded is-centered">
@@ -117,6 +114,4 @@
     });
   }
 </script>
-{% include 'components/footer.html' %}
-
-</html>
+{% endblock %}

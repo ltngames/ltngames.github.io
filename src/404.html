@@ -2,18 +2,14 @@
 title: Oops! Not Found
 permalink: 404.html
 ---
-<!DOCTYPE html>
-<html lang="en">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta charset="UTF-8">
+
+{% layout 'layouts/base.html' %}
 
 <head>
-  <title> {{ data.siteName }} 404 | Page Not Found</title>
-  <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+  {% include 'components/head.html' %}
 </head>
 
-{% include 'components/header.html' %}
-
+{% block body %}
 <section class="hero is-warning is-fullheight-with-navbar">
   <div class="hero-body">
     <div class="">
@@ -22,7 +18,4 @@ permalink: 404.html
     </div>
   </div>
 </section>
-
-{% include 'components/footer.html' %}
-
-</html>
+{% endblock %}

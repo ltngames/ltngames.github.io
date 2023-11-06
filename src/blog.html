@@ -6,55 +6,16 @@ pagination:
   size: 6
   alias: posts
 ---
-
-<!DOCTYPE html>
-<html lang="en">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="{{metaDescription}}">
-<meta charset="UTF-8">
+{% layout 'layouts/base.html' %}
 
 <head>
   {% include 'components/head.html' %}
+  {% block head %}
+    <link rel="stylesheet" type="text/css" href="/static/css/blog.css">
+  {% endblock %}
 </head>
-<style>
-  .posts {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 30px;
-  }
 
-  @media (max-width: 1217px) {
-    .posts {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-
-  @media (max-width: 769px) {
-    .posts {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  .posts .card {
-    box-shadow: 0 0 0 0 rgba(10, 10, 10, 0.1), 0 0 0 0 rgba(10, 10, 10, 0.02);
-  }
-
-  .posts .card:hover .card-image img {
-    filter: brightness(115%);
-    transition: filter 0.3s;
-  }
-
-  .posts .card-image img {
-    transition: filter 0.3s;
-    filter: brightness(95%);
-    box-shadow: 0 5px 10px -3px #00000078;
-  }
-
-  .posts .card-content {
-    padding: 1rem 0 1rem 0;
-  }
-</style>
-{% include 'components/header.html' %}
+{% block body %}
 <section class="hero is-dark">
   <div class="hero-body">
     <div class="hero-container is-max-desktop">
@@ -78,7 +39,7 @@ pagination:
           {% assign dateString = post.data.dateString %}
           {% assign author = config.authors[post.data.author] %}
           {% include 'components/author.html' %}
-        
+
           <div class="content">
             <p class="title is-4">{{ post.data.title }}</p>
             <p>{{ post.data.description }}</p>
@@ -91,6 +52,4 @@ pagination:
   {% include 'components/pagination.html' %}
 </div>
 </div>
-{% include 'components/footer.html' %}
-
-</html>
+{% endblock %}

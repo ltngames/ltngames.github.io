@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+{% layout 'layouts/base.html' %}
+
 <head>
   {% include 'components/head.html' %}
 </head>
 
-{% include 'components/header.html' %}
-
+{% block body %}
 <div class="container has-text-centered">
   <h1 class="title">Games</h1>
   <h2 class="subtitle">Embark on a journey through our game collection</h2>
@@ -47,6 +47,4 @@
     });
   });
 </script>
-{% include 'components/footer.html' %}
-
-</html>
+{% endblock %}
