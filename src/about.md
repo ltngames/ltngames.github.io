@@ -2,7 +2,7 @@
 title: About LTN Games
 subtitle: Want to know what we are all about?
 titleCentered: true
-layout: /layouts/base.html
+layout: /layouts/page.html
 metaDescription: About LTN Games, our mission and what we do
 ---
 

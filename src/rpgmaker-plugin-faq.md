@@ -1,5 +1,5 @@
 ---
-layout: /layouts/base.html
+layout: /layouts/page.html
 title: RPG Maker Plugin F.A.Q
 subtitle: Some frequently asked questions for our RPG Maker plugins
 metaDescription: Frequently asked questions for our RPG Maker plugins

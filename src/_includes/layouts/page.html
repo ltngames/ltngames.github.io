@@ -1,0 +1,13 @@
+{% layout 'layouts/base.html' %}
+
+{% block body %}
+<div class="container is-max-desktop">
+  <div class="block {%if titleCentered %} has-text-centered {%endif%}">
+    <h1 class="title"> {{ title }} </h1>
+    <h2 class="subtitle"> {{ subtitle }} </h2>
+  </div>
+  <div class="content">
+    {{ content }}
+  </div>
+</div>
+{% endblock %}
