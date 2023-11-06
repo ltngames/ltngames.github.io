@@ -1,6 +1,6 @@
 ---
 title: Storage System Plugin Documentation
-layout: documentation.html
+layout: /layouts/documentation.html
 metaDescription: Documentation for our Storage System RPG Maker plugin
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Waypoints
-layout: asset.html
+layout: /layouts/asset.html
 category: Plugin
 image: https://img.itch.zone/aW1nLzkzOTI4NjMucG5n/315x250%23c/bFjjRv.png
 licenses:

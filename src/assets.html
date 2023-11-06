@@ -1,16 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="A collection of game dev assets for RPG Maker, Godot, and more">
-<meta charset="UTF-8">
 
-<head>
-  <title>{{ config.siteName }} | Assets</title>
-  <link rel="stylesheet" type="text/css" href="/static/css/style.css">
-  {% include 'favicons.html' %}
-</head>
+{% layout 'layouts/base.html' %}
 
-{% include 'header.html' %}
+{% block body %}
 
 <div class="container has-text-centered">
   <div class="tabs is-toggle is-toggle-rounded is-centered">
@@ -119,6 +110,4 @@
     });
   }
 </script>
-{% include 'footer.html' %}
-
-</html>
+{% endblock %}

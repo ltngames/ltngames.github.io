@@ -2,7 +2,7 @@
 title: Support
 subtitle: Learn how you can get support for our assets
 titleCentered: true
-layout: base.html
+layout: /layouts/page.html
 metaDescription: How to get support for our assets for RPG Maker, Godot and more
 ---
 

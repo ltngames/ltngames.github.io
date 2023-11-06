@@ -1,6 +1,6 @@
 ---
 title: Endless Runner Plugin Documentation
-layout: documentation.html
+layout: /layouts/documentation.html
 metaDescription: Documentation for our Endless Runner RPG Maker plugin
 ---
 

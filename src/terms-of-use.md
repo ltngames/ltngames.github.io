@@ -2,7 +2,7 @@
 title: Terms of Use
 subtitle: Learn what you can and cannot do with our assets
 titleCentered: true
-layout: base.html
+layout: /layouts/page.html
 metaDescription: The terms of use for our assets
 ---
 

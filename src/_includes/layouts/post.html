@@ -1,0 +1,28 @@
+{% layout 'layouts/base.html' %}
+
+{% block head %}
+  <link rel="stylesheet" type="text/css" href="/static/css/post.css">
+{% endblock %}
+
+{% block body %}
+<div class="container is-max-desktop">
+  <div class="post-container">
+    <figure class="image is-5by4">
+      <p>
+        <img class="is-round" src="{{coverImage}}" alt="Blog post cover image">
+      </p>
+    </figure>
+    <figcaption>{{ coverCaption }}</figcaption>
+    <div class="titleSection {%if titleCentered %} has-text-centered {%endif%}">
+      <h1 class="title"> {{ title }} </h1>
+      <h2 class="subtitle"> {{ subtitle }} </h2>
+      {% assign author = config.authors[author] %}
+      {% include 'partials/author.html' with author %}
+      {% include 'partials/tags.html' %}
+    </div>
+    <div class="content">
+      {{ content }}
+    </div>
+  </div>
+</div>
+{% endblock %}
