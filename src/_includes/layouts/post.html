@@ -1,40 +1,10 @@
 {% layout 'layouts/base.html' %}
-<style>
-  .titleSection {
-    padding: 5rem 0rem 2rem 0rem;
-    display: block;
-  }
 
-  .titleSection h1 {
-    font-size: 42px;
-    padding: 0rem 0rem 1rem 0rem;
-  }
+{% block head %}
+  <link rel="stylesheet" type="text/css" href="/static/css/post.css">
+{% endblock %}
 
-  .data-line {
-    font-size: 18px;
-  }
-
-  .post-container {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    width: 90%;
-    margin: auto;
-  }
-
-  .is-round {
-    /* border: 1px solid rgba(172, 172, 172, 0.26); */
-    border-radius: 10px;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  }
-
-  figcaption {
-    padding-top: 1rem;
-    font-size: 16px;
-    opacity: 0.7;
-  }
-</style>
-
-{% include 'components/header.html' %}
+{% block body %}
 <div class="container is-max-desktop">
   <div class="post-container">
     <figure class="image is-5by4">
@@ -46,13 +16,13 @@
     <div class="titleSection {%if titleCentered %} has-text-centered {%endif%}">
       <h1 class="title"> {{ title }} </h1>
       <h2 class="subtitle"> {{ subtitle }} </h2>
-        {% assign author = config.authors[author] %}
-        {% include 'components/author.html' with author %}
-        {% include 'components/tags.html' %}
+      {% assign author = config.authors[author] %}
+      {% include 'components/author.html' with author %}
+      {% include 'components/tags.html' %}
     </div>
     <div class="content">
       {{ content }}
     </div>
   </div>
 </div>
-{% include 'components/footer.html' %}
+{% endblock %}
