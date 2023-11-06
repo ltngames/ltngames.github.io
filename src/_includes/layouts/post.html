@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="{{metaDescription}}">
-<meta charset="UTF-8">
+{% layout 'layouts/base.html' %}
 <style>
   .titleSection {
     padding: 5rem 0rem 2rem 0rem;
@@ -38,11 +34,6 @@
   }
 </style>
 
-<head>
-  <title>{{ config.siteName }} Blog | {{ title }}</title>
-  <link rel="stylesheet" type="text/css" href="/static/css/style.css">
-  {% include 'components/favicons.html' %}
-</head>
 {% include 'components/header.html' %}
 <div class="container is-max-desktop">
   <div class="post-container">
@@ -65,5 +56,3 @@
   </div>
 </div>
 {% include 'components/footer.html' %}
-
-</html>
