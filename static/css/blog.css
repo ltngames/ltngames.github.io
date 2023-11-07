@@ -1,0 +1,36 @@
+  .posts {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+  }
+
+  @media (max-width: 1217px) {
+    .posts {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 769px) {
+    .posts {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .posts .card {
+    box-shadow: 0 0 0 0 rgba(10, 10, 10, 0.1), 0 0 0 0 rgba(10, 10, 10, 0.02);
+  }
+
+  .posts .card:hover .card-image img {
+    filter: brightness(115%);
+    transition: filter 0.3s;
+  }
+
+  .posts .card-image img {
+    transition: filter 0.3s;
+    filter: brightness(95%);
+    box-shadow: 0 5px 10px -3px #00000078;
+  }
+
+  .posts .card-content {
+    padding: 1rem 0 1rem 0;
+  }

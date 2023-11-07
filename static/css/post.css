@@ -1,0 +1,32 @@
+.titleSection {
+  padding: 5rem 0rem 2rem 0rem;
+  display: block;
+}
+
+.titleSection h1 {
+  font-size: 42px;
+  padding: 0rem 0rem 1rem 0rem;
+}
+
+.data-line {
+  font-size: 18px;
+}
+
+.post-container {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  width: 90%;
+  margin: auto;
+}
+
+.is-round {
+  /* border: 1px solid rgba(172, 172, 172, 0.26); */
+  border-radius: 10px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+figcaption {
+  padding-top: 1rem;
+  font-size: 16px;
+  opacity: 0.7;
+}

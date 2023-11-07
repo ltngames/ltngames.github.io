@@ -1,108 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Documentation for our Endless Runner RPG Maker plugin">
 <meta charset="UTF-8">
-<head>
-  <title>LTN Games | Endless Runner Plugin Documentation</title>
-  <link rel="stylesheet" type="text/css" href="/static/css/style.css">
-  <link rel="icon" type="image/png" sizes="512x512" href="/static/img/favicons/android-chrome-512x512.png">
+<title>LTN Games | Endless Runner Plugin Documentation</title>
+<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+<link rel="icon" type="image/png" sizes="512x512" href="/static/img/favicons/android-chrome-512x512.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/static/img/favicons/android-chrome-192x192.png">
 <link rel="icon" type="image/png" sizes="48x48" href="/static/img/favicons/favicon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicons/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/static/img/favicons/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/static/img/favicons/apple-touch-icon.png">
+
+  
+  <link rel="stylesheet" type="text/css" href="/static/css/documentation.css">
+
 </head>
-<style>
-  .docs-menu {
-    display: block;
-    padding: 2rem;
-    margin: 1rem;
-    max-height: 100vh;
-    max-width: 325px;
-    min-width: 275px;
-    overflow-y: auto;
-    z-index: 999;
-    background-color: #ffffff;
-  }
-
-  .docs-toggles {
-    display: none;
-    justify-content: space-between;
-    padding: 0.5rem 0.5rem;
-    height: 45px;
-    width: auto;
-    background-color: #a7a7a74f;
-    z-index: 1000;
-  }
-
-  @media screen and (max-width: 769px) {
-    .docs-menu.mobile {
-      display: none;
-    }
-
-    .docs-toggles {
-      display: block;
-    }
-  }
-
-  .content {
-    margin: 1rem 12rem 2rem 4rem;
-  }
-
-  @media screen and (max-width: 1200px) {
-    .content {
-      margin-right: 4rem;
-    }
-  }
-
-  .content .title {
-    margin-bottom: 3rem;
-    font-size: 2.2rem;
-  }
-
-  .content h2 {
-    position: relative;
-    display: block;
-    font-weight: 600;
-    line-height: 2;
-  }
-
-  .content h2::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #5050503f;
-  }
-
-  hr {
-    background-color: #dddddd;
-  }
-
-  .content pre {
-    -webkit-overflow-scrolling: touch;
-    overflow-x: auto;
-    padding: 1.25em 1.5em;
-    white-space: pre;
-    word-wrap: normal;
-    background-color: rgba(204, 204, 204, 0.685);
-    border-radius: 8px;
-  }
-
-  .is-sticky {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-  }
-
-  .is-hidden {
-    display: none
-  }
-</style>
-<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+<body>
+  <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="/" aria-label="Go back to the homepage">
       <img id="logo" src="/static/img/logo-small.png" width="30" height="30" alt="ltn games logo">
@@ -194,6 +110,7 @@
     }
   });
 </script>
+  
 <div id="docsToggles" class="docs-toggles is-sticky">
   <button class="button is-primary is-light bd-fat-button is-small" id="docsNavButton">Show menu</button>
 </div>
@@ -435,7 +352,8 @@ The &quot;custom&quot; method is for executing default RPG Maker MV script calls
     </div>
   </div>
 </div>
-<footer class="footer">
+
+  <footer class="footer">
   <div class="content has-text-centered mt-auto">
     <div class="socials">
   
@@ -466,73 +384,5 @@ The &quot;custom&quot; method is for executing default RPG Maker MV script calls
     </p>
   </div>
 </footer>
-
-<script>
-  let menuVisible = true;
-  const menu = document.getElementById('docsNav');
-  const menuLinks = menu.querySelectorAll('a');
-  const headings = document.querySelectorAll('h1, h2, h3, h4');
-  const showMenuButton = document.getElementById('docsNavButton');
-  const options = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.8,
-  };
-
-  let shouldUpdate = true;
-  const observer = new IntersectionObserver(onIntersection, options);
-
-  showMenuButton.addEventListener('click', (event) => {
-    menu.classList.toggle('mobile')
-  });
-
-  menuLinks.forEach(link => {
-    link.addEventListener('click', (event) => {
-      shouldUpdate = false
-      menuLinks.forEach(l => l.classList.remove('is-active'));
-      link.classList.add('is-active');
-      setTimeout(() => {
-        shouldUpdate = true;
-      }, 100);
-      if (!menu.classList.contains('mobile') && menu.style.display !== 'none') {
-        menu.classList.toggle('mobile');
-      }
-    });
-  })
-
-  function findActiveSectionId () {
-    let minDistance = Number.POSITIVE_INFINITY;
-    let activeSectionId = '';
-
-    headings.forEach(heading => {
-      if (!heading.id) { return }
-      const rect = heading.getBoundingClientRect();
-      if (rect.top >= 0 && rect.top < minDistance) {
-        minDistance = rect.top;
-        activeSectionId = heading.id;
-      }
-    });
-
-    return activeSectionId;
-  }
-
-  function onIntersection (entries) {
-    const currentSectionId = findActiveSectionId();
-    if (shouldUpdate === false) { return }
-    menuLinks.forEach(link => {
-      link.classList.remove('is-active');
-      if (link.getAttribute('href').substring(1) === currentSectionId) {
-        link.classList.add('is-active');
-      }
-    });
-  }
-  headings.forEach(heading => {
-    if (heading.id) {
-      observer.observe(heading);
-    }
-  })
-
-  menuLinks[0].classList.add('is-active');
-</script>
-
+</body>
 </html>
