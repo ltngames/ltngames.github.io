@@ -3,7 +3,8 @@ pagination:
   data: collections
   size: 1
   alias: tag
-layout: /layouts/base.html
+layout: /layouts/page.html
+titleCentered: true
 permalink: /tag/{{ tag | slugify }}/
 eleventyComputed:
   title: Posts Tagged with {{ tag }}
